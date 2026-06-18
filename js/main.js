@@ -84,6 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(statsSection);
     }
 
+    // Character counter for textarea
+    const mensaje = document.getElementById('mensaje');
+    const charCount = document.getElementById('charCount');
+    const charCounter = document.querySelector('.char-counter');
+
+    mensaje.addEventListener('input', () => {
+        const len = mensaje.value.length;
+        charCount.textContent = len;
+        charCounter.classList.toggle('full', len === 170);
+    });
+
     // Contact form
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
