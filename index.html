@@ -47,31 +47,40 @@
             <feComposite in="SourceGraphic" in2="specMasked" operator="arithmetic" k1="0" k2="1" k3="0.6" k4="0"/>
         </filter>
     </svg>
-    <header class="header">
-        <a href="#" class="logo">
-            <img src="assets/encabezado.png" alt="DP Soltec" class="logo-img">
-        </a>
-        <div class="container header-container">
-            <nav class="nav" id="nav">
-                <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                </ul>
-            </nav>
+    <nav class="top-nav" id="nav">
+        <div class="container top-nav-container">
             <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <ul class="nav-list">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section id="inicio" class="hero">
             <div class="hero-bg"></div>
+            <div class="hero-social">
+                <a href="#" class="hero-social-link" aria-label="Facebook">
+                    <img src="assets/logo-redes-1.png" alt="Facebook">
+                </a>
+                <a href="#" class="hero-social-link" aria-label="Instagram">
+                    <img src="assets/logo-redes-2.png" alt="Instagram">
+                </a>
+                <a href="#" class="hero-social-link" aria-label="WhatsApp">
+                    <img src="assets/logo-redes-3.png" alt="WhatsApp">
+                </a>
+            </div>
             <div class="container hero-content">
+                <div class="hero-logo-wrap">
+                    <img src="assets/encabezado.png" alt="DP Soltec" class="hero-logo">
+                </div>
                 <span class="hero-badge">Soluciones Tecnológicas</span>
                 <h1 class="hero-title">Tecnología para vos,<br>soluciones para todos</h1>
                 <p class="hero-description">

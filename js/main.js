@@ -1,14 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.header');
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.nav-link');
     const contactForm = document.getElementById('contactForm');
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 20);
-    });
 
     // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
