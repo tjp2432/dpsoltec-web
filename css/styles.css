@@ -1,0 +1,1185 @@
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --primary: #65CF72;
+  --primary-hover: #7edc89;
+  --text-primary: #f0f6fc;
+  --text-secondary: #9dabc0;
+  --text-muted: #6b7d99;
+  --success: #10b981;
+  --error: #ef4444;
+  --radius: 12px;
+  --radius-lg: 24px;
+  --radius-full: 100px;
+  --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Liquid Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.20);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  --glass-highlight-heavy: inset 0 1.5px 0 rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --glass-blur: blur(28px) saturate(1.4);
+  --glass-blur-strong: blur(36px) saturate(1.6);
+}
+
+/* ---------- Reduced Transparency ---------- */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: rgba(28, 35, 51, 0.95);
+    --glass-bg-strong: rgba(36, 45, 61, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-blur: none;
+    --glass-blur-strong: none;
+    --glass-highlight: none;
+    --glass-highlight-heavy: none;
+  }
+  .card::before,
+  .card::after,
+  .hero-content::before,
+  .hero-content::after,
+  .contact-form::before,
+  .contact-form::after,
+  .contact-info::before,
+  .contact-info::after,
+  .stat::before,
+  .btn-primary::before,
+  .btn-primary::after,
+  .btn-outline::before,
+  .hero-badge::before,
+  .section-tag::before,
+  .card-badge::before {
+    display: none !important;
+  }
+}
+
+/* ---------- SVG Filters ---------- */
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(13, 17, 23, 0.5);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, #000000, transparent);
+  pointer-events: none;
+}
+
+.header.scrolled {
+  background: rgba(13, 17, 23, 0.85);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 76px;
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 76px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 76px;
+  width: auto;
+  display: block;
+  -webkit-mask-image: -webkit-linear-gradient(left, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 76px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  z-index: -1;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(101, 207, 114, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(101, 207, 114, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* --- Liquid Glass Hero Panel --- */
+.hero-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.hero-content:hover {
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Specular highlight overlay */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Secondary edge shine */
+.hero-content::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  right: 6px;
+  height: 18%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* SVG displacement refraction overlay on glass ::before layers */
+.card::before,
+.hero-content::before,
+.contact-form::before,
+.contact-info::before {
+  filter: url(#liquid-glass);
+}
+
+/* ---------- Hero Badge (Liquid Glass) ---------- */
+.hero-badge {
+  display: inline-block;
+  background: rgba(101, 207, 114, 0.08);
+  color: var(--primary);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(101, 207, 114, 0.18);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  filter: url(#glass-glow);
+  transition: var(--transition);
+}
+
+.hero-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.hero-badge:hover {
+  background: rgba(101, 207, 114, 0.12);
+  transform: scale(1.03);
+}
+
+/* ---------- Hero Text ---------- */
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Buttons (Liquid Glass) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: rgba(101, 207, 114, 0.12);
+  color: white;
+  border: 1px solid rgba(101, 207, 114, 0.20);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  filter: url(#glass-glow);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(101, 207, 114, 0.06) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  right: 5px;
+  height: 18%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
+  filter: blur(1.5px);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.btn-primary:hover {
+  background: rgba(101, 207, 114, 0.18);
+  border-color: rgba(101, 207, 114, 0.30);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+.btn-primary:hover::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(101, 207, 114, 0.10) 45%,
+    transparent 100%
+  );
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--glass-shadow), inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Outline button with glass */
+.btn-outline {
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.btn-outline:hover {
+  border-color: var(--glass-border-strong);
+  color: var(--primary);
+  background: var(--glass-bg-strong);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 100px 0;
+}
+
+.section-alt {
+  background: var(--bg-secondary);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+/* --- Section Tag (Liquid Glass) --- */
+.section-tag {
+  display: inline-block;
+  background: rgba(101, 207, 114, 0.08);
+  color: var(--primary);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(101, 207, 114, 0.18);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  filter: url(#glass-glow);
+  transition: var(--transition);
+}
+
+.section-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.section-tag:hover {
+  background: rgba(101, 207, 114, 0.12);
+  transform: scale(1.03);
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ---------- Cards Grid ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* --- Liquid Glass Card --- */
+.card {
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+}
+
+/* Specular highlight - top shine */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Edge shine */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  right: 4px;
+  height: 16%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  background: var(--glass-bg-strong);
+  border-color: var(--glass-border-strong);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+.card-body {
+  padding: 36px 32px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-featured {
+  border-color: rgba(101, 207, 114, 0.25);
+  box-shadow: 0 0 0 1px rgba(101, 207, 114, 0.15), var(--glass-highlight), var(--glass-shadow);
+}
+
+.card-featured:hover {
+  border-color: rgba(101, 207, 114, 0.35);
+  box-shadow: 0 0 0 1px rgba(101, 207, 114, 0.2), var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+/* Card Badge (Liquid Glass) */
+.card-badge {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(101, 207, 114, 0.08);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  border: 1px solid rgba(101, 207, 114, 0.18);
+  color: var(--primary);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  z-index: 3;
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  filter: url(#glass-glow);
+}
+
+.card-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Card Icon */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(101, 207, 114, 0.08);
+  border-radius: 14px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  border: 1px solid rgba(101, 207, 114, 0.15);
+  box-shadow: var(--glass-highlight);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-list li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding-left: 20px;
+  position: relative;
+}
+
+.card-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Card Bottom Graphic */
+.card-graf {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.cards-row-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.card-center {
+  max-width: 380px;
+  width: 100%;
+}
+
+/* ---------- About ---------- */
+.about-centered {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-centered .section-title {
+  margin-bottom: 20px;
+}
+.about-centered .section-desc {
+  margin-bottom: 40px;
+}
+
+/* --- Stats (Liquid Glass) --- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat {
+  text-align: center;
+  background: var(--glass-bg);
+  padding: 28px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.stat:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  background: var(--glass-bg-strong);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Contact Form (Liquid Glass) */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.contact-form::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  right: 5px;
+  height: 16%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+  filter: blur(2px);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.contact-form:hover {
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 14px 18px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(101, 207, 114, 0.3);
+  box-shadow: 0 0 0 3px rgba(101, 207, 114, 0.12), var(--glass-highlight-heavy);
+  background: var(--glass-bg-strong);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Contact Info (Liquid Glass) */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.contact-info:hover {
+  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  background: var(--glass-bg-strong);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-item svg {
+  flex-shrink: 0;
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+.contact-item h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.contact-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border-light, var(--border));
+  padding: 64px 0 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.footer-links h4 {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--glass-border-light, var(--border));
+  padding: 24px 0;
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Footer Full Image ---------- */
+.footer-full {
+  width: 100%;
+  line-height: 0;
+  position: relative;
+}
+
+.footer-full::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--bg-secondary), transparent);
+  pointer-events: none;
+}
+
+.footer-full-img {
+  width: 100%;
+  height: 80px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--success);
+  color: white;
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--glass-shadow);
+  transform: translateY(120px);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 2000;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 968px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 24px;
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: var(--transition);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-content {
+    padding: 40px 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}

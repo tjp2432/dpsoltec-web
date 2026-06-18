@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DP Soltec - Soluciones tecnológicas para consumidores, pequeñas y grandes empresas">
+    <title>DP Soltec | Soluciones Tecnológicas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <svg class="svg-filters" aria-hidden="true">
+        <filter id="glass-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(101,207,114,0.15)"/>
+            <feDropShadow dx="0" dy="-1" stdDeviation="2" flood-color="rgba(255,255,255,0.06)"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.025 0.01" numOctaves="4" result="noise" seed="7"/>
+            <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+            <feDisplacementMap in="SourceGraphic" in2="grayNoise" scale="6" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+            <feGaussianBlur in="displaced" stdDeviation="0.4" result="blurred"/>
+            <feComposite in="blurred" in2="SourceGraphic" operator="in" result="masked"/>
+            <feMerge>
+                <feMergeNode in="masked"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <filter id="glass-edge" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+            <feSpecularLighting in="blur" surfaceScale="4" specularConstant="0.8" specularExponent="30" result="spec">
+                <fePointLight x="50%" y="-30%" z="300"/>
+            </feSpecularLighting>
+            <feComposite in="spec" in2="SourceAlpha" operator="in" result="specMasked"/>
+            <feComposite in="SourceGraphic" in2="specMasked" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+        </filter>
+    </svg>
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="assets/encabezado.png" alt="DP Soltec" class="logo-img">
+        </a>
+        <div class="container header-container">
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <span class="hero-badge">Soluciones Tecnológicas</span>
+                <h1 class="hero-title">Tecnología para vos,<br>soluciones para todos</h1>
+                <p class="hero-description">
+                    En DP Soltec ayudamos a personas, hogares y empresas con soluciones tecnológicas
+                    prácticas y accesibles. Desde una instalación eléctrica hasta tu red en casa.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+                    <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Nuestros Servicios</span>
+                    <h2 class="section-title">Soluciones para cada necesidad</h2>
+                    <p class="section-desc">
+                        Soluciones profesionales en electricidad, seguridad, infraestructura y soporte técnico.
+                    </p>
+                </div>
+                <div class="cards-grid">
+                    <article class="card card-bg-1">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <h3 class="card-title">Servicios Eléctricos</h3>
+                            <ul class="card-list">
+                                <li>Instalaciones domiciliarias</li>
+                                <li>Obras y reformas eléctricas</li>
+                                <li>Iluminación exterior</li>
+                            </ul>
+                        </div>
+                        <img src="assets/graf-4.png" alt="" class="card-graf">
+                    </article>
+
+                    <article class="card card-featured card-bg-2">
+                        <div class="card-badge">Más solicitado</div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h3 class="card-title">Sistemas de Seguridad</h3>
+                            <ul class="card-list">
+                                <li>Alarmas y telefonía</li>
+                                <li>CCTV y videovigilancia</li>
+                                <li>Audio y video</li>
+                            </ul>
+                        </div>
+                        <img src="assets/graf-4.png" alt="" class="card-graf">
+                    </article>
+
+                    <article class="card card-bg-3">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h3 class="card-title">Servicio Técnico</h3>
+                            <ul class="card-list">
+                                <li>PC / Mac / Notebook</li>
+                                <li>Diagnóstico y reparación</li>
+                                <li>Actualización de hard/soft</li>
+                            </ul>
+                        </div>
+                        <img src="assets/graf-4.png" alt="" class="card-graf">
+                    </article>
+                </div>
+                <div class="cards-row-center">
+                    <article class="card card-center card-bg-4">
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                            </div>
+                            <h3 class="card-title">Infraestructura</h3>
+                            <ul class="card-list">
+                                <li>Cableado estructurado</li>
+                                <li>Instalación de antenas wifi</li>
+                                <li>Redes y conectividad</li>
+                            </ul>
+                        </div>
+                        <img src="assets/graf-4.png" alt="" class="card-graf">
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="section section-alt">
+            <div class="container">
+                <div class="about-centered">
+                    <div class="about-content">
+                        <span class="section-tag">Sobre Nosotros</span>
+                        <h2 class="section-title">Expertos en infraestructura, seguridad y electricidad</h2>
+                        <p class="section-desc">
+                            DP Soluciones Tecnológicas es una empresa con más de 10 años de experiencia en infraestructura, sistemas de seguridad, instalaciones eléctricas y telecomunicaciones, trabajando tanto en el ámbito privado como público. Contamos con profesionales y técnicos certificados en ingeniería de diseño y ejecución de obras, respaldados por tecnología de avanzada y los mejores materiales para garantizar calidad en cada proyecto, desde el diseño hasta el resultado final.
+                        </p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number" data-target="10">0</span>
+                                <span class="stat-label">Años de experiencia</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-target="150">0</span>
+                                <span class="stat-label">Clientes satisfechos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-target="300">0</span>
+                                <span class="stat-label">Proyectos realizados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="section-title">Trabajemos juntos</h2>
+                    <p class="section-desc">
+                        Contanos tu proyecto y te asesoramos sin compromiso.
+                    </p>
+                </div>
+                <div class="contact-grid">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Contanos en qué podemos ayudarte..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>Argentina</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contacto@dpsoltec.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+54 11 XXXX-XXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <p>Soluciones tecnológicas innovadoras para impulsar tu negocio al siguiente nivel.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Consumidor Final</a></li>
+                    <li><a href="#servicios">Pequeñas Empresas</a></li>
+                    <li><a href="#servicios">Grandes Empresas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 DP Soltec. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <div class="footer-full">
+            <img src="assets/pie-pagina.png" alt="" class="footer-full-img">
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
