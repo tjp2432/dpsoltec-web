@@ -241,16 +241,6 @@ img {
   background: radial-gradient(circle, rgba(101, 207, 114, 0.06) 0%, transparent 70%);
   border-radius: 50%;
 }
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(101, 207, 114, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-}
 
 /* --- Liquid Glass Hero Panel --- */
 .hero-content {
