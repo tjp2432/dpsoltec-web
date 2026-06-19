@@ -162,7 +162,7 @@ select {
 }
 
 .top-header-logo {
-  flex: 0 0 500px;
+  flex: 0 0 650px;
   height: 100%;
 }
 .top-header-logo img {
@@ -1159,7 +1159,7 @@ select {
     height: 56px;
   }
   .top-header-logo {
-    flex: 0 0 340px;
+    flex: 0 0 450px;
   }
   .top-header-icons {
     flex: 0 0 260px;
@@ -1195,7 +1195,7 @@ select {
     padding-bottom: 0;
   }
   .top-header-logo {
-    flex: 0 0 260px;
+    flex: 0 0 340px;
   }
   .top-header-icons {
     display: none;
@@ -1413,7 +1413,7 @@ select {
     height: 44px;
   }
   .top-header-logo {
-    flex: 0 0 190px;
+    flex: 0 0 260px;
   }
   .top-header-icons {
     flex: 0 0 140px;
