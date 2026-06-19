@@ -1297,42 +1297,42 @@ select {
   }
 
   .hero {
-    min-height: 92vh;
-    min-height: 92dvh;
+    min-height: 70vh;
+    min-height: 70dvh;
     padding-top: calc(48px + var(--sat));
     padding-bottom: calc(48px + var(--sat));
   }
 
   .hero-content {
-    max-width: 280px;
-    padding: 20px 24px;
+    max-width: 220px;
+    padding: 16px 20px;
     border-radius: 28px;
   }
   .hero-logo {
-    height: 60px;
+    height: 48px;
   }
   .hero-badge {
-    margin-bottom: 12px;
-  }
-
-  .hero-title {
-    font-size: clamp(1rem, 4.5vw, 1.3rem);
     margin-bottom: 10px;
   }
 
+  .hero-title {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    margin-bottom: 8px;
+  }
+
   .hero-description {
-    font-size: 0.75rem;
-    max-width: 240px;
-    margin-bottom: 16px;
-    line-height: 1.5;
+    font-size: 0.7rem;
+    max-width: 200px;
+    margin-bottom: 12px;
+    line-height: 1.4;
   }
   .hero-actions {
-    gap: 8px;
+    gap: 6px;
   }
   .hero-actions .btn {
-    font-size: 0.75rem;
-    padding: 8px 16px;
-    min-height: 36px;
+    font-size: 0.7rem;
+    padding: 6px 14px;
+    min-height: 32px;
   }
 
   .section {
@@ -1427,21 +1427,21 @@ select {
   }
 
   .hero {
-    min-height: 90vh;
-    min-height: 90dvh;
+    min-height: 70vh;
+    min-height: 70dvh;
   }
 
   .hero-content {
-    max-width: 250px;
-    padding: 16px 20px;
+    max-width: 200px;
+    padding: 14px 16px;
     border-radius: 24px;
   }
   .hero-logo {
-    height: 50px;
+    height: 42px;
   }
   .hero-badge {
     padding: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-title {
@@ -1583,20 +1583,20 @@ select {
     flex: 0 0 110px;
   }
   .hero {
-    min-height: 88vh;
-    min-height: 88dvh;
+    min-height: 65vh;
+    min-height: 65dvh;
   }
   .hero-content {
-    max-width: 220px;
-    padding: 14px 16px;
+    max-width: 180px;
+    padding: 12px 14px;
     border-radius: 20px;
   }
   .hero-logo {
-    height: 44px;
+    height: 38px;
   }
   .hero-badge {
     padding: 3px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .top-nav .nav-list {
     top: calc(40px + 10px);
