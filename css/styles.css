@@ -432,22 +432,13 @@ img {
 }
 
 .btn-primary {
-  display: inline-block;
   background: rgba(101, 207, 114, 0.08);
   color: var(--primary);
-  padding: 8px 20px;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
   box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
   filter: url(#glass-glow);
-  transition: var(--transition);
 }
 
 .btn-primary::before {
