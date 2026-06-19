@@ -5,11 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     // Mobile menu toggle
-    menuToggle.addEventListener('click', () => {
+    function toggleMenu(e) {
+        e.preventDefault();
         menuToggle.classList.toggle('active');
         nav.classList.toggle('open');
         document.body.classList.toggle('no-scroll');
-    });
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
 
     // Close menu on link click
     navLinks.forEach(link => {
