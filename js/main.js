@@ -5,14 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     // Mobile menu toggle
-    function toggleMenu(e) {
-        e.preventDefault();
+    let menuTouched = false;
+    function toggleMenu() {
         menuToggle.classList.toggle('active');
         nav.classList.toggle('open');
         document.body.classList.toggle('no-scroll');
     }
-    menuToggle.addEventListener('click', toggleMenu);
-    menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
+    menuToggle.addEventListener('click', () => {
+        if (menuTouched) { menuTouched = false; return; }
+        toggleMenu();
+    });
+    menuToggle.addEventListener('touchstart', (e) => {
+        menuTouched = true;
+        toggleMenu();
+    }, { passive: true });
 
     // Close menu on link click
     navLinks.forEach(link => {
