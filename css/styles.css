@@ -1212,7 +1212,7 @@ select {
 
   .top-nav .nav-list {
     position: fixed;
-    top: calc(48px + var(--sat));
+    top: 48px;
     left: 0;
     right: 0;
     background: rgba(13, 17, 23, 0.70);
