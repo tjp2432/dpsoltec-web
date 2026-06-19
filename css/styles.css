@@ -116,7 +116,9 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #000;
+  background: rgba(13, 17, 23, 0.6);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
   box-shadow: var(--glass-shadow);
 }
 
@@ -129,50 +131,26 @@ img {
 .top-header-logo {
   flex: 0 0 400px;
   height: 100%;
-  overflow: hidden;
-  position: relative;
 }
 .top-header-logo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: left center;
   display: block;
-}
-.top-header-logo::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 25%;
-  background: linear-gradient(to right, transparent, #000);
-  pointer-events: none;
 }
 
 .top-header-icons {
   flex: 0 0 400px;
   height: 100%;
   margin-left: auto;
-  overflow: hidden;
-  position: relative;
 }
 .top-header-icons img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
   display: block;
-}
-.top-header-icons::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 25%;
-  background: linear-gradient(to left, transparent, #000);
-  pointer-events: none;
 }
 
 /* --- Nav centered in header row --- */
@@ -182,9 +160,6 @@ img {
   justify-content: center;
   flex: 1;
   height: 100%;
-  background: rgba(13, 17, 23, 0.6);
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
 }
 
 .top-nav .menu-toggle {
