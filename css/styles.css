@@ -1296,8 +1296,8 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
     padding-top: calc(108px + var(--sat));
   }
 
@@ -1416,8 +1416,8 @@ select {
   }
 
   .hero {
-    min-height: 60vh;
-    min-height: 60dvh;
+    min-height: 80vh;
+    min-height: 80dvh;
   }
 
   .hero-content {
@@ -1569,6 +1569,10 @@ select {
   }
   .top-header-logo {
     flex: 0 0 110px;
+  }
+  .hero {
+    min-height: 75vh;
+    min-height: 75dvh;
   }
   .hero-content {
     max-width: 240px;
