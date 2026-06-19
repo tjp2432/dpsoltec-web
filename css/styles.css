@@ -135,10 +135,17 @@ img {
   top: 0;
   width: 340px;
   height: 100%;
+  background: linear-gradient(to right, #000 50%, rgba(13, 17, 23, 0.6) 100%);
+  overflow: hidden;
+}
+.top-header-logo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: left center;
   display: block;
-  background: #000;
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
 }
 
 .top-header-icons {
@@ -147,10 +154,17 @@ img {
   top: 0;
   width: 340px;
   height: 100%;
+  background: linear-gradient(to left, #000 50%, rgba(13, 17, 23, 0.6) 100%);
+  overflow: hidden;
+}
+.top-header-icons img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: right center;
   display: block;
-  background: #000;
+  -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+  mask-image: linear-gradient(to left, black 70%, transparent 100%);
 }
 
 /* --- Nav centered in header row --- */
@@ -163,6 +177,27 @@ img {
   background: rgba(13, 17, 23, 0.6);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
+  position: relative;
+}
+.top-nav::before {
+  content: '';
+  position: absolute;
+  left: -80px;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, transparent, rgba(13, 17, 23, 0.6));
+  pointer-events: none;
+}
+.top-nav::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(to left, transparent, rgba(13, 17, 23, 0.6));
+  pointer-events: none;
 }
 
 .top-nav .menu-toggle {
