@@ -1212,15 +1212,15 @@ select {
 
   .top-nav .nav-list {
     position: fixed;
-    top: 48px;
-    left: 0;
-    right: 0;
+    top: calc(48px + 4px);
+    left: 8px;
+    right: 8px;
     background: rgba(13, 17, 23, 0.70);
     backdrop-filter: blur(50px) saturate(1.8);
     -webkit-backdrop-filter: blur(50px) saturate(1.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-radius: 0 0 24px 24px;
+    border-radius: 24px;
     padding: 10px 12px;
     padding-top: 10px;
     padding-bottom: calc(10px + var(--sab));
@@ -1412,7 +1412,7 @@ select {
     flex: 0 0 140px;
   }
   .top-nav .nav-list {
-    top: 44px;
+    top: calc(44px + 4px);
   }
 
   .hero {
@@ -1578,7 +1578,7 @@ select {
     height: 64px;
   }
   .top-nav .nav-list {
-    top: 40px;
+    top: calc(40px + 4px);
   }
 
   .hero-title {
