@@ -1223,16 +1223,15 @@ select {
     border-radius: 0 0 24px 24px;
     overflow: hidden;
     filter: url(#glass-glow);
-    padding: 16px 20px;
-    padding-top: 8px;
-    padding-bottom: calc(16px + var(--sab));
+    padding: 12px 16px;
+    padding-top: 10px;
+    padding-bottom: calc(12px + var(--sab));
     transform: translateY(-120%);
     opacity: 0;
     transition: var(--transition);
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     text-align: center;
     z-index: 999;
     display: flex;
@@ -1257,16 +1256,17 @@ select {
   }
 
   .nav-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 10px 16px;
-    border-radius: 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 12px;
     transition: background 0.3s ease, color 0.3s ease;
     display: inline-block;
     color: var(--text-secondary);
     position: relative;
     z-index: 1;
     border: 1px solid transparent;
+    white-space: nowrap;
   }
 
   .nav-link:hover,
