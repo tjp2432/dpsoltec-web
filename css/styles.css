@@ -289,12 +289,12 @@ select {
 /* --- Liquid Glass Hero Panel --- */
 .hero-content {
   text-align: center;
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 64px 40px;
+  padding: 48px 36px;
   background: var(--glass-bg-strong);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  border-radius: 36px;
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
