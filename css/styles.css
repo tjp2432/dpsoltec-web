@@ -1297,10 +1297,10 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
-    padding-top: calc(80px + var(--sat));
-    padding-bottom: calc(40px + var(--sat));
+    min-height: 85vh;
+    min-height: 85dvh;
+    align-items: flex-start;
+    padding-top: calc(120px + var(--sat));
   }
 
   .hero-content {
@@ -1425,10 +1425,10 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
-    padding-top: calc(80px + var(--sat));
-    padding-bottom: calc(24px + var(--sat));
+    min-height: 85vh;
+    min-height: 85dvh;
+    align-items: flex-start;
+    padding-top: calc(120px + var(--sat));
   }
 
   .hero-content {
@@ -1583,10 +1583,10 @@ select {
     flex: 0 0 110px;
   }
   .hero {
-    min-height: 65vh;
-    min-height: 65dvh;
-    padding-top: calc(72px + var(--sat));
-    padding-bottom: calc(16px + var(--sat));
+    min-height: 85vh;
+    min-height: 85dvh;
+    align-items: flex-start;
+    padding-top: calc(110px + var(--sat));
   }
   .hero-content {
     max-width: 300px;
