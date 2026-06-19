@@ -232,6 +232,14 @@ img {
   max-width: 320px;
   height: auto;
   display: block;
+  margin-bottom: 4px;
+}
+
+.hero-logo-sub {
+  max-width: 260px;
+  height: auto;
+  display: block;
+  opacity: 0.6;
 }
 
 /* Hero social icons - left sidebar */
@@ -791,14 +799,6 @@ img {
 }
 
 /* Card Bottom Graphic */
-.card-graf {
-  width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 2;
-}
-
 .cards-row-center {
   display: flex;
   justify-content: center;
@@ -1240,6 +1240,9 @@ img {
   .hero-logo {
     max-width: 240px;
   }
+  .hero-logo-sub {
+    max-width: 200px;
+  }
   .hero-social {
     left: 16px;
     gap: 12px;
@@ -1276,6 +1279,9 @@ img {
 @media (max-width: 768px) {
   .hero-logo {
     max-width: 200px;
+  }
+  .hero-logo-sub {
+    max-width: 160px;
   }
   .hero-social {
     display: none;
@@ -1443,6 +1449,9 @@ img {
   .hero-logo {
     max-width: 160px;
   }
+  .hero-logo-sub {
+    max-width: 130px;
+  }
 
   .hero {
     min-height: 60vh;
@@ -1499,11 +1508,6 @@ img {
 
   .card-body {
     padding: 20px 16px 12px;
-  }
-
-  .card-graf {
-    height: auto;
-    max-height: 60px;
   }
 
   .about-content {
