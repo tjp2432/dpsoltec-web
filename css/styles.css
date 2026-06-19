@@ -1300,7 +1300,7 @@ select {
     min-height: 85vh;
     min-height: 85dvh;
     align-items: flex-start;
-    padding-top: calc(120px + var(--sat));
+    padding-top: calc(180px + var(--sat));
   }
 
   .hero-content {
@@ -1428,7 +1428,7 @@ select {
     min-height: 85vh;
     min-height: 85dvh;
     align-items: flex-start;
-    padding-top: calc(120px + var(--sat));
+    padding-top: calc(160px + var(--sat));
   }
 
   .hero-content {
@@ -1586,7 +1586,7 @@ select {
     min-height: 85vh;
     min-height: 85dvh;
     align-items: flex-start;
-    padding-top: calc(110px + var(--sat));
+    padding-top: calc(140px + var(--sat));
   }
   .hero-content {
     max-width: 300px;
