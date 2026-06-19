@@ -417,6 +417,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 8px;
   padding: 14px 32px;
   border-radius: var(--radius-full);
@@ -425,7 +426,7 @@ img {
   transition: var(--transition);
   border: none;
   cursor: pointer;
-  line-height: 1;
+  line-height: 1.2;
   font-family: inherit;
   position: relative;
   overflow: hidden;
