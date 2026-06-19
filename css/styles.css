@@ -1295,8 +1295,8 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
     align-items: flex-start;
     padding-top: calc(130px + var(--sat));
   }
@@ -1424,10 +1424,11 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
     align-items: flex-start;
     padding-top: calc(120px + var(--sat));
+    padding-bottom: 0;
   }
 
   .hero-content {
@@ -1582,10 +1583,11 @@ select {
     flex: 0 0 280px;
   }
   .hero {
-    min-height: 65vh;
-    min-height: 65dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
     align-items: flex-start;
     padding-top: calc(110px + var(--sat));
+    padding-bottom: 0;
   }
   .hero-content {
     max-width: 250px;
