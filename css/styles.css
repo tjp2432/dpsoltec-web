@@ -1237,19 +1237,6 @@ select {
     pointer-events: none;
   }
 
-  .top-nav .nav-list::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 2px, transparent 35%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
-  }
-
   .top-header.open .top-nav .nav-list {
     transform: translateY(0);
     opacity: 1;
