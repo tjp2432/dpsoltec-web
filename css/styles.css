@@ -336,15 +336,11 @@ img {
 /* ---------- Hero Badge (Liquid Glass) ---------- */
 .hero-badge {
   display: inline-block;
-  background: rgba(101, 207, 114, 0.08);
-  color: var(--primary);
-  padding: 8px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
   margin-bottom: 24px;
-  letter-spacing: 0.5px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
   box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -352,6 +348,7 @@ img {
   overflow: hidden;
   filter: url(#glass-glow);
   transition: var(--transition);
+  line-height: 0;
 }
 
 .hero-badge::before {
@@ -368,9 +365,13 @@ img {
   pointer-events: none;
 }
 
-.hero-badge:hover {
-  background: rgba(101, 207, 114, 0.12);
-  transform: scale(1.03);
+.hero-logo {
+  display: block;
+  height: 60px;
+  width: auto;
+  border-radius: var(--radius-full);
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- Hero Text ---------- */
