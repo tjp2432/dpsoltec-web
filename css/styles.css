@@ -135,6 +135,8 @@ img {
   object-fit: cover;
   object-position: left center;
   display: block;
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
 }
 
 .top-header-icons {
@@ -144,6 +146,8 @@ img {
   object-position: right center;
   display: block;
   margin-left: auto;
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
 }
 
 /* --- Nav centered in header row --- */
