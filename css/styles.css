@@ -128,7 +128,9 @@ img {
 .top-header-logo {
   flex: 0 0 340px;
   height: 100%;
-  background: linear-gradient(to right, #000 75%, rgba(13, 17, 23, 0.6) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.92) 65%, rgba(13, 17, 23, 0.55) 100%);
+  backdrop-filter: blur(4px) saturate(1.2);
+  -webkit-backdrop-filter: blur(4px) saturate(1.2);
   overflow: hidden;
 }
 .top-header-logo img {
@@ -137,15 +139,18 @@ img {
   object-fit: cover;
   object-position: left center;
   display: block;
-  -webkit-mask-image: linear-gradient(to right, black 82%, transparent 100%);
-  mask-image: linear-gradient(to right, black 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
+  mask-image: linear-gradient(to right, black 75%, transparent 100%);
+  opacity: 0.95;
 }
 
 .top-header-icons {
   flex: 0 0 340px;
   height: 100%;
   margin-left: auto;
-  background: linear-gradient(to left, #000 75%, rgba(13, 17, 23, 0.6) 100%);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.92) 65%, rgba(13, 17, 23, 0.55) 100%);
+  backdrop-filter: blur(4px) saturate(1.2);
+  -webkit-backdrop-filter: blur(4px) saturate(1.2);
   overflow: hidden;
 }
 .top-header-icons img {
@@ -154,8 +159,9 @@ img {
   object-fit: cover;
   object-position: right center;
   display: block;
-  -webkit-mask-image: linear-gradient(to left, black 82%, transparent 100%);
-  mask-image: linear-gradient(to left, black 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
+  mask-image: linear-gradient(to left, black 75%, transparent 100%);
+  opacity: 0.95;
 }
 
 /* --- Nav centered in header row --- */
