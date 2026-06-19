@@ -125,25 +125,26 @@ img {
 .top-header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 64px;
-  gap: 16px;
 }
 
 .top-header-logo {
+  flex: 0 0 200px;
   height: auto;
-  max-height: 40px;
-  width: auto;
+  max-height: 38px;
+  object-fit: contain;
+  object-position: left center;
   display: block;
-  flex-shrink: 0;
 }
 
 .top-header-icons {
+  flex: 0 0 200px;
   height: auto;
-  max-height: 32px;
-  width: auto;
+  max-height: 30px;
+  object-fit: contain;
+  object-position: right center;
   display: block;
-  flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* --- Nav centered in header row --- */
@@ -1241,9 +1242,11 @@ img {
     height: 56px;
   }
   .top-header-logo {
-    max-height: 32px;
+    flex-basis: 150px;
+    max-height: 30px;
   }
   .top-header-icons {
+    flex-basis: 150px;
     max-height: 24px;
   }
   .top-nav .nav-list {
@@ -1287,7 +1290,8 @@ img {
     height: 48px;
   }
   .top-header-logo {
-    max-height: 26px;
+    flex-basis: 120px;
+    max-height: 24px;
   }
   .top-header-icons {
     display: none;
