@@ -1411,6 +1411,9 @@ select {
   .top-header-icons {
     flex: 0 0 140px;
   }
+  .top-nav .nav-list {
+    top: 44px;
+  }
 
   .hero {
     min-height: 60vh;
@@ -1573,6 +1576,9 @@ select {
   }
   .hero-logo {
     height: 64px;
+  }
+  .top-nav .nav-list {
+    top: 40px;
   }
 
   .hero-title {
