@@ -147,4 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => toast.remove(), 400);
         }, 3500);
     }
+
+    // WhatsApp bubble close
+    const waClose = document.querySelector('.wa-close');
+    const waBubble = document.querySelector('.wa-bubble');
+    if (waClose && waBubble) {
+        waClose.addEventListener('click', () => {
+            waBubble.classList.add('closed');
+        });
+    }
 });
