@@ -123,10 +123,6 @@ img {
   display: flex;
   align-items: center;
   height: 64px;
-  overflow: hidden;
-  background: rgba(13, 17, 23, 0.6);
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
 }
 
 .top-header-logo {
@@ -154,6 +150,10 @@ img {
   align-items: center;
   flex: 1;
   justify-content: center;
+  height: 100%;
+  background: rgba(13, 17, 23, 0.6);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
 }
 
 .top-nav .menu-toggle {
