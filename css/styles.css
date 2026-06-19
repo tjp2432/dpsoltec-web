@@ -1191,7 +1191,8 @@ select {
 @media (max-width: 768px) {
   .top-header-inner {
     height: 48px;
-    padding-top: var(--sat);
+    padding-top: 8px;
+    padding-bottom: 0;
   }
   .top-header-logo {
     flex: 0 0 200px;
