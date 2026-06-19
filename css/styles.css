@@ -419,9 +419,9 @@ img {
 }
 
 .btn-primary {
-  background: rgba(101, 207, 114, 0.08);
+  background: var(--glass-bg-strong);
   color: var(--primary);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--glass-border);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
   box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -443,7 +443,7 @@ img {
 }
 
 .btn-primary:hover {
-  background: rgba(101, 207, 114, 0.12);
+  background: var(--glass-bg);
   transform: scale(1.03);
 }
 
