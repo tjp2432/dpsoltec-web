@@ -604,22 +604,6 @@ img {
   border-radius: inherit;
 }
 
-/* Edge rim light */
-.card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  mask: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
-  -webkit-mask: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
-  pointer-events: none;
-  z-index: 2;
-}
-
 .card:hover {
   transform: translateY(-2px) scale(1.01);
   background: var(--glass-bg-strong);
@@ -723,7 +707,18 @@ img {
   font-weight: 600;
 }
 
-/* Card Bottom Graphic */
+/* Card Bottom Green Graphic */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: url('../assets/graf-4.png') no-repeat bottom center / cover;
+  pointer-events: none;
+  z-index: 0;
+}
 .cards-row-center {
   display: flex;
   justify-content: center;
