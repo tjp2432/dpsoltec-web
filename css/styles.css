@@ -1625,7 +1625,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 10px;
+  gap: 16px;
 }
 
 .wa-bubble {
@@ -1633,9 +1633,9 @@ select {
   backdrop-filter: blur(12px) saturate(1.3);
   -webkit-backdrop-filter: blur(12px) saturate(1.3);
   color: #e0e0e0;
-  padding: 8px 16px;
+  padding: 12px 20px;
   border-radius: 20px 20px 4px 20px;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -1647,7 +1647,7 @@ select {
 .wa-bubble-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 
 .wa-close {
