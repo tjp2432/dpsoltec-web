@@ -716,9 +716,7 @@ img {
   left: 0;
   right: 0;
   height: 60px;
-  background: url('../assets/graf-4-glass.png') no-repeat bottom center / cover;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: url('../assets/graf-4.png') no-repeat bottom center / cover;
   pointer-events: none;
   z-index: 0;
   filter: url(#liquid-glass);
