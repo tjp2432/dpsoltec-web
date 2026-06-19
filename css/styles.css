@@ -126,22 +126,21 @@ img {
   display: flex;
   align-items: center;
   height: 64px;
+  overflow: hidden;
 }
 
 .top-header-logo {
   flex: 0 0 200px;
-  height: auto;
-  max-height: 38px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: left center;
   display: block;
 }
 
 .top-header-icons {
   flex: 0 0 200px;
-  height: auto;
-  max-height: 30px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: right center;
   display: block;
   margin-left: auto;
@@ -1243,11 +1242,9 @@ img {
   }
   .top-header-logo {
     flex-basis: 150px;
-    max-height: 30px;
   }
   .top-header-icons {
     flex-basis: 150px;
-    max-height: 24px;
   }
   .top-nav .nav-list {
     gap: 20px;
@@ -1291,7 +1288,6 @@ img {
   }
   .top-header-logo {
     flex-basis: 120px;
-    max-height: 24px;
   }
   .top-header-icons {
     display: none;
