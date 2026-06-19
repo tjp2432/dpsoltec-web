@@ -1297,7 +1297,8 @@ select {
   .hero {
     min-height: 70vh;
     min-height: 70dvh;
-    padding-top: calc(72px + var(--sat));
+    align-items: flex-start;
+    padding-top: calc(130px + var(--sat));
   }
 
   .hero-content {
@@ -1425,6 +1426,8 @@ select {
   .hero {
     min-height: 70vh;
     min-height: 70dvh;
+    align-items: flex-start;
+    padding-top: calc(120px + var(--sat));
   }
 
   .hero-content {
@@ -1581,6 +1584,8 @@ select {
   .hero {
     min-height: 65vh;
     min-height: 65dvh;
+    align-items: flex-start;
+    padding-top: calc(110px + var(--sat));
   }
   .hero-content {
     max-width: 250px;
