@@ -1589,12 +1589,6 @@ select {
   }
 }
 
-/* --- Body scroll lock for mobile menu --- */
-body.no-scroll {
-  overflow: hidden;
-  height: 100%;
-}
-
 /* --- Floating WhatsApp Button (Liquid Glass) --- */
 .wa-wrapper {
   position: fixed;

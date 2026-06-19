@@ -4,19 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const contactForm = document.getElementById('contactForm');
 
-    // Mobile menu toggle
-    let menuTouched = false;
+    // Mobile menu toggle — tap anywhere in .top-nav
+    const topNav = document.querySelector('.top-nav');
     function toggleMenu() {
         menuToggle.classList.toggle('active');
         nav.classList.toggle('open');
-        document.body.classList.toggle('no-scroll');
     }
-    menuToggle.addEventListener('click', () => {
-        if (menuTouched) { menuTouched = false; return; }
+    topNav.addEventListener('click', (e) => {
+        if (e.target.closest('.nav-list')) return;
         toggleMenu();
     });
-    menuToggle.addEventListener('touchstart', (e) => {
-        menuTouched = true;
+    topNav.addEventListener('touchstart', (e) => {
+        if (e.target.closest('.nav-list')) return;
         toggleMenu();
     }, { passive: true });
 
