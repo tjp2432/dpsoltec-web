@@ -10,22 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.classList.toggle('active');
         nav.classList.toggle('open');
     }
-    topNav.addEventListener('click', (e) => {
-        if (e.target.closest('.nav-list')) return;
-        toggleMenu();
-    });
-    topNav.addEventListener('touchstart', (e) => {
-        if (e.target.closest('.nav-list')) return;
-        toggleMenu();
-    }, { passive: true });
+    topNav.addEventListener('click', () => toggleMenu());
+    topNav.addEventListener('touchstart', () => toggleMenu(), { passive: true });
 
-    // Close menu on link click
+    // Close menu on link click and tap outside
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('active');
             nav.classList.remove('open');
-            document.body.classList.remove('no-scroll');
         });
+    });
+    document.addEventListener('click', (e) => {
+        if (nav.classList.contains('open') && !e.target.closest('.top-header')) {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('open');
+        }
     });
 
     // Active nav link on scroll
