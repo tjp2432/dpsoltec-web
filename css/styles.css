@@ -20,8 +20,8 @@
   --glass-border-strong: rgba(255, 255, 255, 0.22);
   --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.25);
   --glass-highlight-heavy: inset 0 1.5px 1.5px rgba(255, 255, 255, 0.35);
-  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.15);
-  --glass-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.35), 0 20px 60px rgba(0, 0, 0, 0.2);
+  --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --glass-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.3);
   --glass-blur: blur(40px) saturate(1.6);
   --glass-blur-strong: blur(50px) saturate(2.0);
 }
@@ -589,7 +589,7 @@ img {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* Specular highlight - top shine */
@@ -634,10 +634,10 @@ img {
 }
 
 .card:hover {
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-2px) scale(1.01);
   background: var(--glass-bg-strong);
   border-color: var(--glass-border-strong);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  box-shadow: var(--glass-highlight-heavy), 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card-body {
