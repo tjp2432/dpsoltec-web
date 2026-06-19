@@ -175,7 +175,7 @@ select {
 }
 
 .top-header-icons {
-  flex: 0 0 400px;
+  flex: 0 0 500px;
   height: 100%;
   margin-left: auto;
 }
@@ -196,6 +196,7 @@ select {
   left: 50%;
   transform: translateX(-50%);
   height: 100%;
+  z-index: 10;
 }
 
 .top-nav .menu-toggle {
@@ -1167,7 +1168,7 @@ select {
     flex: 0 0 550px;
   }
   .top-header-icons {
-    flex: 0 0 300px;
+    flex: 0 0 350px;
   }
   .top-nav .nav-list {
     gap: 20px;
