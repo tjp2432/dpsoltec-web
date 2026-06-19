@@ -925,7 +925,6 @@ img {
   padding: 36px;
   background: var(--glass-bg);
   align-items: center;
-}
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   backdrop-filter: var(--glass-blur);
@@ -960,7 +959,6 @@ img {
   gap: 6px;
   color: var(--text-secondary);
   text-align: center;
-}
   z-index: 1;
 }
 
