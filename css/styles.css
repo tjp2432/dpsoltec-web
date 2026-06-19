@@ -432,14 +432,22 @@ img {
 }
 
 .btn-primary {
-  background: rgba(101, 207, 114, 0.12);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-block;
+  background: rgba(101, 207, 114, 0.08);
+  color: var(--primary);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
   filter: url(#glass-glow);
+  transition: var(--transition);
 }
 
 .btn-primary::before {
@@ -449,60 +457,20 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: inherit;
+  border-radius: var(--radius-full);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.03) 1px, transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(101, 207, 114, 0.04) 30%, transparent 60%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0%, transparent 30%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.03) 1px, transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
   pointer-events: none;
-}
-
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  mask: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
-  -webkit-mask: linear-gradient(180deg, #000 0%, #000 30%, transparent 70%);
-  pointer-events: none;
-  filter: blur(1.5px);
-  pointer-events: none;
-  border-radius: inherit;
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
-}
-
-.btn-primary:hover::before {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.03) 1px, transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(101, 207, 114, 0.08) 30%, transparent 60%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
-}
-
-/* Interactive shimmer — Apple Liquid Glass .interactive() style */
-.btn-primary {
-  overflow: hidden;
-}
-.btn-primary::after {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.btn-primary:hover::after {
-  opacity: 1;
+  background: rgba(101, 207, 114, 0.12);
+  transform: scale(1.03);
 }
 
 .btn-primary:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: var(--glass-shadow), inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(0.97);
 }
 
 /* Outline button with glass */
@@ -539,6 +507,7 @@ img {
 
 .btn-full {
   width: 100%;
+  border-radius: var(--radius);
 }
 
 /* ---------- Sections ---------- */
