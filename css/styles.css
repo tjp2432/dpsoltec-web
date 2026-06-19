@@ -122,11 +122,18 @@ img {
 .top-header-inner {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .top-header-logo {
-  flex: 0 0 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 340px;
   height: 100%;
   object-fit: cover;
   object-position: left center;
@@ -135,12 +142,14 @@ img {
 }
 
 .top-header-icons {
-  flex: 0 0 300px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 340px;
   height: 100%;
   object-fit: cover;
   object-position: right center;
   display: block;
-  margin-left: auto;
   background: #000;
 }
 
@@ -148,9 +157,9 @@ img {
 .top-nav {
   display: flex;
   align-items: center;
-  flex: 1;
   justify-content: center;
   height: 100%;
+  padding: 0 340px;
   background: rgba(13, 17, 23, 0.6);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
@@ -1243,10 +1252,13 @@ img {
     height: 56px;
   }
   .top-header-logo {
-    flex-basis: 180px;
+    width: 220px;
   }
   .top-header-icons {
-    flex-basis: 180px;
+    width: 220px;
+  }
+  .top-nav {
+    padding: 0 220px;
   }
   .top-nav .nav-list {
     gap: 20px;
@@ -1289,10 +1301,13 @@ img {
     height: 48px;
   }
   .top-header-logo {
-    flex-basis: 140px;
+    width: 160px;
   }
   .top-header-icons {
     display: none;
+  }
+  .top-nav {
+    padding: 0 160px;
   }
   .top-nav .nav-list {
     display: none;
@@ -1460,14 +1475,17 @@ img {
 
 @media (max-width: 480px) {
   .top-header-inner {
-    padding: 6px 0;
-    gap: 4px;
+    height: 44px;
+    padding: 0 12px;
   }
   .top-header-logo {
-    max-height: 26px;
+    width: 120px;
   }
   .top-header-icons {
-    max-height: 18px;
+    width: 120px;
+  }
+  .top-nav {
+    padding: 0 120px;
   }
 
   .hero {
@@ -1625,6 +1643,15 @@ img {
 }
 
 @media (max-width: 360px) {
+  .top-header-inner {
+    height: 40px;
+  }
+  .top-header-logo {
+    width: 90px;
+  }
+  .top-nav {
+    padding: 0 90px;
+  }
   .hero-content {
     padding: 20px 10px;
   }
