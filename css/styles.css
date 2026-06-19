@@ -128,11 +128,10 @@ img {
 .top-header-logo {
   flex: 0 0 400px;
   height: 100%;
-  background: #000;
-  backdrop-filter: blur(8px) saturate(1.4);
-  -webkit-backdrop-filter: blur(8px) saturate(1.4);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
   overflow: hidden;
-  position: relative;
 }
 .top-header-logo img {
   width: 100%;
@@ -140,27 +139,17 @@ img {
   object-fit: cover;
   object-position: left center;
   display: block;
-}
-.top-header-logo::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: linear-gradient(to right, transparent 0%, rgba(13, 17, 23, 0.15) 30%, rgba(13, 17, 23, 0.4) 60%, rgba(13, 17, 23, 0.6) 100%);
-  pointer-events: none;
+  opacity: 0.92;
 }
 
 .top-header-icons {
   flex: 0 0 400px;
   height: 100%;
   margin-left: auto;
-  background: #000;
-  backdrop-filter: blur(8px) saturate(1.4);
-  -webkit-backdrop-filter: blur(8px) saturate(1.4);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
   overflow: hidden;
-  position: relative;
 }
 .top-header-icons img {
   width: 100%;
@@ -168,16 +157,7 @@ img {
   object-fit: cover;
   object-position: right center;
   display: block;
-}
-.top-header-icons::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: linear-gradient(to left, transparent 0%, rgba(13, 17, 23, 0.15) 30%, rgba(13, 17, 23, 0.4) 60%, rgba(13, 17, 23, 0.6) 100%);
-  pointer-events: none;
+  opacity: 0.92;
 }
 
 /* --- Nav centered in header row --- */
