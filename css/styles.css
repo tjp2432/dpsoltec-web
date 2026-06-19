@@ -1283,23 +1283,18 @@ select {
   }
 
   .menu-toggle {
-    width: 48px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: none;
+    border: none;
     flex-shrink: 0;
   }
   .menu-toggle span {
-    width: 22px;
-    height: 2.5px;
-    margin: 2px 0;
-  }
-  .menu-toggle:active {
-    background: rgba(255, 255, 255, 0.12);
+    width: 24px;
+    height: 2px;
   }
 
   .menu-toggle.active span:nth-child(1) {
