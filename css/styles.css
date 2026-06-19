@@ -1323,6 +1323,14 @@ select {
     max-width: 280px;
     margin-bottom: 20px;
   }
+  .hero-actions {
+    gap: 10px;
+  }
+  .hero-actions .btn {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    min-height: 40px;
+  }
 
   .section {
     padding: 48px 0;
@@ -1444,13 +1452,14 @@ select {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
 
   .btn {
     text-align: center;
-    font-size: 0.9rem;
-    padding: 14px 24px;
-    min-height: 48px;
+    font-size: 0.8rem;
+    padding: 10px 20px;
+    min-height: 40px;
   }
 
   .section {
