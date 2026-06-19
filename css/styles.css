@@ -716,12 +716,11 @@ img {
   left: 0;
   right: 0;
   height: 60px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, transparent 40%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
-    url('../assets/graf-4.png') no-repeat bottom center / cover;
+  background: url('../assets/graf-4.png') no-repeat bottom center / cover;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   pointer-events: none;
   z-index: 0;
+  filter: url(#liquid-glass);
 }
 
 .cards-row-center {
