@@ -1229,8 +1229,10 @@ select {
     transform: translateY(-120%);
     opacity: 0;
     transition: var(--transition);
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
     text-align: center;
     z-index: 999;
     display: flex;
@@ -1255,12 +1257,12 @@ select {
   }
 
   .nav-link {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    padding: 14px 20px;
+    padding: 10px 16px;
     border-radius: 14px;
     transition: background 0.3s ease, color 0.3s ease;
-    display: block;
+    display: inline-block;
     color: var(--text-secondary);
     position: relative;
     z-index: 1;
