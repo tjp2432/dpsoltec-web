@@ -1300,7 +1300,7 @@ select {
     min-height: 70vh;
     min-height: 70dvh;
     padding-top: calc(48px + var(--sat));
-    padding-bottom: calc(48px + var(--sat));
+    padding-bottom: 0;
   }
 
   .hero-content {
@@ -1427,6 +1427,7 @@ select {
   .hero {
     min-height: 70vh;
     min-height: 70dvh;
+    padding-bottom: 0;
   }
 
   .hero-content {
@@ -1583,6 +1584,7 @@ select {
   .hero {
     min-height: 65vh;
     min-height: 65dvh;
+    padding-bottom: 0;
   }
   .hero-content {
     max-width: 300px;
