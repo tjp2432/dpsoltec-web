@@ -159,6 +159,7 @@ select {
   height: 96px;
   padding-right: var(--sar);
   padding-left: var(--sal);
+  position: relative;
 }
 
 .top-header-logo {
@@ -191,7 +192,9 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
 }
 
@@ -1200,6 +1203,7 @@ select {
   }
 
   .top-nav {
+    position: static;
     justify-content: flex-end;
   }
   .top-nav .nav-list {
