@@ -129,8 +129,8 @@ img {
   flex: 0 0 400px;
   height: 100%;
   background: #000;
-  backdrop-filter: blur(4px) saturate(1.2);
-  -webkit-backdrop-filter: blur(4px) saturate(1.2);
+  backdrop-filter: blur(8px) saturate(1.4);
+  -webkit-backdrop-filter: blur(8px) saturate(1.4);
   overflow: hidden;
   position: relative;
 }
@@ -147,8 +147,8 @@ img {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 30%;
-  background: linear-gradient(to right, transparent, rgba(13, 17, 23, 0.65));
+  width: 50%;
+  background: linear-gradient(to right, transparent 0%, rgba(13, 17, 23, 0.15) 30%, rgba(13, 17, 23, 0.4) 60%, rgba(13, 17, 23, 0.6) 100%);
   pointer-events: none;
 }
 
@@ -157,8 +157,8 @@ img {
   height: 100%;
   margin-left: auto;
   background: #000;
-  backdrop-filter: blur(4px) saturate(1.2);
-  -webkit-backdrop-filter: blur(4px) saturate(1.2);
+  backdrop-filter: blur(8px) saturate(1.4);
+  -webkit-backdrop-filter: blur(8px) saturate(1.4);
   overflow: hidden;
   position: relative;
 }
@@ -175,8 +175,8 @@ img {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 30%;
-  background: linear-gradient(to left, transparent, rgba(13, 17, 23, 0.65));
+  width: 50%;
+  background: linear-gradient(to left, transparent 0%, rgba(13, 17, 23, 0.15) 30%, rgba(13, 17, 23, 0.4) 60%, rgba(13, 17, 23, 0.6) 100%);
   pointer-events: none;
 }
 
