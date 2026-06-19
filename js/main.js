@@ -150,10 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // WhatsApp bubble close
     const waClose = document.querySelector('.wa-close');
-    const waBubble = document.querySelector('.wa-bubble');
-    if (waClose && waBubble) {
+    const waBubbleRow = document.querySelector('.wa-bubble-row');
+    if (waClose && waBubbleRow) {
         waClose.addEventListener('click', () => {
-            waBubble.classList.add('closed');
+            waBubbleRow.classList.add('closed');
         });
     }
 });
