@@ -337,7 +337,7 @@ img {
 .hero-badge {
   display: inline-block;
   background: rgba(0, 0, 0, 0.4);
-  padding: 4px;
+  padding: 6px;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -367,7 +367,7 @@ img {
 
 .hero-logo {
   display: block;
-  height: 60px;
+  height: 120px;
   width: auto;
   border-radius: var(--radius-full);
   position: relative;
