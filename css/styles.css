@@ -156,13 +156,13 @@ select {
 .top-header-inner {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 96px;
   padding-right: var(--sar);
   padding-left: var(--sal);
 }
 
 .top-header-logo {
-  flex: 0 0 650px;
+  flex: 0 0 750px;
   height: 100%;
 }
 .top-header-logo img {
@@ -262,7 +262,7 @@ select {
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding-top: calc(64px + var(--sat));
+  padding-top: calc(96px + var(--sat));
   overflow: hidden;
 }
 
@@ -1156,13 +1156,13 @@ select {
 
 @media (max-width: 968px) {
   .top-header-inner {
-    height: 56px;
+    height: 80px;
   }
   .top-header-logo {
-    flex: 0 0 450px;
+    flex: 0 0 550px;
   }
   .top-header-icons {
-    flex: 0 0 260px;
+    flex: 0 0 300px;
   }
   .top-nav .nav-list {
     gap: 20px;
@@ -1190,12 +1190,12 @@ select {
 
 @media (max-width: 768px) {
   .top-header-inner {
-    height: 48px;
+    height: 72px;
     padding-top: 8px;
     padding-bottom: 0;
   }
   .top-header-logo {
-    flex: 0 0 340px;
+    flex: 0 0 440px;
   }
   .top-header-icons {
     display: none;
@@ -1213,7 +1213,7 @@ select {
 
   .top-nav .nav-list {
     position: fixed;
-    top: calc(48px + 14px);
+    top: calc(72px + 14px);
     left: 16px;
     right: 16px;
     background: rgba(13, 17, 23, 0.70);
@@ -1299,7 +1299,7 @@ select {
   .hero {
     min-height: 70vh;
     min-height: 70dvh;
-    padding-top: calc(48px + var(--sat));
+    padding-top: calc(72px + var(--sat));
   }
 
   .hero-content {
@@ -1410,16 +1410,16 @@ select {
 
 @media (max-width: 480px) {
   .top-header-inner {
-    height: 44px;
+    height: 64px;
   }
   .top-header-logo {
-    flex: 0 0 260px;
+    flex: 0 0 340px;
   }
   .top-header-icons {
     flex: 0 0 140px;
   }
   .top-nav .nav-list {
-    top: calc(44px + 12px);
+    top: calc(64px + 12px);
     left: 12px;
     right: 12px;
   }
@@ -1575,10 +1575,10 @@ select {
 
 @media (max-width: 360px) {
   .top-header-inner {
-    height: 40px;
+    height: 56px;
   }
   .top-header-logo {
-    flex: 0 0 110px;
+    flex: 0 0 280px;
   }
   .hero {
     min-height: 65vh;
@@ -1597,7 +1597,7 @@ select {
     margin-bottom: 8px;
   }
   .top-nav .nav-list {
-    top: calc(40px + 10px);
+    top: calc(56px + 10px);
     left: 10px;
     right: 10px;
   }
