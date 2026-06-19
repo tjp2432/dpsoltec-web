@@ -1479,6 +1479,11 @@ select {
     font-size: 0.82rem;
   }
 
+  .cards-row-center {
+    padding: 0;
+    margin-top: 12px;
+  }
+
   .cards-grid {
     gap: 12px;
   }
