@@ -116,7 +116,6 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #000;
   box-shadow: var(--glass-shadow);
 }
 
@@ -125,6 +124,9 @@ img {
   align-items: center;
   height: 64px;
   overflow: hidden;
+  background: rgba(13, 17, 23, 0.6);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
 }
 
 .top-header-logo {
@@ -133,8 +135,7 @@ img {
   object-fit: cover;
   object-position: left center;
   display: block;
-  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
-  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  background: #000;
 }
 
 .top-header-icons {
@@ -144,8 +145,7 @@ img {
   object-position: right center;
   display: block;
   margin-left: auto;
-  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
-  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  background: #000;
 }
 
 /* --- Nav centered in header row --- */
