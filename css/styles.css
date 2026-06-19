@@ -600,7 +600,7 @@ select {
 /* ---------- Cards Grid ---------- */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
 
@@ -1352,11 +1352,6 @@ select {
     gap: 16px;
   }
 
-  .cards-row-center {
-    padding: 0;
-    margin-top: 16px;
-  }
-
   .card-body {
     padding: 24px 20px 16px;
   }
@@ -1481,11 +1476,6 @@ select {
 
   .section-desc {
     font-size: 0.82rem;
-  }
-
-  .cards-row-center {
-    padding: 0;
-    margin-top: 12px;
   }
 
   .cards-grid {
