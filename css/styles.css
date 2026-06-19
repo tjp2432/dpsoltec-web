@@ -1281,8 +1281,9 @@ select {
   }
 
   .menu-toggle {
-    padding: 8px;
-    min-width: 48px;
+    align-self: stretch;
+    padding: 4px 16px;
+    min-width: 64px;
     min-height: 48px;
     align-items: center;
     justify-content: center;
