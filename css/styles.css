@@ -1233,6 +1233,7 @@ select {
     text-align: center;
     z-index: 999;
     display: flex;
+    pointer-events: none;
   }
 
   .top-nav .nav-list::before {
@@ -1251,6 +1252,7 @@ select {
   .top-header.open .top-nav .nav-list {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-link {
@@ -1281,19 +1283,23 @@ select {
   }
 
   .menu-toggle {
-    align-self: stretch;
-    padding: 4px 16px;
-    min-width: 64px;
-    min-height: 48px;
+    width: 48px;
+    height: 40px;
+    padding: 0;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+  }
+  .menu-toggle span {
+    width: 22px;
+    height: 2.5px;
+    margin: 2px 0;
   }
   .menu-toggle:active {
     background: rgba(255, 255, 255, 0.12);
-    transform: scale(0.95);
   }
 
   .menu-toggle.active span:nth-child(1) {
