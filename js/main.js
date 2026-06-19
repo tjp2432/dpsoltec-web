@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle('open');
     }
 
-    // Hamburger button toggles menu on single tap
-    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    // Hamburger button toggles menu on tap (no drag)
+    menuToggle.addEventListener('touchstart', (e) => { e.preventDefault(); toggleMenu(); }, { passive: false });
 
     // Nav links close menu on click
     navLinks.forEach(link => {
