@@ -4,26 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const contactForm = document.getElementById('contactForm');
 
-    // Mobile menu toggle — tap anywhere in .top-nav
-    const topNav = document.querySelector('.top-nav');
+    // Mobile menu toggle
+    function closeMenu() {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('open');
+    }
     function toggleMenu() {
         menuToggle.classList.toggle('active');
         nav.classList.toggle('open');
     }
-    topNav.addEventListener('click', () => toggleMenu());
-    topNav.addEventListener('touchstart', () => toggleMenu(), { passive: true });
 
-    // Close menu on link click and tap outside
+    // Hamburger button toggles menu
+    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    menuToggle.addEventListener('touchstart', (e) => { e.stopPropagation(); toggleMenu(); }, { passive: true });
+
+    // Nav links close menu on click
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('open');
-        });
+        link.addEventListener('click', closeMenu);
     });
+
+    // Tap outside header closes menu
     document.addEventListener('click', (e) => {
         if (nav.classList.contains('open') && !e.target.closest('.top-header')) {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('open');
+            closeMenu();
         }
     });
 
