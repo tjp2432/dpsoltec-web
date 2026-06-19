@@ -1304,32 +1304,34 @@ select {
   }
 
   .hero-content {
-    max-width: 240px;
-    padding: 14px 24px;
+    max-width: 320px;
+    padding: 24px 28px;
     border-radius: 28px;
   }
   .hero-logo {
-    height: 44px;
+    height: 72px;
   }
   .hero-badge {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .hero-title {
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
-    margin-bottom: 0;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    margin-bottom: 10px;
   }
   .hero-description {
-    display: none;
+    font-size: 0.75rem;
+    max-width: 260px;
+    margin-bottom: 16px;
+    display: block;
   }
   .hero-actions {
-    margin-top: 12px;
-    gap: 6px;
+    gap: 10px;
   }
   .hero-actions .btn {
-    font-size: 0.7rem;
-    padding: 6px 12px;
-    min-height: 30px;
+    font-size: 0.75rem;
+    padding: 8px 18px;
+    min-height: 36px;
   }
 
   .section {
@@ -1429,19 +1431,16 @@ select {
   }
 
   .hero-content {
-    max-width: 210px;
-    padding: 12px 20px;
+    max-width: 280px;
+    padding: 20px 24px;
     border-radius: 24px;
   }
   .hero-logo {
-    height: 36px;
+    height: 60px;
   }
   .hero-badge {
-    padding: 3px;
-    margin-bottom: 6px;
-  }
-  .hero-actions {
-    margin-top: 10px;
+    padding: 4px;
+    margin-bottom: 10px;
   }
 
   .hero-title {
@@ -1587,16 +1586,16 @@ select {
     min-height: 65dvh;
   }
   .hero-content {
-    max-width: 190px;
-    padding: 10px 16px;
+    max-width: 250px;
+    padding: 18px 22px;
     border-radius: 20px;
   }
   .hero-logo {
-    height: 32px;
+    height: 52px;
   }
   .hero-badge {
     padding: 3px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .top-nav .nav-list {
     top: calc(40px + 10px);
