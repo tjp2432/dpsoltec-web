@@ -1298,7 +1298,8 @@ select {
   .hero {
     min-height: 92vh;
     min-height: 92dvh;
-    padding-top: calc(100px + var(--sat));
+    padding-top: calc(48px + var(--sat));
+    padding-bottom: calc(48px + var(--sat));
   }
 
   .hero-content {
