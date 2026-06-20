@@ -22,11 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleMenu();
     });
 
-    // Nav links close menu on click
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
     // Tap outside header closes menu
     document.addEventListener('click', (e) => {
         if (nav.classList.contains('open') && !e.target.closest('.top-header')) {
