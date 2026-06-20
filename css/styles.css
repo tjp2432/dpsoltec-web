@@ -1777,7 +1777,7 @@ select {
 
 .wa-wrapper:has(.wa-float:hover) .wa-bot-zap {
   opacity: 1;
-  filter: drop-shadow(0 0 10px #facc15) drop-shadow(0 0 20px rgba(250, 204, 21, 0.4));
+  filter: url(#zap-glow);
 }
 
 @keyframes waBotWink {
