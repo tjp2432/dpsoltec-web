@@ -716,7 +716,7 @@ select {
   background: rgba(101, 207, 114, 0.08);
   border-radius: 14px;
   color: var(--primary);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   box-shadow: var(--glass-highlight);
 }
@@ -747,27 +747,19 @@ select {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .card-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
 .card-list li {
   font-size: 0.9rem;
   color: var(--text-muted);
-  padding-left: 20px;
-  position: relative;
-}
-
-.card-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: 600;
 }
 
 /* Card Bottom Green Graphic */
