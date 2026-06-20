@@ -1008,9 +1008,11 @@ select {
 }
 .contact-link:hover {
   color: var(--primary);
+  text-decoration: underline;
 }
 .contact-link:hover h4 {
   color: var(--primary);
+  text-decoration: underline;
 }
 
 .contact-item svg {
