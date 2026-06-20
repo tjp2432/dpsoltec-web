@@ -1175,13 +1175,13 @@ select {
   .top-nav {
     position: static;
     justify-content: flex-end;
-    margin-right: -4px;
   }
   .top-nav .nav-list {
     display: none;
   }
   .top-nav .menu-toggle {
     display: flex;
+    margin-right: -8px;
   }
 
   .top-nav .nav-list {
