@@ -126,13 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (!validateForm()) return;
 
-        navigator.sendBeacon(contactForm.action, new URLSearchParams({
-            nombre: document.getElementById('nombre').value,
-            email: document.getElementById('email').value,
-            empresa: document.getElementById('empresa').value,
-            mensaje: document.getElementById('mensaje').value,
-            asunto: 'CONSULTA WEB DP SOLTEC'
-        }));
+        fetch(contactForm.action, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams({
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                empresa: document.getElementById('empresa').value,
+                mensaje: document.getElementById('mensaje').value,
+                asunto: 'CONSULTA WEB DP SOLTEC'
+            })
+        });
 
         showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
         contactForm.reset();
