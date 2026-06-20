@@ -125,6 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         if (!validateForm()) {
             e.preventDefault();
+        } else {
+            contactForm.reset();
+            const msg = document.querySelector('.char-count');
+            if (msg) msg.textContent = '0';
+            showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
         }
     });
 
