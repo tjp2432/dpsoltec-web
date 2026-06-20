@@ -282,7 +282,7 @@ select {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: #000000;
+  background: var(--bg-primary);
   z-index: -1;
 }
 
