@@ -1001,6 +1001,18 @@ select {
   z-index: 1;
 }
 
+.contact-link {
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.contact-link:hover {
+  color: var(--primary);
+}
+.contact-link:hover h4 {
+  color: var(--primary);
+}
+
 .contact-item svg {
   flex-shrink: 0;
   color: var(--primary);
