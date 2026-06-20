@@ -38,11 +38,12 @@
             </feMerge>
         </filter>
 
-        <filter id="zap-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.98  0 0 0 0 0.8  0 0 0 0 0.08  0 0 0 0.6 0" result="color"/>
+        <filter id="zap-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+            <feFlood flood-color="#facc15" flood-opacity="0.6" result="color"/>
+            <feComposite in="color" in2="blur" operator="in" result="glow"/>
             <feMerge>
-                <feMergeNode in="color"/>
+                <feMergeNode in="glow"/>
                 <feMergeNode in="SourceGraphic"/>
             </feMerge>
         </filter>
