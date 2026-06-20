@@ -1173,8 +1173,9 @@ select {
   }
 
   .top-nav {
-    position: static;
-    margin-left: auto;
+    position: absolute;
+    right: 12px;
+    margin-left: 0;
     justify-content: flex-end;
     transform: none;
   }
