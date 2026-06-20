@@ -1185,8 +1185,7 @@ select {
   .top-nav .nav-list {
     position: fixed;
     top: calc(80px + 14px);
-    left: 50%;
-    width: max-content;
+    left: 16px;
     background: rgba(13, 17, 23, 0.70);
     backdrop-filter: blur(50px) saturate(1.8);
     -webkit-backdrop-filter: blur(50px) saturate(1.8);
@@ -1196,7 +1195,7 @@ select {
     padding: 10px 12px;
     padding-top: 10px;
     padding-bottom: calc(10px + var(--sab));
-    transform: translateX(-50%) translateY(-120%);
+    transform: translateY(-120%);
     opacity: 0;
     transition: var(--transition);
     flex-direction: row;
@@ -1209,7 +1208,7 @@ select {
   }
 
   .top-header.open .top-nav .nav-list {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
