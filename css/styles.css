@@ -1166,6 +1166,7 @@ select {
   }
   .top-header-logo {
     flex: 0 0 550px;
+    margin-left: -8px;
   }
   .top-header-icons {
     display: none;
@@ -1174,6 +1175,7 @@ select {
   .top-nav {
     position: static;
     justify-content: flex-end;
+    margin-right: -4px;
   }
   .top-nav .nav-list {
     display: none;
