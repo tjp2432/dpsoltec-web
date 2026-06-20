@@ -1185,8 +1185,8 @@ select {
   .top-nav .nav-list {
     position: fixed;
     top: calc(80px + 14px);
-    left: 16px;
-    right: 16px;
+    left: 50%;
+    width: auto;
     background: rgba(13, 17, 23, 0.70);
     backdrop-filter: blur(50px) saturate(1.8);
     -webkit-backdrop-filter: blur(50px) saturate(1.8);
@@ -1196,19 +1196,20 @@ select {
     padding: 10px 12px;
     padding-top: 10px;
     padding-bottom: calc(10px + var(--sab));
-    transform: translateY(-120%);
+    transform: translateX(-50%) translateY(-120%);
     opacity: 0;
     transition: var(--transition);
     flex-direction: row;
     justify-content: center;
     gap: 2px;
+    text-align: center;
     z-index: 999;
     display: flex;
     pointer-events: none;
   }
 
   .top-header.open .top-nav .nav-list {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
@@ -1410,8 +1411,6 @@ select {
   }
   .top-nav .nav-list {
     top: calc(64px + 7px);
-    left: 12px;
-    right: 12px;
   }
 
   .hero {
@@ -1590,8 +1589,6 @@ select {
   }
   .top-nav .nav-list {
     top: calc(56px + 20px);
-    left: 10px;
-    right: 10px;
     gap: 1px;
   }
   .nav-link {
