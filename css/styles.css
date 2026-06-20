@@ -848,9 +848,9 @@ select {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 28px;
-  max-width: 960px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
