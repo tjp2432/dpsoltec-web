@@ -393,7 +393,7 @@ select {
 /* ---------- Hero Badge (Liquid Glass) ---------- */
 .hero-badge {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(60, 65, 75, 0.35);
   padding: 6px;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
