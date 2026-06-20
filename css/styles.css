@@ -81,7 +81,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 90px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -156,7 +156,7 @@ select {
 .top-header-inner {
   display: flex;
   align-items: center;
-  height: 96px;
+  height: 80px;
   padding-right: var(--sar);
   padding-left: var(--sal);
   position: relative;
@@ -266,7 +266,7 @@ select {
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding-top: calc(96px + var(--sat));
+  padding-top: calc(80px + var(--sat));
   overflow: hidden;
 }
 
