@@ -305,7 +305,7 @@ select {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
-  animation: breathe 4s ease-in-out infinite;
+  animation: breathe 8s ease-in-out infinite;
 }
 
 .hero-content:hover {
@@ -388,10 +388,9 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px rgba(101, 207, 114, 0.12), 0 -1px 4px rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
-  filter: url(#glass-glow);
   transition: var(--transition);
   line-height: 0;
 }
