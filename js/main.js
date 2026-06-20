@@ -106,7 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Contact form
-    contactForm.addEventListener('submit', (e) => {
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbw57tL2aQIjs9IH602u__DDfoZVQJ6Bdk7OktHBbjcTS0o_f7mfg7YbEm_a9ke4oxKh/exec';
+
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const formData = {
@@ -126,8 +128,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
-        contactForm.reset();
+        try {
+            await fetch(GAS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(formData)
+            });
+            showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
+            contactForm.reset();
+        } catch (err) {
+            showToast('Error al enviar el mensaje. Intentalo de nuevo.', 'error');
+        }
     });
 
     // Toast notification
