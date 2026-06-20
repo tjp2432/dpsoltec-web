@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
+    function updateActiveNav() {
         let current = '';
         sections.forEach(section => {
             const top = section.offsetTop - 120;
@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
-    });
+    }
+    updateActiveNav();
+    window.addEventListener('scroll', updateActiveNav);
 
     // Animated counters
     const statsSection = document.querySelector('.stats');
