@@ -220,6 +220,8 @@ select {
   transition: var(--transition);
   position: relative;
   padding: 4px 0;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .nav-link::after {
