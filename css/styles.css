@@ -1038,10 +1038,6 @@ select {
   font-weight: 500;
   transition: var(--transition);
 }
-.contact-phone:hover {
-  color: #7ddb86;
-  text-decoration: underline;
-}
 
 .contact-instagram {
   font-weight: 500;
@@ -1051,9 +1047,13 @@ select {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.contact-instagram:hover {
-  text-decoration: underline;
-  filter: brightness(1.3);
+
+.contact-link:hover .contact-instagram {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+  color: var(--primary);
 }
 
 
