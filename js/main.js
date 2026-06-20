@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Nav links: stay open on mobile, but update active state via scroll spy
+    // Nav links: stay open on mobile, update active after scroll
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.stopPropagation();
+            setTimeout(updateActiveNav, 600);
         });
     });
 
