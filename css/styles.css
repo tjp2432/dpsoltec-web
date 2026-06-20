@@ -728,6 +728,13 @@ select {
   box-shadow: var(--glass-highlight), 0 0 12px rgba(255, 200, 50, 0.12);
 }
 
+.card-icon-tools {
+  background: rgba(239, 68, 68, 0.10);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.25);
+  box-shadow: var(--glass-highlight), 0 0 12px rgba(239, 68, 68, 0.12);
+}
+
 .card-title {
   font-size: 1.3rem;
   font-weight: 700;
