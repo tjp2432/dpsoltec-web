@@ -1008,11 +1008,13 @@ select {
 }
 .contact-link:hover {
   color: var(--primary);
-  text-decoration: underline;
 }
 .contact-link:hover h4 {
   color: var(--primary);
+}
+.contact-link:hover p {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .contact-item svg {
