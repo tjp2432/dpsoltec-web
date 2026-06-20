@@ -305,11 +305,18 @@ select {
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  animation: breathe 4s ease-in-out infinite;
 }
 
 .hero-content:hover {
+  animation: none;
   box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
   transform: translateY(-2px);
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.008); }
 }
 
 /* Specular highlight overlay — Apple Liquid Glass style */
