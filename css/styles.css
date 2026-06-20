@@ -385,7 +385,6 @@ select {
 
 /* SVG displacement refraction overlay on glass ::before layers */
 .card::before,
-.hero-content::before,
 .contact-form::before,
 .contact-info::before {
   filter: url(#liquid-glass);
