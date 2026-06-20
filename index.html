@@ -38,9 +38,9 @@
             </feMerge>
         </filter>
 
-        <filter id="zap-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-            <feFlood flood-color="#facc15" flood-opacity="0.6" result="color"/>
+        <filter id="zap-glow" x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+            <feFlood flood-color="#facc15" flood-opacity="0.7" result="color"/>
             <feComposite in="color" in2="blur" operator="in" result="glow"/>
             <feMerge>
                 <feMergeNode in="glow"/>
@@ -320,7 +320,7 @@
                     <circle cx="9.5" cy="13" r="1.2" fill="currentColor"/>
                     <circle cx="14.5" cy="13" r="1.2" fill="currentColor" class="wa-bot-eye-r"/>
                     <path d="M10 16.5 Q12 17.5 14 16.5" stroke-width="1.5"/>
-                    <path class="wa-bot-zap" d="M8 2 L10 0.5 L12 2.5 L15 1 L17 2" stroke-width="1.2" fill="none" stroke="#facc15" stroke-linecap="round"/>
+                    <path class="wa-bot-zap" d="M8 2 L10 0.5 L12 2.5 L15 1 L17 2" stroke-width="1.2" fill="none" stroke="#facc15" stroke-linecap="round" filter="url(#zap-glow)"/>
                 </svg>
                 Preguntale al bot
             </span>
