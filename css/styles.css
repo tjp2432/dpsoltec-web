@@ -235,13 +235,20 @@ select {
   transition: var(--transition);
 }
 
-.nav-link:hover,
 .nav-link.active {
   color: var(--primary);
 }
-.nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+}
+
+@media (hover: hover) {
+  .nav-link:hover {
+    color: var(--primary);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
 }
 
 .menu-toggle {
@@ -1268,13 +1275,22 @@ select {
     white-space: nowrap;
   }
 
-  .nav-link:hover,
   .nav-link.active {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-color: rgba(255, 255, 255, 0.06);
     color: var(--primary);
+  }
+
+  @media (hover: hover) {
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: rgba(255, 255, 255, 0.06);
+      color: var(--primary);
+    }
   }
 
   .nav-link::after {
