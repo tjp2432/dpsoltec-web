@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Nav links: stay open on mobile, but update active state via scroll spy
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
