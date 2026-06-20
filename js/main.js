@@ -106,37 +106,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Contact form
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbw57tL2aQIjs9IH602u__DDfoZVQJ6Bdk7OktHBbjcTS0o_f7mfg7YbEm_a9ke4oxKh/exec';
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = {
-            nombre: document.getElementById('nombre').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            empresa: document.getElementById('empresa').value.trim(),
-            mensaje: document.getElementById('mensaje').value.trim()
-        };
-
-        if (!formData.nombre || !formData.email || !formData.mensaje) {
+    function validateForm() {
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+        if (!nombre || !email || !mensaje) {
             showToast('Por favor completá los campos obligatorios.', 'error');
-            return;
+            return false;
         }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             showToast('Por favor ingresá un email válido.', 'error');
-            return;
+            return false;
         }
+        return true;
+    }
 
-        try {
-            await fetch(GAS_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(formData)
-            });
+    contactForm.addEventListener('submit', (e) => {
+        if (!validateForm()) {
+            e.preventDefault();
+        }
+    });
+
+    window.addEventListener('message', (e) => {
+        if (e.data && e.data.status === 'success') {
             showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
             contactForm.reset();
-        } catch (err) {
+        } else if (e.data && e.data.status === 'error') {
             showToast('Error al enviar el mensaje. Intentalo de nuevo.', 'error');
         }
     });
