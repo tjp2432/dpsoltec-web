@@ -405,7 +405,7 @@ select {
 
 .hero-logo {
   display: block;
-  height: 120px;
+  height: 140px;
   width: auto;
   border-radius: var(--radius-full);
   position: relative;
@@ -1302,7 +1302,7 @@ select {
     border-radius: 28px;
   }
   .hero-logo {
-    height: 72px;
+    height: 90px;
   }
   .hero-badge {
     margin-bottom: 12px;
@@ -1423,7 +1423,7 @@ select {
     border-radius: 24px;
   }
   .hero-logo {
-    height: 60px;
+    height: 75px;
   }
   .hero-badge {
     padding: 4px;
@@ -1579,7 +1579,7 @@ select {
     border-radius: 20px;
   }
   .hero-logo {
-    height: 52px;
+    height: 65px;
   }
   .hero-badge {
     padding: 3px;
