@@ -23,7 +23,7 @@
   --glass-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   --glass-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.3);
   --glass-blur: blur(40px) saturate(1.6);
-  --glass-blur-strong: blur(50px) saturate(2.0);
+  --glass-blur-strong: blur(50px);
 
   /* iOS safe area tokens */
   --sat: env(safe-area-inset-top, 0px);
@@ -275,13 +275,13 @@ select {
   display: flex;
   align-items: center;
   padding-top: calc(80px + var(--sat));
-  background: #0d1117;
   overflow: hidden;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
+  background: #0d1117;
   pointer-events: none;
 }
 
