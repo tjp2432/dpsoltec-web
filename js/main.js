@@ -123,23 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     contactForm.addEventListener('submit', (e) => {
-        if (!validateForm()) {
-            e.preventDefault();
-        } else {
-            contactForm.reset();
-            const msg = document.querySelector('.char-count');
-            if (msg) msg.textContent = '0';
-            showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
-        }
-    });
+        e.preventDefault();
+        if (!validateForm()) return;
 
-    window.addEventListener('message', (e) => {
-        if (e.data && e.data.status === 'success') {
-            showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
-            contactForm.reset();
-        } else if (e.data && e.data.status === 'error') {
-            showToast('Error al enviar el mensaje. Intentalo de nuevo.', 'error');
-        }
+        fetch(contactForm.action, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams(new FormData(contactForm))
+        });
+
+        showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
+        contactForm.reset();
+        const msg = document.querySelector('.char-count');
+        if (msg) msg.textContent = '0';
     });
 
     // Toast notification
