@@ -868,9 +868,9 @@ select {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 28px;
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -1534,9 +1534,11 @@ select {
     font-size: 1.3rem;
   }
 
-  .contact-grid {
-    gap: 16px;
-  }
+    .contact-grid {
+      grid-template-columns: 1fr;
+      max-width: 640px;
+      gap: 16px;
+    }
 
   .contact-form {
     padding: 20px 16px;
