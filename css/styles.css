@@ -1185,6 +1185,7 @@ select {
   .top-nav .nav-list {
     position: fixed;
     top: calc(80px + 14px);
+    left: 16px;
     right: 16px;
     transform: translateY(-120%);
     background: rgba(13, 17, 23, 0.70);
@@ -1204,7 +1205,6 @@ select {
     z-index: 999;
     display: flex;
     pointer-events: none;
-    white-space: nowrap;
   }
 
   .top-header.open .top-nav .nav-list {
