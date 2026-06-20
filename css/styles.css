@@ -1049,11 +1049,11 @@ select {
 }
 
 .contact-link:hover .contact-instagram {
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  -webkit-text-fill-color: unset;
-  color: var(--primary);
+  text-decoration: underline;
+  filter: none;
+}
+.contact-link:hover .contact-phone {
+  text-decoration: underline;
 }
 
 
