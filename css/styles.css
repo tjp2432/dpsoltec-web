@@ -1762,7 +1762,7 @@ select {
   margin-right: 6px;
   margin-top: 2px;
   color: var(--primary);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 12px rgba(101, 207, 114, 0.25));
 }
 
 .wa-bot-eye-r {
@@ -1778,7 +1778,7 @@ select {
 
 .wa-wrapper:has(.wa-float:hover) .wa-bot-zap {
   opacity: 1;
-  filter: drop-shadow(0 0 6px #facc15) drop-shadow(0 0 12px #facc15);
+  filter: drop-shadow(0 0 10px #facc15) drop-shadow(0 0 20px rgba(250, 204, 21, 0.4));
 }
 
 @keyframes waBotWink {
