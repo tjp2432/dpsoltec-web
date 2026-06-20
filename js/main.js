@@ -126,11 +126,29 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (!validateForm()) return;
 
-        fetch(contactForm.action, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: new URLSearchParams(new FormData(contactForm))
+        const tmpForm = document.createElement('form');
+        tmpForm.method = 'POST';
+        tmpForm.action = contactForm.action;
+        tmpForm.target = 'gas-frame';
+        tmpForm.style.display = 'none';
+
+        ['nombre', 'email', 'empresa', 'mensaje'].forEach(id => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = id;
+            input.value = document.getElementById(id).value;
+            tmpForm.appendChild(input);
         });
+
+        const asunto = document.createElement('input');
+        asunto.type = 'hidden';
+        asunto.name = 'asunto';
+        asunto.value = 'CONSULTA WEB DP SOLTEC';
+        tmpForm.appendChild(asunto);
+
+        document.body.appendChild(tmpForm);
+        tmpForm.submit();
+        document.body.removeChild(tmpForm);
 
         showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
         contactForm.reset();
