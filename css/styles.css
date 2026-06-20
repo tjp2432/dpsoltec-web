@@ -308,12 +308,6 @@ select {
   animation: breathe 8s ease-in-out infinite;
 }
 
-.hero-content:hover {
-  animation: none;
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
-  transform: translateY(-2px);
-}
-
 @keyframes breathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.008); }
