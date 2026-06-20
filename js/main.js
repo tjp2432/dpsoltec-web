@@ -29,33 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Nav links: stay open on mobile, update active after scroll
+    // Nav links: stay open on mobile
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.stopPropagation();
-            setTimeout(updateActiveNav, 600);
         });
     });
 
-    // Active nav link on scroll
+    // Active nav link on scroll (IntersectionObserver)
     const sections = document.querySelectorAll('section[id]');
-    function updateActiveNav() {
-        let current = '';
-        sections.forEach(section => {
-            const top = section.offsetTop - 120;
-            if (window.scrollY >= top) {
-                current = section.getAttribute('id');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-    updateActiveNav();
-    window.addEventListener('scroll', updateActiveNav);
+    }, { rootMargin: '-120px 0px -50% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
 
     // Animated counters
     const statsSection = document.querySelector('.stats');
