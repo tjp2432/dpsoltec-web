@@ -656,7 +656,7 @@ select {
 }
 
 .card-body {
-  padding: 36px 32px 20px;
+  padding: 28px 32px 28px;
   position: relative;
   z-index: 2;
   flex: 1;
