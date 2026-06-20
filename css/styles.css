@@ -721,6 +721,13 @@ select {
   box-shadow: var(--glass-highlight);
 }
 
+.card-icon-electric {
+  background: rgba(255, 200, 50, 0.10);
+  color: #f5c542;
+  border-color: rgba(255, 200, 50, 0.25);
+  box-shadow: var(--glass-highlight), 0 0 12px rgba(255, 200, 50, 0.12);
+}
+
 .card-title {
   font-size: 1.3rem;
   font-weight: 700;
