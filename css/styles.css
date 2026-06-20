@@ -619,6 +619,8 @@ select {
   -webkit-backdrop-filter: var(--glass-blur-strong);
   box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
   min-height: 380px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Specular highlight - top shine */
@@ -657,6 +659,11 @@ select {
   padding: 36px 32px 20px;
   position: relative;
   z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-featured {
