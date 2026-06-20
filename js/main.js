@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const toast = document.createElement('div');
         toast.className = 'toast';
         if (type === 'error') {
-            toast.style.background = '#ef4444';
+            toast.classList.add('error');
         }
         toast.textContent = message;
         document.body.appendChild(toast);
