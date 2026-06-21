@@ -776,7 +776,7 @@ select {
   background: url('../assets/graf-4.png') no-repeat bottom center / cover;
   pointer-events: none;
   z-index: 0;
-  filter: url(#liquid-glass);
+  filter: drop-shadow(0 0 10px rgba(101, 207, 114, 0.4));
 }
 
 .cards-row-center {
