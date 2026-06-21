@@ -1,5 +1,5 @@
 :root {
-  --bg-primary: #0a0f20;
+  --bg-primary: #0d1117;
   --bg-secondary: #161b22;
   --primary: #65CF72;
   --primary-hover: #7edc89;
@@ -147,7 +147,7 @@ select {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 15, 32, 0.6);
+  background: rgba(13, 17, 23, 0.6);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
 }
@@ -281,7 +281,7 @@ select {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: #0a0f20;
+  background: #0d1117;
   pointer-events: none;
 }
 
@@ -675,14 +675,15 @@ select {
   color: var(--primary);
   padding: 6px 18px;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
   letter-spacing: 0.5px;
   white-space: nowrap;
   z-index: 3;
   box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   filter: url(#glass-glow);
+  transition: var(--transition);
 }
 
 .card-badge::before {
@@ -697,6 +698,11 @@ select {
     linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.03) 1px, transparent 35%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
   pointer-events: none;
+}
+
+.card-badge:hover {
+  background: rgba(101, 207, 114, 0.12);
+  transform: translateX(-50%) scale(1.03);
 }
 
 /* Card Icon */
