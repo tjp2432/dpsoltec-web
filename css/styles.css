@@ -603,7 +603,7 @@ select {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight), 0 0 0 1px rgba(101, 207, 114, 0.08), 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
   min-height: 380px;
   display: flex;
   flex-direction: column;
@@ -638,7 +638,7 @@ select {
   transform: translateY(-2px) scale(1.01);
   background: var(--glass-bg-strong);
   border-color: var(--glass-border-strong);
-  box-shadow: var(--glass-highlight-heavy), 0 0 0 1px rgba(101, 207, 114, 0.15), 0 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--glass-highlight-heavy), 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card-body {
