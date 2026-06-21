@@ -668,10 +668,10 @@ select {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(101, 207, 114, 0.08);
+  background: rgba(13, 17, 23, 0.65);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   color: var(--primary);
   padding: 6px 18px;
   border-radius: var(--radius-full);
@@ -680,9 +680,8 @@ select {
   letter-spacing: 0.5px;
   white-space: nowrap;
   z-index: 3;
-  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glass-highlight), 0 4px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  filter: url(#glass-glow);
   transition: var(--transition);
 }
 
@@ -695,13 +694,24 @@ select {
   bottom: 0;
   border-radius: inherit;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.03) 1px, transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.02) 1px, transparent 35%);
+  pointer-events: none;
+}
+
+.card-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
   pointer-events: none;
 }
 
 .card-badge:hover {
-  background: rgba(101, 207, 114, 0.12);
+  background: rgba(13, 17, 23, 0.75);
   transform: translateX(-50%) scale(1.03);
 }
 
