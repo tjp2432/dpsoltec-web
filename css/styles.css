@@ -738,6 +738,13 @@ select {
   box-shadow: var(--glass-highlight), 0 0 12px rgba(33, 150, 243, 0.15);
 }
 
+.card-icon-security {
+  background: rgba(101, 207, 114, 0.10);
+  color: var(--primary);
+  border-color: rgba(101, 207, 114, 0.25);
+  box-shadow: var(--glass-highlight), 0 0 12px rgba(101, 207, 114, 0.15);
+}
+
 .card-title {
   font-size: 1.3rem;
   font-weight: 700;
