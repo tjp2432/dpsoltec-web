@@ -723,12 +723,18 @@ select {
   border-color: rgba(255, 200, 50, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(255, 200, 50, 0.12);
 }
+.card-icon-electric svg {
+  filter: drop-shadow(0 0 5px rgba(255, 200, 50, 0.45));
+}
 
 .card-icon-tools {
   background: rgba(239, 68, 68, 0.10);
   color: #ef4444;
   border-color: rgba(239, 68, 68, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(239, 68, 68, 0.12);
+}
+.card-icon-tools svg {
+  filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.45));
 }
 
 .card-icon-infra {
@@ -737,12 +743,18 @@ select {
   border-color: rgba(33, 150, 243, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(33, 150, 243, 0.15);
 }
+.card-icon-infra svg {
+  filter: drop-shadow(0 0 5px rgba(33, 150, 243, 0.45));
+}
 
 .card-icon-security {
   background: rgba(101, 207, 114, 0.10);
   color: var(--primary);
   border-color: rgba(101, 207, 114, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(101, 207, 114, 0.15);
+}
+.card-icon-security svg {
+  filter: drop-shadow(0 0 5px rgba(101, 207, 114, 0.45));
 }
 
 .card-title {
