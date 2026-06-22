@@ -956,7 +956,6 @@ select {
   outline: none;
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 0 0 3px rgba(101, 207, 114, 0.12), var(--glass-highlight-heavy);
-  background: var(--glass-bg-strong);
 }
 
 .form-group input::placeholder,
