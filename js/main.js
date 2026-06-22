@@ -175,4 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
             waBubbleRow.classList.add('closed');
         });
     }
+
+    // Lightbox: click gallery image to view fullscreen
+    document.addEventListener('click', (e) => {
+        const img = e.target.closest('.gallery-image-wrap img');
+        if (!img) return;
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox';
+        overlay.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
+        overlay.addEventListener('click', (e2) => {
+            if (e2.target === overlay || e2.target.classList.contains('lightbox-bg') || e2.target.classList.contains('lightbox-close')) {
+                overlay.remove();
+            }
+        });
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => overlay.classList.add('open'));
+    });
 });
