@@ -181,20 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Lightbox: click gallery image to view fullscreen
-    document.querySelectorAll('.gallery-image-wrap').forEach((wrap) => {
-        wrap.addEventListener('click', (e) => {
-            const img = wrap.querySelector('img');
+    document.querySelectorAll('.gallery-image-wrap').forEach((w) => {
+        w.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const img = this.querySelector('img');
             if (!img) return;
-            const overlay = document.createElement('div');
-            overlay.className = 'lightbox';
-            overlay.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
-            overlay.addEventListener('click', (e2) => {
-                if (e2.target === overlay || e2.target.classList.contains('lightbox-bg') || e2.target.classList.contains('lightbox-close')) {
-                    overlay.remove();
+            const o = document.createElement('div');
+            o.className = 'lightbox';
+            o.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
+            document.body.appendChild(o);
+            o.offsetHeight;
+            o.classList.add('open');
+            o.addEventListener('click', function(ev) {
+                if (ev.target === o || ev.target.classList.contains('lightbox-bg') || ev.target.classList.contains('lightbox-close')) {
+                    o.remove();
                 }
             });
-            document.body.appendChild(overlay);
-            overlay.offsetHeight;
-            overlay.classList.add('open');
         });
     });
