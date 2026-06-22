@@ -100,11 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const charCount = document.getElementById('charCount');
     const charCounter = document.querySelector('.char-counter');
 
-    mensaje.addEventListener('input', () => {
-        const len = mensaje.value.length;
-        charCount.textContent = len;
-        charCounter.classList.toggle('full', len === 170);
-    });
+    if (mensaje && charCount && charCounter) {
+        mensaje.addEventListener('input', () => {
+            const len = mensaje.value.length;
+            charCount.textContent = len;
+            charCounter.classList.toggle('full', len === 170);
+        });
+    }
 
     // Contact form
     function validateForm() {
@@ -122,27 +124,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!validateForm()) return;
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!validateForm()) return;
 
-        fetch(contactForm.action, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: new URLSearchParams({
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                empresa: document.getElementById('empresa').value,
-                mensaje: document.getElementById('mensaje').value,
-                asunto: 'CONSULTA WEB DP SOLTEC'
-            })
+            fetch(contactForm.action, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams({
+                    nombre: document.getElementById('nombre').value,
+                    email: document.getElementById('email').value,
+                    empresa: document.getElementById('empresa').value,
+                    mensaje: document.getElementById('mensaje').value,
+                    asunto: 'CONSULTA WEB DP SOLTEC'
+                })
+            });
+
+            showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
+            contactForm.reset();
+            const msg = document.querySelector('.char-count');
+            if (msg) msg.textContent = '0';
         });
-
-        showToast('Mensaje enviado con éxito. Te contactaremos pronto.', 'success');
-        contactForm.reset();
-        const msg = document.querySelector('.char-count');
-        if (msg) msg.textContent = '0';
-    });
+    }
 
     // Toast notification
     function showToast(message, type = 'success') {
