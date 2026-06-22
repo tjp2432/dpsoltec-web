@@ -12,6 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <svg class="svg-filters" aria-hidden="true">
+        <filter id="zap-glow" x="-1000%" y="-1000%" width="3000%" height="3000%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blurOuter"/>
+            <feFlood flood-color="#facc15" flood-opacity="0.35" result="colorOuter"/>
+            <feComposite in="colorOuter" in2="blurOuter" operator="in" result="glowOuter"/>
+            <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blurInner"/>
+            <feFlood flood-color="#facc15" flood-opacity="0.7" result="colorInner"/>
+            <feComposite in="colorInner" in2="blurInner" operator="in" result="glowInner"/>
+            <feMerge>
+                <feMergeNode in="glowOuter"/>
+                <feMergeNode in="glowInner"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </svg>
     <header class="top-header" id="nav">
         <div class="top-header-inner">
             <div class="top-header-logo"><img src="../assets/encabezado-ok.png" alt="DP Soltec"></div>
@@ -82,6 +97,14 @@
     <div class="wa-wrapper">
         <div class="wa-bubble-row">
             <span class="wa-bubble">
+                <svg class="wa-bot-icon" width="22" height="22" viewBox="0 0 24 24" overflow="visible" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="7" width="14" height="12" rx="3" fill="rgba(101,207,114,0.12)"/>
+                    <line x1="8" y1="5" x2="7" y2="2"/><line x1="16" y1="5" x2="17" y2="2"/>
+                    <circle cx="9.5" cy="13" r="1.2" fill="currentColor"/>
+                    <circle cx="14.5" cy="13" r="1.2" fill="currentColor" class="wa-bot-eye-r"/>
+                    <path d="M10 16.5 Q12 17.5 14 16.5" stroke-width="1.5"/>
+                    <path class="wa-bot-zap" d="M8 2 L10 0.5 L12 2.5 L15 1 L17 2" stroke-width="1.2" fill="none" stroke="#facc15" stroke-linecap="round" filter="url(#zap-glow)"/>
+                </svg>
                 Preguntale al bot
             </span>
             <button class="wa-close" aria-label="Cerrar">&times;</button>
