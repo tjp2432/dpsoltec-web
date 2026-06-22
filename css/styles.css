@@ -594,6 +594,15 @@ select {
 }
 
 /* --- Liquid Glass Card --- */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card-link:hover {
+  color: inherit;
+}
+
 .card {
   border-radius: var(--radius-lg);
   transition: var(--transition);
@@ -634,7 +643,7 @@ select {
   border-radius: inherit;
 }
 
-.card:hover {
+.card-link:hover .card {
   transform: translateY(-2px) scale(1.01);
   background: var(--glass-bg-strong);
   border-color: var(--glass-border-strong);
@@ -657,7 +666,7 @@ select {
   box-shadow: 0 0 0 1px rgba(101, 207, 114, 0.15), var(--glass-highlight), var(--glass-shadow);
 }
 
-.card-featured:hover {
+.card-link:hover .card-featured {
   border-color: rgba(255, 255, 255, 0.30);
   box-shadow: 0 0 0 1px rgba(101, 207, 114, 0.2), var(--glass-highlight-heavy), var(--glass-shadow-hover);
 }
@@ -1690,6 +1699,50 @@ select {
   .card-body {
     padding: 16px 12px 10px;
   }
+}
+
+/* Subpage Styles */
+.page-header {
+  padding: 140px 0 40px;
+  text-align: center;
+}
+.page-header .btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+.page-desc {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.gallery-placeholder {
+  aspect-ratio: 4 / 3;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 /* --- Floating WhatsApp Button (Liquid Glass) --- */
