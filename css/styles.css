@@ -1804,6 +1804,14 @@ select {
   background: var(--glass-bg);
   position: relative;
   box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+@media (hover: hover) {
+  .gallery-item:hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: var(--glass-border-strong);
+    box-shadow: var(--glass-highlight-heavy), 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
 }
 .gallery-item img {
   width: 100%;
