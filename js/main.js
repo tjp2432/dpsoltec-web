@@ -184,12 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const overlay = document.createElement('div');
             overlay.className = 'lightbox';
             overlay.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
-        overlay.addEventListener('click', (e2) => {
-            if (e2.target === overlay || e2.target.classList.contains('lightbox-bg') || e2.target.classList.contains('lightbox-close')) {
-                overlay.remove();
-            }
+            overlay.addEventListener('click', (e2) => {
+                if (e2.target === overlay || e2.target.classList.contains('lightbox-bg') || e2.target.classList.contains('lightbox-close')) {
+                    overlay.remove();
+                }
+            });
+            document.body.appendChild(overlay);
+            overlay.offsetHeight;
+            overlay.classList.add('open');
         });
-        document.body.appendChild(overlay);
-        requestAnimationFrame(() => overlay.classList.add('open'));
     });
-});
