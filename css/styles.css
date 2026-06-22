@@ -1712,7 +1712,7 @@ select {
 
 /* Subpage Styles */
 .page-header {
-  padding: 140px 0 40px;
+  padding: 100px 0 40px;
 }
 .page-header .container {
   display: flex;
