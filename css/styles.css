@@ -875,7 +875,7 @@ select {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: var(--glass-bg-strong);
+  background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: 36px;
