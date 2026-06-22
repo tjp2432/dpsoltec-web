@@ -180,26 +180,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lightbox: click gallery image to view fullscreen
-    document.querySelectorAll('.gallery-image-wrap').forEach(function(w) {
-        w.style.cursor = 'zoom-in';
-    });
+    // Lightbox
     document.addEventListener('click', function(e) {
         var wrap = e.target.closest('.gallery-image-wrap');
         if (!wrap) return;
         var img = wrap.querySelector('img');
         if (!img) return;
-        var old = document.querySelector('.lightbox');
-        if (old) old.remove();
-        var o = document.createElement('dialog');
-        o.className = 'lightbox';
-        o.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
+        var o = document.createElement('div');
+        o.className = 'lb';
+        o.innerHTML = '<div class="lb-bg"></div><span class="lb-x">&times;</span><img src="' + img.src + '">';
         document.body.appendChild(o);
-        o.showModal();
         o.addEventListener('click', function(ev) {
-            if (ev.target === o || ev.target.classList.contains('lightbox-bg') || ev.target.classList.contains('lightbox-close')) {
-                o.close();
-                setTimeout(function() { o.remove(); }, 300);
+            if (ev.target === o || ev.target.classList.contains('lb-bg') || ev.target.classList.contains('lb-x')) {
+                o.remove();
             }
         });
     });
