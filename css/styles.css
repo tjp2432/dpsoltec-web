@@ -879,9 +879,9 @@ select {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: 36px;
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
