@@ -177,14 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Lightbox: click gallery image to view fullscreen
-    document.addEventListener('click', (e) => {
-        const img = e.target.closest('.gallery-image-wrap');
-        if (!img) return;
-        const image = img.querySelector('img');
-        if (!image) return;
-        const overlay = document.createElement('div');
-        overlay.className = 'lightbox';
-        overlay.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + image.src + '" alt="' + image.alt + '">';
+    document.querySelectorAll('.gallery-image-wrap').forEach((wrap) => {
+        wrap.addEventListener('click', (e) => {
+            const img = wrap.querySelector('img');
+            if (!img) return;
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox';
+            overlay.innerHTML = '<div class="lightbox-bg"></div><button class="lightbox-close" aria-label="Cerrar">&times;</button><img src="' + img.src + '" alt="' + img.alt + '">';
         overlay.addEventListener('click', (e2) => {
             if (e2.target === overlay || e2.target.classList.contains('lightbox-bg') || e2.target.classList.contains('lightbox-close')) {
                 overlay.remove();
