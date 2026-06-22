@@ -1349,10 +1349,10 @@ select {
 .lb img {
   position: relative;
   display: block;
-  max-width: 92vw;
-  max-height: 92vh;
-  width: auto;
-  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  margin: auto;
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
 }
