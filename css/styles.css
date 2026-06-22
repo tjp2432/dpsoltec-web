@@ -1713,7 +1713,11 @@ select {
 /* Subpage Styles */
 .page-header {
   padding: 140px 0 40px;
-  text-align: center;
+}
+.page-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .page-header .btn-sm {
   display: inline-flex;
@@ -1722,6 +1726,7 @@ select {
   padding: 8px 18px;
   font-size: 0.85rem;
   margin-bottom: 20px;
+  align-self: flex-start;
 }
 .page-title {
   font-size: 2.2rem;
