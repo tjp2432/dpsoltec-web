@@ -181,18 +181,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Lightbox
-    document.addEventListener('click', function(e) {
-        var wrap = e.target.closest('.gallery-image-wrap');
-        if (!wrap) return;
-        var img = wrap.querySelector('img');
-        if (!img) return;
-        var o = document.createElement('div');
-        o.className = 'lb';
-        o.innerHTML = '<div class="lb-bg"></div><span class="lb-x">&times;</span><img src="' + img.src + '">';
-        document.body.appendChild(o);
-        o.addEventListener('click', function(ev) {
-            if (ev.target === o || ev.target.classList.contains('lb-bg') || ev.target.classList.contains('lb-x')) {
-                o.remove();
-            }
+    document.querySelectorAll('.gallery-image-wrap').forEach(function(w) {
+        w.addEventListener('click', function(e) {
+            var img = this.querySelector('img');
+            if (!img) return;
+            var o = document.createElement('div');
+            o.className = 'lb';
+            o.innerHTML = '<div class="lb-bg"></div><span class="lb-x">&times;</span><img src="' + img.src + '">';
+            document.body.appendChild(o);
+            o.addEventListener('click', function(ev) {
+                if (ev.target === o || ev.target.classList.contains('lb-bg') || ev.target.classList.contains('lb-x')) {
+                    o.remove();
+                }
+            });
         });
     });
+});
