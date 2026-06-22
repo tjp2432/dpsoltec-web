@@ -948,7 +948,7 @@ select {
 }
 
 #nombre {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .form-group input:focus,
