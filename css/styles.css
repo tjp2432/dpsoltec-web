@@ -976,6 +976,7 @@ select {
 .contact-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 24px;
   padding: 36px;
   background: var(--glass-bg);
