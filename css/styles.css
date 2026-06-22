@@ -940,15 +940,11 @@ select {
   font-family: inherit;
   font-size: 0.95rem;
   transition: var(--transition);
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.10);
   color: var(--text-primary);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-highlight);
-}
-
-#nombre {
-  background: rgba(13, 17, 23, 0.75);
 }
 
 .form-group input:focus,
