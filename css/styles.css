@@ -1834,6 +1834,13 @@ select {
   background: var(--glass-bg);
   border-bottom: 1px solid var(--glass-border);
 }
+.gallery-item:first-child .gallery-label,
+.gallery-item:nth-child(3) .gallery-label {
+  color: var(--primary);
+}
+.gallery-item:nth-child(2) .gallery-label {
+  color: #b5e035;
+}
 
 /* --- Floating WhatsApp Button (Liquid Glass) --- */
 .wa-wrapper {
