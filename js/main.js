@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lightbox with navigation
     function openLightbox(images, index) {
         var o = document.createElement('div');
-        o.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;';
+        o.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;display:flex;align-items:center;justify-content:center;';
         var bg = document.createElement('div');
         bg.style.cssText = 'position:absolute;inset:0;background:rgba(0,0,0,0.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);';
         o.appendChild(bg);
@@ -191,23 +191,26 @@ document.addEventListener('DOMContentLoaded', () => {
         x.style.cssText = 'position:fixed;top:20px;right:24px;z-index:10000;color:#fff;font-size:2.5rem;cursor:pointer;opacity:0.7;line-height:1;font-family:serif;';
         x.textContent = '\u00D7';
         o.appendChild(x);
-        var img = document.createElement('img');
-        img.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:92vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);';
-        o.appendChild(img);
+        var row = document.createElement('div');
+        row.style.cssText = 'display:flex;align-items:center;gap:4px;position:relative;z-index:1;';
         var prevBtn = document.createElement('span');
         prevBtn.textContent = '\u2039';
-        prevBtn.style.cssText = 'position:fixed;top:50%;left:8px;transform:translateY(-50%);z-index:10000;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.3rem;line-height:1;padding-bottom:1px;background:rgba(255,200,50,0.12);border:1px solid rgba(255,200,50,0.25);color:#f5c542;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(255,200,50,0.12);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
-        prevBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
-        prevBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
+        prevBtn.style.cssText = 'width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.3rem;line-height:1;padding-bottom:1px;flex-shrink:0;background:rgba(255,200,50,0.12);border:1px solid rgba(255,200,50,0.25);color:#f5c542;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(255,200,50,0.12);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
+        prevBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='scale(1.05)';});
+        prevBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='scale(1)';});
         prevBtn.style.opacity = '0.85';
-        o.appendChild(prevBtn);
+        row.appendChild(prevBtn);
+        var img = document.createElement('img');
+        img.style.cssText = 'max-width:92vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);display:block;';
+        row.appendChild(img);
         var nextBtn = document.createElement('span');
         nextBtn.textContent = '\u203A';
-        nextBtn.style.cssText = 'position:fixed;top:50%;right:8px;transform:translateY(-50%);z-index:10000;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.3rem;line-height:1;padding-bottom:1px;background:rgba(101,207,114,0.10);border:1px solid rgba(101,207,114,0.25);color:#65CF72;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(101,207,114,0.15);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
-        nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
-        nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
+        nextBtn.style.cssText = 'width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.3rem;line-height:1;padding-bottom:1px;flex-shrink:0;background:rgba(101,207,114,0.10);border:1px solid rgba(101,207,114,0.25);color:#65CF72;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(101,207,114,0.15);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
+        nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='scale(1.05)';});
+        nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='scale(1)';});
         nextBtn.style.opacity = '0.85';
-        o.appendChild(nextBtn);
+        row.appendChild(nextBtn);
+        o.appendChild(row);
         document.body.appendChild(o);
 
         function showImage(idx) {
