@@ -66,13 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 var container = item.closest('.container');
                 if (!grid || !container) return;
                 function removePreview() {
-                    if (preview) { preview.remove(); preview = null; container.style.position = ''; }
+                    if (preview) {
+                        preview.style.animation = 'slideToRight 0.3s ease-in forwards';
+                        var el = preview;
+                        preview = null;
+                        setTimeout(function() { el.remove(); container.style.position = ''; }, 300);
+                    }
                 }
                 var styleSheet = document.getElementById('vid-anim');
                 if (!styleSheet) {
                     styleSheet = document.createElement('style');
                     styleSheet.id = 'vid-anim';
-                    styleSheet.textContent = '@keyframes slideFromRight {from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}';
+                    styleSheet.textContent = '@keyframes slideFromRight {from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}@keyframes slideToRight {from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(60px)}}';
                     document.head.appendChild(styleSheet);
                 }
                 wrap.addEventListener('mouseenter', function() {
