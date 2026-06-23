@@ -60,17 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (label && label.textContent.indexOf('Iluminación exterior') !== -1) {
             (function(item) {
                 var preview = null;
-                var hideTimer = null;
                 var wrap = item.querySelector('.gallery-image-wrap');
                 if (!wrap) return;
                 function removePreview() {
                     if (preview) { preview.remove(); preview = null; }
                 }
                 wrap.addEventListener('mouseenter', function() {
-                    clearTimeout(hideTimer);
                     if (preview) return;
                     preview = document.createElement('div');
                     preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);background:#0d1117;';
+                    var x = document.createElement('span');
+                    x.textContent = '\u00D7';
+                    x.style.cssText = 'position:absolute;top:6px;right:10px;z-index:2;color:#fff;font-size:1.4rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;';
+                    x.addEventListener('click', function(e) { e.stopPropagation(); removePreview(); });
+                    preview.appendChild(x);
                     var vid = document.createElement('video');
                     vid.src = (window.location.pathname.indexOf('/servicios/') !== -1 ? '../' : '') + 'assets/IluExtProgresiva.mp4';
                     vid.muted = true;
@@ -82,14 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     preview.appendChild(vid);
                     document.body.appendChild(preview);
                     setTimeout(function() { vid.play().catch(function(){}); }, 100);
-                    preview.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
-                    preview.addEventListener('mouseleave', function() { removePreview(); });
                 });
-                wrap.addEventListener('mouseleave', function(e) {
-                    if (preview && (e.relatedTarget === preview || (preview.contains && preview.contains(e.relatedTarget)))) return;
-                    hideTimer = setTimeout(removePreview, 3000);
-                });
-                })(galleryItems[gi]);
+            })(galleryItems[gi]);
+            break;
+        }
+    }
             break;
         }
     }
