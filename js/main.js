@@ -66,15 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 var container = item.closest('.container');
                 if (!grid || !container) return;
                 function removePreview() {
-                    if (preview) { preview.remove(); preview = null; }
+                    if (preview) { preview.remove(); preview = null; container.style.position = ''; }
                 }
                 wrap.addEventListener('mouseenter', function() {
                     if (preview) return;
                     var rect = item.getBoundingClientRect();
+                    var cRect = container.getBoundingClientRect();
                     preview = document.createElement('div');
                     var w = rect.width * 0.75;
                     var vh = w * 0.75;
-                    preview.style.cssText = 'position:fixed;top:' + (rect.top + (rect.height - vh) / 2) + 'px;left:' + (rect.left - w - 24) + 'px;width:' + w + 'px;height:' + vh + 'px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid var(--glass-border);background:#0d1117;z-index:10;';
+                    container.style.position = 'relative';
+                    preview.style.cssText = 'position:absolute;top:' + (rect.top - cRect.top + (rect.height - vh) / 2) + 'px;left:' + (rect.left - cRect.left - w - 24) + 'px;width:' + w + 'px;height:' + vh + 'px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid var(--glass-border);background:#0d1117;z-index:10;';
                     var x = document.createElement('span');
                     x.textContent = '\u00D7';
                     x.style.cssText = 'position:absolute;top:6px;right:10px;z-index:2;color:#fff;font-size:1.3rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;text-shadow:0 1px 3px rgba(0,0,0,0.5);';
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.preload = 'auto';
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
                     preview.appendChild(vid);
-                    document.body.appendChild(preview);
+                    container.appendChild(preview);
                     setTimeout(function() { vid.play().catch(function(){}); }, 100);
                 });
             })(galleryItems[gi]);
