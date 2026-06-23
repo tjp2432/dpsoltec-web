@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (lbl) lbl.style.width = '100%';
                     preview.style.flex = '1';
                     preview.style.minWidth = '0';
-                    itemEl.appendChild(preview);
+                    itemEl.insertBefore(preview, wrap);
                     setTimeout(function() { vid.play().catch(function(){}); }, 100);
                 });
             })(galleryItems[gi]);
