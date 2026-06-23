@@ -196,14 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
         o.appendChild(img);
         var prevBtn = document.createElement('span');
         prevBtn.textContent = '\u2039';
-        prevBtn.style.cssText = 'position:fixed;top:50%;left:20px;transform:translateY(-50%);z-index:10000;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;cursor:pointer;font-size:2rem;line-height:1;padding-bottom:2px;background:rgba(255,200,50,0.12);border:1px solid rgba(255,200,50,0.25);color:#f5c542;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
+        prevBtn.style.cssText = 'position:fixed;top:50%;left:20px;transform:translateY(-50%);z-index:10000;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;cursor:pointer;font-size:2rem;line-height:1;padding-bottom:2px;background:rgba(255,200,50,0.12);border:1px solid rgba(255,200,50,0.25);color:#f5c542;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 12px rgba(255,200,50,0.12);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
         prevBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
         prevBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
         prevBtn.style.opacity = '0.85';
         o.appendChild(prevBtn);
         var nextBtn = document.createElement('span');
         nextBtn.textContent = '\u203A';
-        nextBtn.style.cssText = 'position:fixed;top:50%;right:20px;transform:translateY(-50%);z-index:10000;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;cursor:pointer;font-size:2rem;line-height:1;padding-bottom:2px;background:rgba(101,207,114,0.10);border:1px solid rgba(101,207,114,0.25);color:#65CF72;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
+        nextBtn.style.cssText = 'position:fixed;top:50%;right:20px;transform:translateY(-50%);z-index:10000;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;cursor:pointer;font-size:2rem;line-height:1;padding-bottom:2px;background:rgba(101,207,114,0.10);border:1px solid rgba(101,207,114,0.25);color:#65CF72;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 12px rgba(101,207,114,0.15);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
         nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
         nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
         nextBtn.style.opacity = '0.85';
