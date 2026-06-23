@@ -62,16 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 var preview = null;
                 var wrap = item.querySelector('.gallery-image-wrap');
                 if (!wrap) return;
-                var galleryGrid = item.closest('.gallery-grid');
-                if (!galleryGrid) return;
+                var grid = item.closest('.gallery-grid');
+                var container = item.closest('.container');
+                if (!grid || !container) return;
                 function removePreview() {
                     if (preview) { preview.remove(); preview = null; }
                 }
                 wrap.addEventListener('mouseenter', function() {
                     if (preview) return;
+                    var rect = item.getBoundingClientRect();
+                    var cRect = container.getBoundingClientRect();
                     preview = document.createElement('div');
-                    preview.className = 'gallery-item';
-                    preview.style.cssText = 'display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0d1117;position:relative;border-radius:var(--radius-lg);border:1px solid var(--glass-border);';
+                    preview.style.cssText = 'position:fixed;top:' + rect.top + 'px;left:' + (rect.left - rect.width - 24) + 'px;width:' + rect.width + 'px;aspect-ratio:4/3;border-radius:var(--radius-lg);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid var(--glass-border);background:#0d1117;z-index:10;';
                     var x = document.createElement('span');
                     x.textContent = '\u00D7';
                     x.style.cssText = 'position:absolute;top:6px;right:10px;z-index:2;color:#fff;font-size:1.3rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;text-shadow:0 1px 3px rgba(0,0,0,0.5);';
@@ -84,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.playsInline = true;
                     vid.autoplay = true;
                     vid.preload = 'auto';
-                    vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;';
+                    vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
                     preview.appendChild(vid);
-                    galleryGrid.insertBefore(preview, item);
+                    document.body.appendChild(preview);
                     setTimeout(function() { vid.play().catch(function(){}); }, 100);
                 });
             })(galleryItems[gi]);
