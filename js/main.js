@@ -53,18 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-120px 0px -50% 0px' });
     sections.forEach(section => sectionObserver.observe(section));
 
-    // Video preview on hover for Iluminación exterior list item
-    var listItems = document.querySelectorAll('.card-list li');
-    for (var li = 0; li < listItems.length; li++) {
-        if (listItems[li].textContent.indexOf('Iluminación exterior') !== -1) {
+    // Video preview on hover for Iluminación exterior gallery image
+    var galleryItems = document.querySelectorAll('.gallery-item');
+    for (var gi = 0; gi < galleryItems.length; gi++) {
+        var label = galleryItems[gi].querySelector('.gallery-label');
+        if (label && label.textContent.indexOf('Iluminación exterior') !== -1) {
             (function(item) {
                 var preview = null;
-                item.addEventListener('mouseenter', function() {
+                var wrap = item.querySelector('.gallery-image-wrap');
+                if (!wrap) return;
+                wrap.addEventListener('mouseenter', function() {
                     if (preview) return;
                     preview = document.createElement('div');
                     preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);';
                     var vid = document.createElement('video');
-                    vid.src = 'assets/IluExtProgresiva.mp4';
+                    vid.src = '/assets/IluExtProgresiva.mp4';
                     vid.muted = true;
                     vid.loop = true;
                     vid.playsInline = true;
@@ -74,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.appendChild(preview);
                     vid.play().catch(function(){});
                 });
-                item.addEventListener('mouseleave', function() {
+                wrap.addEventListener('mouseleave', function() {
                     if (preview) { preview.remove(); preview = null; }
                 });
-            })(listItems[li]);
+            })(galleryItems[gi]);
             break;
         }
     }
