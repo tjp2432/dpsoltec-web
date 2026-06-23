@@ -63,15 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 var wrap = item.querySelector('.gallery-image-wrap');
                 if (!wrap) return;
                 function removePreview() {
-                    if (preview) { preview.remove(); preview = null; }
+                    if (preview) { 
+                        var itemEl = wrap.closest('.gallery-item');
+                        if (itemEl) { itemEl.style.display = ''; itemEl.style.flexWrap = ''; itemEl.style.gap = ''; }
+                        var lbl = wrap.closest('.gallery-item').querySelector('.gallery-label');
+                        if (lbl) lbl.style.width = '';
+                        preview.remove(); preview = null; 
+                    }
                 }
                 wrap.addEventListener('mouseenter', function() {
                     if (preview) return;
+                    var itemEl = wrap.closest('.gallery-item');
+                    if (!itemEl) return;
                     preview = document.createElement('div');
-                    preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);background:#0d1117;';
+                    preview.style.cssText = 'flex:1;min-width:0;border-radius:12px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 4px 12px rgba(0,0,0,0.3);background:#0d1117;position:relative;aspect-ratio:4/3;';
                     var x = document.createElement('span');
                     x.textContent = '\u00D7';
-                    x.style.cssText = 'position:absolute;top:6px;right:10px;z-index:2;color:#fff;font-size:1.4rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;';
+                    x.style.cssText = 'position:absolute;top:4px;right:8px;z-index:2;color:#fff;font-size:1.3rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;text-shadow:0 1px 3px rgba(0,0,0,0.5);';
                     x.addEventListener('click', function(e) { e.stopPropagation(); removePreview(); });
                     preview.appendChild(x);
                     var vid = document.createElement('video');
@@ -83,7 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.preload = 'auto';
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
                     preview.appendChild(vid);
-                    document.body.appendChild(preview);
+                    itemEl.style.display = 'flex';
+                    itemEl.style.flexWrap = 'wrap';
+                    itemEl.style.gap = '24px';
+                    var lbl = itemEl.querySelector('.gallery-label');
+                    if (lbl) lbl.style.width = '100%';
+                    preview.style.flex = '1';
+                    preview.style.minWidth = '0';
+                    itemEl.appendChild(preview);
                     setTimeout(function() { vid.play().catch(function(){}); }, 100);
                 });
             })(galleryItems[gi]);
