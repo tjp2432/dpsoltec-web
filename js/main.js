@@ -65,9 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 function removePreview() {
                     if (preview) { 
                         var itemEl = wrap.closest('.gallery-item');
-                        if (itemEl) { itemEl.style.display = ''; itemEl.style.flexWrap = ''; itemEl.style.gap = ''; }
+                        if (itemEl) { itemEl.style.display = ''; itemEl.style.flexDirection = ''; itemEl.style.flexWrap = ''; itemEl.style.gap = ''; }
                         var lbl = wrap.closest('.gallery-item').querySelector('.gallery-label');
                         if (lbl) lbl.style.width = '';
+                        wrap.style.flex = '';
+                        wrap.style.minWidth = '';
                         preview.remove(); preview = null; 
                     }
                 }
@@ -92,10 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
                     preview.appendChild(vid);
                     itemEl.style.display = 'flex';
+                    itemEl.style.flexDirection = 'row';
                     itemEl.style.flexWrap = 'wrap';
                     itemEl.style.gap = '24px';
                     var lbl = itemEl.querySelector('.gallery-label');
                     if (lbl) lbl.style.width = '100%';
+                    wrap.style.flex = '1';
+                    wrap.style.minWidth = '0';
                     preview.style.flex = '1';
                     preview.style.minWidth = '0';
                     itemEl.insertBefore(preview, wrap);
