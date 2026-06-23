@@ -72,23 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     preview = document.createElement('div');
                     preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);background:#0d1117;';
                     var vid = document.createElement('video');
+                    vid.src = (window.location.pathname.indexOf('/servicios/') !== -1 ? '../' : '') + 'assets/IluExtProgresiva.mp4';
                     vid.muted = true;
                     vid.loop = true;
                     vid.playsInline = true;
                     vid.autoplay = true;
                     vid.preload = 'auto';
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-                    vid.addEventListener('canplay', function() { this.play().catch(function(){}); });
-                    vid.addEventListener('error', function() { console.error('Video error:', this.error); });
                     preview.appendChild(vid);
                     document.body.appendChild(preview);
-                    vid.src = (window.location.pathname.indexOf('/servicios/') !== -1 ? '../' : '') + 'assets/IluExtProgresiva.mp4';
-                    vid.load();
                     preview.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
                     preview.addEventListener('mouseleave', function() { removePreview(); });
                 });
                 wrap.addEventListener('mouseleave', function() {
-                    hideTimer = setTimeout(removePreview, 300);
+                    hideTimer = setTimeout(removePreview, 3000);
                 });
             })(galleryItems[gi]);
             break;
