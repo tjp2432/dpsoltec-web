@@ -47,7 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('active');
                     }
-    });
+                });
+            }
+        });
+    }, { rootMargin: '-120px 0px -50% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
 
     // Video preview on hover for Iluminación exterior card
     var cards = document.querySelectorAll('.card-link');
@@ -77,10 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })(cards[ci]);
     }
-            }
-        });
-    }, { rootMargin: '-120px 0px -50% 0px' });
-    sections.forEach(section => sectionObserver.observe(section));
 
     // Animated counters
     const statsSection = document.querySelector('.stats');
