@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
         }
     }
-            break;
-        }
-    }
 
     // Animated counters
     const statsSection = document.querySelector('.stats');
