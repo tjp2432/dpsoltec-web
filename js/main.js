@@ -68,6 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 function removePreview() {
                     if (preview) { preview.remove(); preview = null; container.style.position = ''; }
                 }
+                var styleSheet = document.getElementById('vid-anim');
+                if (!styleSheet) {
+                    styleSheet = document.createElement('style');
+                    styleSheet.id = 'vid-anim';
+                    styleSheet.textContent = '@keyframes slideFromRight {from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}';
+                    document.head.appendChild(styleSheet);
+                }
                 wrap.addEventListener('mouseenter', function() {
                     if (preview) return;
                     var rect = item.getBoundingClientRect();
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     var w = rect.width * 0.75;
                     var vh = w * 0.75;
                     container.style.position = 'relative';
-                    preview.style.cssText = 'position:absolute;top:' + (rect.top - cRect.top + (rect.height - vh) / 2) + 'px;left:' + (rect.left - cRect.left - w - 24) + 'px;width:' + w + 'px;height:' + vh + 'px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);border:1px solid var(--glass-border);background:#0d1117;z-index:10;';
+                    preview.style.cssText = 'position:absolute;top:' + (rect.top - cRect.top + (rect.height - vh) / 2) + 'px;left:' + (rect.left - cRect.left - w - 24) + 'px;width:' + w + 'px;height:' + vh + 'px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);border:1px solid var(--glass-border);background:#0d1117;z-index:10;animation:slideFromRight 0.35s ease-out;';
                     var x = document.createElement('span');
                     x.textContent = '\u00D7';
                     x.style.cssText = 'position:absolute;top:6px;right:10px;z-index:2;color:#fff;font-size:1.3rem;cursor:pointer;opacity:0.8;line-height:1;font-family:serif;text-shadow:0 1px 3px rgba(0,0,0,0.5);';
