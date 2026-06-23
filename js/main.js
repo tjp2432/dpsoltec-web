@@ -76,11 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.muted = true;
                     vid.loop = true;
                     vid.playsInline = true;
-                    vid.autoplay = true;
+                    vid.preload = 'auto';
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+                    vid.addEventListener('canplay', function() { this.play().catch(function(){}); });
                     preview.appendChild(vid);
                     document.body.appendChild(preview);
-                    vid.play().catch(function(){});
                     preview.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
                     preview.addEventListener('mouseleave', function() { removePreview(); });
                 });
