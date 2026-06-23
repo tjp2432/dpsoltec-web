@@ -186,14 +186,22 @@ document.addEventListener('DOMContentLoaded', () => {
             var img = this.querySelector('img');
             if (!img) return;
             var o = document.createElement('div');
-            o.className = 'lb';
-            o.innerHTML = '<div class="lb-bg"></div><span class="lb-x">&times;</span><img src="' + img.src + '">';
+            o.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;';
+            var bg = document.createElement('div');
+            bg.style.cssText = 'position:absolute;inset:0;background:rgba(0,0,0,0.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);';
+            o.appendChild(bg);
+            var x = document.createElement('span');
+            x.style.cssText = 'position:fixed;top:20px;right:24px;z-index:10000;color:#fff;font-size:2.5rem;cursor:pointer;opacity:0.7;line-height:1;';
+            x.textContent = '\u00D7';
+            o.appendChild(x);
+            var i = document.createElement('img');
+            i.src = img.src;
+            i.alt = img.alt;
+            i.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:92vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);';
+            o.appendChild(i);
             document.body.appendChild(o);
-            o.addEventListener('click', function(ev) {
-                if (ev.target === o || ev.target.classList.contains('lb-bg') || ev.target.classList.contains('lb-x')) {
-                    o.remove();
-                }
-            });
+            x.addEventListener('click', function() { o.remove(); });
+            bg.addEventListener('click', function() { o.remove(); });
         });
     });
 });
