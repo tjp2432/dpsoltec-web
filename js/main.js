@@ -84,10 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     preview.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
                     preview.addEventListener('mouseleave', function() { removePreview(); });
                 });
-                wrap.addEventListener('mouseleave', function() {
+                wrap.addEventListener('mouseleave', function(e) {
+                    if (preview && (e.relatedTarget === preview || (preview.contains && preview.contains(e.relatedTarget)))) return;
                     hideTimer = setTimeout(removePreview, 3000);
                 });
-            })(galleryItems[gi]);
+                })(galleryItems[gi]);
             break;
         }
     }
