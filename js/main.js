@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
                     preview.appendChild(vid);
                     document.body.appendChild(preview);
+                    setTimeout(function() { vid.play().catch(function(){}); }, 100);
                     preview.addEventListener('mouseenter', function() { clearTimeout(hideTimer); });
                     preview.addEventListener('mouseleave', function() { removePreview(); });
                 });
