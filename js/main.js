@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
         nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
         nextBtn.style.opacity = '0.85';
+        o.appendChild(nextBtn);
         document.body.appendChild(o);
 
         function showImage(idx) {
