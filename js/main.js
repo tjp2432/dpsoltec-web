@@ -180,28 +180,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lightbox
+    // Lightbox with navigation
+    function openLightbox(images, index) {
+        var o = document.createElement('div');
+        o.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;';
+        var bg = document.createElement('div');
+        bg.style.cssText = 'position:absolute;inset:0;background:rgba(0,0,0,0.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);';
+        o.appendChild(bg);
+        var x = document.createElement('span');
+        x.style.cssText = 'position:fixed;top:20px;right:24px;z-index:10000;color:#fff;font-size:2.5rem;cursor:pointer;opacity:0.7;line-height:1;font-family:serif;';
+        x.textContent = '\u00D7';
+        o.appendChild(x);
+        var img = document.createElement('img');
+        img.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:92vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);';
+        o.appendChild(img);
+        var prevBtn = document.createElement('span');
+        prevBtn.textContent = '\u2039';
+        prevBtn.style.cssText = 'position:fixed;top:50%;left:16px;transform:translateY(-50%);z-index:10000;color:#fff;font-size:3rem;cursor:pointer;opacity:0.6;transition:opacity 0.2s;line-height:1;padding:8px;';
+        prevBtn.addEventListener('mouseenter', function(){this.style.opacity='1';});
+        prevBtn.addEventListener('mouseleave', function(){this.style.opacity='0.6';});
+        o.appendChild(prevBtn);
+        var nextBtn = document.createElement('span');
+        nextBtn.textContent = '\u203A';
+        nextBtn.style.cssText = 'position:fixed;top:50%;right:16px;transform:translateY(-50%);z-index:10000;color:#fff;font-size:3rem;cursor:pointer;opacity:0.6;transition:opacity 0.2s;line-height:1;padding:8px;';
+        nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';});
+        nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.6';});
+        o.appendChild(nextBtn);
+        document.body.appendChild(o);
+
+        function showImage(idx) {
+            if (idx < 0) idx = images.length - 1;
+            if (idx >= images.length) idx = 0;
+            img.src = images[idx].src;
+            img.alt = images[idx].alt;
+            index = idx;
+        }
+        showImage(index);
+
+        function close() { o.remove(); }
+        x.addEventListener('click', close);
+        bg.addEventListener('click', close);
+        prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showImage(index - 1); });
+        nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showImage(index + 1); });
+        document.addEventListener('keydown', function handler(ev) {
+            if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', handler); }
+            if (ev.key === 'ArrowLeft') { showImage(index - 1); }
+            if (ev.key === 'ArrowRight') { showImage(index + 1); }
+        });
+    }
+
     document.querySelectorAll('.gallery-image-wrap').forEach(function(w) {
         w.addEventListener('click', function(e) {
+            var all = this.closest('.gallery-grid').querySelectorAll('.gallery-image-wrap img');
+            var imgs = Array.prototype.slice.call(all);
             var img = this.querySelector('img');
-            if (!img) return;
-            var o = document.createElement('div');
-            o.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;';
-            var bg = document.createElement('div');
-            bg.style.cssText = 'position:absolute;inset:0;background:rgba(0,0,0,0.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);';
-            o.appendChild(bg);
-            var x = document.createElement('span');
-            x.style.cssText = 'position:fixed;top:20px;right:24px;z-index:10000;color:#fff;font-size:2.5rem;cursor:pointer;opacity:0.7;line-height:1;';
-            x.textContent = '\u00D7';
-            o.appendChild(x);
-            var i = document.createElement('img');
-            i.src = img.src;
-            i.alt = img.alt;
-            i.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:92vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);';
-            o.appendChild(i);
-            document.body.appendChild(o);
-            x.addEventListener('click', function() { o.remove(); });
-            bg.addEventListener('click', function() { o.remove(); });
+            var idx = imgs.indexOf(img);
+            if (idx === -1) idx = 0;
+            openLightbox(imgs, idx);
         });
     });
 });
