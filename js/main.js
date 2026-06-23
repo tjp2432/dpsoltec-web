@@ -53,14 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-120px 0px -50% 0px' });
     sections.forEach(section => sectionObserver.observe(section));
 
-    // Video preview on hover for Iluminación exterior card
-    var cards = document.querySelectorAll('.card-link');
-    for (var ci = 0; ci < cards.length; ci++) {
-        (function(card) {
-            var list = card.querySelector('.card-list');
-            if (list && list.textContent.indexOf('Iluminación exterior') !== -1) {
+    // Video preview on hover for Iluminación exterior list item
+    var listItems = document.querySelectorAll('.card-list li');
+    for (var li = 0; li < listItems.length; li++) {
+        if (listItems[li].textContent.indexOf('Iluminación exterior') !== -1) {
+            (function(item) {
                 var preview = null;
-                card.addEventListener('mouseenter', function() {
+                item.addEventListener('mouseenter', function() {
                     if (preview) return;
                     preview = document.createElement('div');
                     preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);';
@@ -75,11 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.appendChild(preview);
                     vid.play().catch(function(){});
                 });
-                card.addEventListener('mouseleave', function() {
+                item.addEventListener('mouseleave', function() {
                     if (preview) { preview.remove(); preview = null; }
                 });
-            }
-        })(cards[ci]);
+            })(listItems[li]);
+            break;
+        }
     }
 
     // Animated counters
