@@ -47,7 +47,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('active');
                     }
+    });
+
+    // Video preview on hover for Iluminación exterior card
+    var cards = document.querySelectorAll('.card-link');
+    for (var ci = 0; ci < cards.length; ci++) {
+        (function(card) {
+            var list = card.querySelector('.card-list');
+            if (list && list.textContent.indexOf('Iluminación exterior') !== -1) {
+                var preview = null;
+                card.addEventListener('mouseenter', function() {
+                    if (preview) return;
+                    preview = document.createElement('div');
+                    preview.style.cssText = 'position:fixed;top:50%;left:30px;transform:translateY(-50%);z-index:999;width:260px;height:260px;border-radius:16px;overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 8px 32px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);';
+                    var vid = document.createElement('video');
+                    vid.src = 'assets/IluExtProgresiva.mp4';
+                    vid.muted = true;
+                    vid.loop = true;
+                    vid.playsInline = true;
+                    vid.autoplay = true;
+                    vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+                    preview.appendChild(vid);
+                    document.body.appendChild(preview);
+                    vid.play().catch(function(){});
                 });
+                card.addEventListener('mouseleave', function() {
+                    if (preview) { preview.remove(); preview = null; }
+                });
+            }
+        })(cards[ci]);
+    }
             }
         });
     }, { rootMargin: '-120px 0px -50% 0px' });
