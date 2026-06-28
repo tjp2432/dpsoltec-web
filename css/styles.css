@@ -177,10 +177,18 @@ select {
   flex: 0 0 560px;
   height: 100%;
   margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.top-header-icons img {
-  width: 100%;
+.top-header-icons a {
+  display: flex;
+  align-items: center;
   height: 100%;
+}
+.top-header-icons a img {
+  height: 60%;
+  width: auto;
   object-fit: contain;
   object-position: right center;
   display: block;
