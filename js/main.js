@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (tooltip) return;
                 tooltip = document.createElement('div');
                 tooltip.textContent = desc;
-                tooltip.style.cssText = 'position:fixed;z-index:100;max-width:320px;padding:14px 18px;border-radius:12px;font-size:0.85rem;line-height:1.55;color:#e0e2e8;background:rgba(13,17,23,0.75);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.15),0 8px 32px rgba(0,0,0,0.5);-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);pointer-events:none;';
+                tooltip.style.cssText = 'position:fixed;z-index:100;max-width:320px;padding:14px 18px;border-radius:12px;font-size:0.85rem;line-height:1.55;color:#e0e2e8;background:rgba(13,17,23,0.55);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.15),0 8px 32px rgba(0,0,0,0.5);-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);pointer-events:none;';
                 document.body.appendChild(tooltip);
                 requestAnimationFrame(function() { positionTooltip(el, tooltip); });
             });
