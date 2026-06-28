@@ -139,17 +139,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 tooltip.textContent = desc;
                 tooltip.style.cssText = 'position:fixed;z-index:100;max-width:320px;padding:14px 18px;border-radius:12px;font-size:0.85rem;line-height:1.55;color:#e0e2e8;background:rgba(13,17,23,0.75);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.15),0 8px 32px rgba(0,0,0,0.5);-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);pointer-events:none;';
                 document.body.appendChild(tooltip);
-                positionTooltip(el, tooltip);
+                requestAnimationFrame(function() { positionTooltip(el, tooltip); });
             });
             el.addEventListener('mouseleave', function() {
                 if (tooltip) { tooltip.remove(); tooltip = null; }
             });
             function positionTooltip(anchor, tip) {
                 var ar = anchor.getBoundingClientRect();
+                var card = anchor.closest('.card');
+                var cardRect = card ? card.getBoundingClientRect() : ar;
+                var center = window.innerWidth / 2;
                 var tr = tip.getBoundingClientRect();
-                var left = ar.right + 16;
-                var top = ar.top + ar.height / 2 - tr.height / 2;
-                if (left + tr.width > window.innerWidth - 16) left = ar.left - tr.width - 16;
+                var left, top;
+                if (cardRect.left + cardRect.width / 2 < center) {
+                    left = ar.left - tr.width - 16;
+                    if (left < 8) left = ar.right + 16;
+                } else {
+                    left = ar.right + 16;
+                    if (left + tr.width > window.innerWidth - 8) left = ar.left - tr.width - 16;
+                }
+                top = ar.top + ar.height / 2 - tr.height / 2;
                 if (top < 8) top = 8;
                 if (top + tr.height > window.innerHeight - 8) top = window.innerHeight - tr.height - 8;
                 tip.style.left = left + 'px';
