@@ -15,8 +15,10 @@
   <rect x="30" y="152" width="140" height="16" rx="8" fill="#000000" opacity="0.08" filter="url(#softBlur)"/>
 
   <!-- glifo: escudo con lente -->
-  <path d="M100,54 L139,68 V101 C139,131 121,151 100,161 C79,151 61,131 61,101 V68 Z"
-        fill="none" stroke="#4C8DFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-  <circle cx="100" cy="104" r="16" fill="none" stroke="#4C8DFF" stroke-width="6"/>
-  <circle cx="100" cy="104" r="5" fill="#4C8DFF"/>
+  <g transform="translate(0, -9)">
+    <path d="M100,54 L139,68 V101 C139,131 121,151 100,161 C79,151 61,131 61,101 V68 Z"
+          fill="none" stroke="#4C8DFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="100" cy="104" r="16" fill="none" stroke="#4C8DFF" stroke-width="6"/>
+    <circle cx="100" cy="104" r="5" fill="#4C8DFF"/>
+  </g>
 </svg>

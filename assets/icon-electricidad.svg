@@ -20,5 +20,7 @@
   <rect x="30" y="152" width="140" height="16" rx="8" fill="#000000" opacity="0.08" filter="url(#softBlur)"/>
 
   <!-- glifo: rayo (color de énfasis) -->
-  <path d="M108,52 L72,112 L94,112 L88,150 L130,90 L106,90 Z" fill="#FFB020"/>
+  <g transform="translate(0, -2)">
+    <path d="M108,52 L72,112 L94,112 L88,150 L130,90 L106,90 Z" fill="#FFB020"/>
+  </g>
 </svg>
