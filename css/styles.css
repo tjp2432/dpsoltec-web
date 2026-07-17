@@ -677,10 +677,9 @@ select {
 
 /* Card Badge (Liquid Glass) */
 .card-badge {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: inline-block;
+  align-self: center;
+  margin-top: 14px;
   background: rgba(13, 17, 23, 0.65);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
@@ -712,7 +711,7 @@ select {
 
 .card-badge:hover {
   background: rgba(13, 17, 23, 0.75);
-  transform: translateX(-50%) scale(1.03);
+  transform: scale(1.03);
 }
 
 /* Card Icon */
