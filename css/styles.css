@@ -586,11 +586,16 @@ select {
 
 /* ---------- Cards Grid ---------- */
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
+}
+.cards-grid .card-link {
+  flex: 0 0 300px;
+  max-width: 300px;
 }
 
 /* --- Liquid Glass Card --- */
@@ -1488,7 +1493,6 @@ select {
   }
 
   .cards-grid {
-    grid-template-columns: 1fr;
     gap: 16px;
   }
 
