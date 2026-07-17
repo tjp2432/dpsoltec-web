@@ -768,6 +768,7 @@ select {
   text-align: center;
   line-height: 1.5;
   max-width: 280px;
+  margin: 0 auto;
 }
 
 /* Card Bottom Green Graphic */
