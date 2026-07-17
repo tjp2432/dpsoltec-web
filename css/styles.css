@@ -177,16 +177,6 @@ select {
   flex: 0 0 560px;
   height: 100%;
   margin-left: auto;
-  position: relative;
-}
-.top-header-icons .header-icon-link {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 80px;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
 }
 .top-header-icons img {
   width: 100%;
@@ -772,16 +762,12 @@ select {
   text-align: center;
 }
 
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.card-list li {
-  font-size: 0.9rem;
+.card-desc {
+  font-size: 0.85rem;
   color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 280px;
 }
 
 /* Card Bottom Green Graphic */

@@ -110,70 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
         }
     }
-
-    // Floating description tooltip for card list items
-    var descs = {
-        'Instalaciones domiciliarias': 'Todo tipo de trabajos eléctricos enfocados en el hogar, asegurando un suministro eléctrico seguro, eficiente y normativo para el día a día.',
-        'Obras y reformas eléctricas': 'Proyectos de mayor envergadura que abarcan desde el cableado completo en construcciones nuevas hasta la renovación y modernización de tableros o redes obsoletas.',
-        'Iluminación exterior': 'Diseño y colocación de luminarias pensadas para soportar la intemperie, ideales para fachadas, jardines, accesos o áreas comunes que requieran realce estético o mayor seguridad nocturna.',
-        'Alarmas y telefonía': 'Montaje de sistemas de alerta contra intrusos combinados con centrales telefónicas o intercomunicadores para mantener una comunicación fluida y un control de accesos eficiente.',
-        'CCTV y videovigilancia': 'Instalación de circuitos cerrados de televisión y cámaras de seguridad avanzadas que permiten el monitoreo en tiempo real y el registro en video de todo lo que sucede en el perímetro.',
-        'Audio y video': 'Configuración e integración de sistemas multimedia de sonido y pantallas, orientados tanto al confort residencial como a la automatización de espacios comerciales.',
-        'PC / Mac / Notebook': 'Soporte técnico especializado e integral para todo tipo de computadoras de escritorio y portátiles, sin importar la marca o el sistema operativo.',
-        'Diagnóstico y reparación': 'Detección precisa de fallas de hardware o conflictos de software para solucionar cualquier tipo de avería y devolver el equipo a su óptimo estado de funcionamiento.',
-        'Actualización de hard/soft': 'Optimización general del rendimiento mediante la instalación de componentes físicos más potentes (como memorias SSD) y la puesta a punto de los sistemas operativos y programas más recientes.',
-        'Cableado estructurado': 'Despliegue de tendidos de cables de red organizados y normalizados, diseñados para soportar de manera eficiente el tráfico de datos en oficinas, comercios o empresas.',
-        'Instalación de antenas wifi': 'Montaje y calibración de puntos de acceso y antenas inalámbricas para maximizar el alcance de la señal y eliminar por completo las zonas muertas de conectividad.',
-        'Redes y conectividad': 'Configuración completa de routers, switches y topologías de red que garantizan un flujo de datos rápido, seguro y sin interrupciones entre todos los dispositivos conectados.'
-    };
-    var allListItems = document.querySelectorAll('.card-list li');
-    for (var li = 0; li < allListItems.length; li++) {
-        (function(el) {
-            var text = el.textContent.trim();
-            var desc = descs[text];
-            if (!desc) return;
-            var tooltip = null;
-            el.addEventListener('mouseenter', function() {
-                if (tooltip) return;
-                el.style.textDecoration = 'underline';
-                tooltip = document.createElement('div');
-                tooltip.textContent = desc;
-                tooltip.style.cssText = 'position:fixed;z-index:100;max-width:320px;padding:14px 18px;border-radius:12px;font-size:0.85rem;line-height:1.55;color:#e0e2e8;background:rgba(13,17,23,0.55);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.15),0 8px 32px rgba(0,0,0,0.5);-webkit-backdrop-filter:blur(50px);backdrop-filter:blur(50px);pointer-events:none;';
-                document.body.appendChild(tooltip);
-                requestAnimationFrame(function() { positionTooltip(el, tooltip); });
-            });
-            el.addEventListener('mouseleave', function() {
-                el.style.textDecoration = '';
-                if (tooltip) { tooltip.remove(); tooltip = null; }
-            });
-            function positionTooltip(anchor, tip) {
-                var ar = anchor.getBoundingClientRect();
-                var card = anchor.closest('.card');
-                var cardRect = card ? card.getBoundingClientRect() : ar;
-                var center = window.innerWidth / 2;
-                var tr = tip.getBoundingClientRect();
-                var left, top;
-                if (cardRect.left + cardRect.width / 2 < center) {
-                    left = ar.left - tr.width - 16;
-                    if (left < 8) left = ar.right + 16;
-                } else {
-                    left = ar.right + 16;
-                    if (left + tr.width > window.innerWidth - 8) left = ar.left - tr.width - 16;
-                }
-                top = ar.top + ar.height / 2 - tr.height / 2;
-                if (top < 8) top = 8;
-                if (top + tr.height > window.innerHeight - 8) top = window.innerHeight - tr.height - 8;
-                tip.style.left = left + 'px';
-                tip.style.top = top + 'px';
-            }
-            window.addEventListener('scroll', function() {
-                if (tooltip) positionTooltip(el, tooltip);
-            }, { passive: true });
-            window.addEventListener('resize', function() {
-                if (tooltip) positionTooltip(el, tooltip);
-            }, { passive: true });
-        })(allListItems[li]);
-    }
+    // Removed floating description tooltip for card list items
 
     // Animated counters
     const statsSection = document.querySelector('.stats');
