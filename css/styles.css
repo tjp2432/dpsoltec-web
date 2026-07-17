@@ -679,7 +679,8 @@ select {
 .card-badge {
   display: inline-block;
   align-self: center;
-  margin-top: 14px;
+  margin-top: auto;
+  margin-bottom: auto;
   background: rgba(13, 17, 23, 0.65);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
