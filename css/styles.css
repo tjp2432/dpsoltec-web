@@ -1784,9 +1784,10 @@ select {
 }
 .page-desc {
   color: var(--text-muted);
-  font-size: 1.1rem;
-  max-width: 600px;
+  font-size: 1rem;
+  max-width: 720px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 .page-icon {
   width: 56px;
