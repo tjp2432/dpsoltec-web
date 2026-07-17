@@ -717,8 +717,8 @@ select {
 
 /* Card Icon */
 .card-icon {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -728,8 +728,8 @@ select {
   font-size: 0;
 }
 .card-icon img {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   display: block;
   flex-shrink: 0;
 }
