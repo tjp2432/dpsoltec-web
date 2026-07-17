@@ -1837,6 +1837,7 @@ select {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+.gallery-placeholder {
   aspect-ratio: 4 / 3;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
