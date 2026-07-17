@@ -663,7 +663,6 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .card-featured {
@@ -723,12 +722,16 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 0 16px 0;
+  flex-shrink: 0;
+  line-height: 0;
+  font-size: 0;
 }
 .card-icon img {
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 80px;
   display: block;
+  flex-shrink: 0;
 }
 
 .card-title {
@@ -745,7 +748,7 @@ select {
   text-align: center;
   line-height: 1.5;
   max-width: 280px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Card Bottom Green Graphic */

@@ -18,12 +18,10 @@
   <rect x="30" y="152" width="140" height="16" rx="8" fill="#000000" opacity="0.08" filter="url(#softBlur)"/>
 
   <!-- glifo: señal wifi -->
-  <g transform="translate(0, -8)">
-    <g clip-path="url(#topHalf)">
-      <circle cx="100" cy="130" r="24" fill="none" stroke="#2DD4BF" stroke-width="7"/>
-      <circle cx="100" cy="130" r="48" fill="none" stroke="#2DD4BF" stroke-width="7" opacity="0.85"/>
-      <circle cx="100" cy="130" r="72" fill="none" stroke="#2DD4BF" stroke-width="6" opacity="0.65"/>
-    </g>
-    <circle cx="100" cy="132" r="7" fill="#2DD4BF"/>
+  <g clip-path="url(#topHalf)">
+    <circle cx="100" cy="130" r="24" fill="none" stroke="#2DD4BF" stroke-width="7"/>
+    <circle cx="100" cy="130" r="48" fill="none" stroke="#2DD4BF" stroke-width="7" opacity="0.85"/>
+    <circle cx="100" cy="130" r="72" fill="none" stroke="#2DD4BF" stroke-width="6" opacity="0.65"/>
   </g>
+  <circle cx="100" cy="132" r="7" fill="#2DD4BF"/>
 </svg>

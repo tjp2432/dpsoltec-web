@@ -15,12 +15,10 @@
   <rect x="30" y="152" width="140" height="16" rx="8" fill="#000000" opacity="0.08" filter="url(#softBlur)"/>
 
   <!-- glifo: monitor + engranaje -->
-  <g transform="translate(0, -1)">
-    <rect x="61" y="58" width="78" height="52" rx="8" fill="none" stroke="#9B6FE0" stroke-width="7"/>
-    <line x1="93" y1="110" x2="93" y2="122" stroke="#9B6FE0" stroke-width="7" stroke-linecap="round"/>
-    <line x1="107" y1="110" x2="107" y2="122" stroke="#9B6FE0" stroke-width="7" stroke-linecap="round"/>
-    <rect x="81" y="122" width="38" height="8" rx="4" fill="#9B6FE0"/>
-    <circle cx="144" cy="128" r="13" fill="none" stroke="#9B6FE0" stroke-width="5" stroke-dasharray="4 4"/>
-    <circle cx="144" cy="128" r="4" fill="#9B6FE0"/>
-  </g>
+  <rect x="61" y="58" width="78" height="52" rx="8" fill="none" stroke="#9B6FE0" stroke-width="7"/>
+  <line x1="93" y1="110" x2="93" y2="122" stroke="#9B6FE0" stroke-width="7" stroke-linecap="round"/>
+  <line x1="107" y1="110" x2="107" y2="122" stroke="#9B6FE0" stroke-width="7" stroke-linecap="round"/>
+  <rect x="81" y="122" width="38" height="8" rx="4" fill="#9B6FE0"/>
+  <circle cx="144" cy="128" r="13" fill="none" stroke="#9B6FE0" stroke-width="5" stroke-dasharray="4 4"/>
+  <circle cx="144" cy="128" r="4" fill="#9B6FE0"/>
 </svg>
