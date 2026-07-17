@@ -1788,6 +1788,7 @@ select {
   max-width: 720px;
   margin: 0 auto;
   line-height: 1.6;
+  text-align: center;
 }
 .page-icon {
   width: 56px;
