@@ -587,9 +587,9 @@ select {
 /* ---------- Cards Grid ---------- */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -752,6 +752,13 @@ select {
   color: var(--primary);
   border-color: rgba(101, 207, 114, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(101, 207, 114, 0.15);
+}
+
+.card-icon-av {
+  background: rgba(168, 85, 247, 0.10);
+  color: #a855f7;
+  border-color: rgba(168, 85, 247, 0.25);
+  box-shadow: var(--glass-highlight), 0 0 12px rgba(168, 85, 247, 0.15);
 }
 
 .card-title {
@@ -1827,6 +1834,12 @@ select {
   color: #2196F3;
   border-color: rgba(33, 150, 243, 0.25);
   box-shadow: var(--glass-highlight), 0 0 12px rgba(33, 150, 243, 0.15);
+}
+.page-icon-av {
+  background: rgba(168, 85, 247, 0.10);
+  color: #a855f7;
+  border-color: rgba(168, 85, 247, 0.25);
+  box-shadow: var(--glass-highlight), 0 0 12px rgba(168, 85, 247, 0.15);
 }
 .gallery-grid {
   display: grid;
