@@ -1096,6 +1096,12 @@ select {
   font-weight: 700;
   margin-bottom: 16px;
 }
+.footer-dpsoltec {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
 
 .footer-links ul {
   display: flex;
