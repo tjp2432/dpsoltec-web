@@ -391,7 +391,7 @@ select {
   display: block;
   height: 187px;
   width: 187px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-full);
   position: relative;
   z-index: 1;
