@@ -172,6 +172,9 @@ select {
   width: auto;
   display: block;
 }
+.top-header-logo img:first-child {
+  margin-right: 12px;
+}
 
 .top-header-icons {
   flex: 0 0 560px;
