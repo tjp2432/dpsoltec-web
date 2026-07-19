@@ -389,8 +389,8 @@ select {
 
 .hero-logo {
   display: block;
-  height: 160px;
-  width: 160px;
+  height: 175px;
+  width: 175px;
   object-fit: contain;
   border-radius: var(--radius-full);
   position: relative;
