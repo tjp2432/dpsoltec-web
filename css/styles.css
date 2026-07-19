@@ -175,6 +175,9 @@ select {
 .top-header-logo img:first-child {
   margin-right: 12px;
 }
+.top-header-logo img:last-child {
+  height: 44px;
+}
 
 .top-header-icons {
   flex: 0 0 560px;
