@@ -380,7 +380,7 @@ select {
 .hero-badge {
   display: inline-block;
   background: rgba(60, 65, 75, 0.35);
-  padding: 10px;
+  padding: 14px;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -389,8 +389,8 @@ select {
 
 .hero-logo {
   display: block;
-  height: 120px;
-  width: 120px;
+  height: 160px;
+  width: 160px;
   object-fit: contain;
   border-radius: var(--radius-full);
   position: relative;
