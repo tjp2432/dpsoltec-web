@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.appendChild(prevBtn);
         var nextBtn = document.createElement('span');
         nextBtn.textContent = '\u203A';
-        nextBtn.style.cssText = 'position:fixed;top:50%;right:28px;transform:translateY(-50%);z-index:10000;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.7rem;line-height:1;padding-bottom:2px;-webkit-user-select:none;user-select:none;background:rgba(20,135,72,0.10);border:1px solid rgba(20,135,72,0.25);color:#148748;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(20,135,72,0.15);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
+        nextBtn.style.cssText = 'position:fixed;top:50%;right:28px;transform:translateY(-50%);z-index:10000;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;font-size:1.7rem;line-height:1;padding-bottom:2px;-webkit-user-select:none;user-select:none;background:rgba(42,191,96,0.10);border:1px solid rgba(42,191,96,0.25);color:#2ABF60;box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 10px rgba(42,191,96,0.15);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);transition:opacity 0.2s,transform 0.2s;';
         nextBtn.addEventListener('mouseenter', function(){this.style.opacity='1';this.style.transform='translateY(-50%) scale(1.05)';});
         nextBtn.addEventListener('mouseleave', function(){this.style.opacity='0.85';this.style.transform='translateY(-50%) scale(1)';});
         nextBtn.style.opacity = '0.85';
