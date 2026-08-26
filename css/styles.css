@@ -833,7 +833,7 @@ select {
   text-align: center;
   line-height: 1.5;
   max-width: 280px;
-  margin: 0;
+  margin: 0 0 18px;
 }
 
 .cards-row-center {
