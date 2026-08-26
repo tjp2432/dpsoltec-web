@@ -1583,11 +1583,14 @@ select {
     padding: 24px 28px;
     border-radius: 28px;
   }
-  .hero-logo {
-    height: 110px;
-  }
   .hero-badge {
+    width: 150px;
+    height: 150px;
     margin-bottom: 12px;
+  }
+  .hero-logo {
+    width: 110px;
+    height: auto;
   }
 
   .hero-title {
@@ -1623,6 +1626,10 @@ select {
 
   .cards-grid {
     gap: 16px;
+  }
+
+  .card {
+    min-height: 0;
   }
 
   .card-body {
@@ -1696,8 +1703,7 @@ select {
   }
 
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: auto;
     padding-top: 0;
   }
 
@@ -1706,12 +1712,14 @@ select {
     padding: 20px 24px;
     border-radius: 24px;
   }
-  .hero-logo {
-    height: 90px;
-  }
   .hero-badge {
-    padding: 4px;
+    width: 120px;
+    height: 120px;
     margin-bottom: 10px;
+  }
+  .hero-logo {
+    width: 88px;
+    height: auto;
   }
 
   .hero-title {
@@ -1859,8 +1867,7 @@ select {
     height: 32px;
   }
   .hero {
-    min-height: 90vh;
-    min-height: 90dvh;
+    min-height: auto;
     padding-top: 0;
   }
   .hero-content {
@@ -1868,12 +1875,14 @@ select {
     padding: 18px 22px;
     border-radius: 20px;
   }
-  .hero-logo {
-    height: 80px;
-  }
   .hero-badge {
-    padding: 3px;
+    width: 105px;
+    height: 105px;
     margin-bottom: 8px;
+  }
+  .hero-logo {
+    width: 78px;
+    height: auto;
   }
   .top-nav .nav-list {
     top: calc(56px + 20px);
@@ -2013,19 +2022,47 @@ select {
 .gallery-item {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   position: relative;
-  box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
 }
 @media (hover: hover) {
   .gallery-item:hover {
-    transform: translateY(-2px) scale(1.01);
-    border-color: var(--glass-border-strong);
-    box-shadow: var(--glass-highlight-heavy), 0 6px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.015);
+    border-color: rgba(255, 255, 255, 0.32);
+    background:
+      linear-gradient(135deg,
+        rgba(255, 255, 255, 0.20) 0%,
+        rgba(255, 255, 255, 0.08) 45%,
+        rgba(255, 255, 255, 0.12) 100%
+      );
+    box-shadow:
+      inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+      inset 1px 0 1px rgba(255, 255, 255, 0.30),
+      inset -1px 0 1px rgba(255, 255, 255, 0.30),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+      inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
+      0 14px 36px rgba(0, 0, 0, 0.40),
+      0 4px 10px rgba(0, 0, 0, 0.25);
   }
 }
 .gallery-image-wrap {
@@ -2080,8 +2117,8 @@ select {
   color: var(--text-primary);
   font-size: 0.85rem;
   font-weight: 600;
-  background: var(--glass-bg);
-  border-bottom: 1px solid var(--glass-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 .gallery-item:first-child .gallery-label,
 .gallery-item:nth-child(3) .gallery-label {
