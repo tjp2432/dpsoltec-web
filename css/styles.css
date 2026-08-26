@@ -1634,7 +1634,11 @@ select {
   }
 
   .card-body {
-    padding: 24px 20px 16px;
+    padding: 24px 20px 56px;
+  }
+
+  .card::after {
+    height: 44px;
   }
 
   .card-title {
@@ -1769,7 +1773,7 @@ select {
   }
 
   .card-body {
-    padding: 20px 16px 12px;
+    padding: 20px 16px 52px;
   }
 
   .about-content {
@@ -1907,7 +1911,7 @@ select {
   }
 
   .card-body {
-    padding: 16px 12px 10px;
+    padding: 16px 12px 50px;
   }
 }
 
