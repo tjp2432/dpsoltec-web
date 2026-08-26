@@ -8,8 +8,8 @@
   --text-muted: #6b7d99;
   --success: #10b981;
   --error: #ef4444;
-  --radius: 16px;
-  --radius-lg: 28px;
+  --radius: 20px;
+  --radius-lg: 38px;
   --radius-full: 100px;
   --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -300,12 +300,26 @@ select {
   max-width: 720px;
   margin: 0 auto;
   padding: 64px 40px;
-  background: var(--glass-bg-strong);
-  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 45%,
+      rgba(255, 255, 255, 0.10) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.20);
   border-radius: var(--radius-lg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.50),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.25),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.14),
+    inset 0 14px 28px -12px rgba(255, 255, 255, 0.12),
+    inset 0 -24px 36px -22px rgba(0, 0, 0, 0.38),
+    0 12px 36px rgba(0, 0, 0, 0.40),
+    0 3px 8px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -378,21 +392,22 @@ select {
 
 /* ---------- Hero Badge (Liquid Glass) ---------- */
 .hero-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 230px;
   background: rgba(60, 65, 75, 0.35);
-  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-full);
   margin-bottom: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
   line-height: 0;
 }
 
 .hero-logo {
   display: block;
-  height: 187px;
-  width: 187px;
-  object-fit: contain;
-  border-radius: var(--radius-full);
+  width: 185px;
+  height: auto;
   position: relative;
   z-index: 1;
 }
@@ -621,11 +636,25 @@ select {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
-  box-shadow: var(--glass-highlight), 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   min-height: 380px;
   display: flex;
   flex-direction: column;
@@ -654,13 +683,46 @@ select {
   pointer-events: none;
   z-index: 1;
   border-radius: inherit;
+  transition: opacity 0.4s ease;
+  opacity: 0.85;
+}
+
+/* Refracted edge ring - light bending through the glass wall */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url('../assets/graf-4.png') no-repeat bottom center / cover;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 20px rgba(42, 191, 96, 0.2));
 }
 
 .card-link:hover .card {
-  transform: translateY(-2px) scale(1.01);
-  background: var(--glass-bg-strong);
-  border-color: var(--glass-border-strong);
-  box-shadow: var(--glass-highlight-heavy), 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px) scale(1.015);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+    inset 1px 0 1px rgba(255, 255, 255, 0.30),
+    inset -1px 0 1px rgba(255, 255, 255, 0.30),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
+    0 14px 36px rgba(0, 0, 0, 0.40),
+    0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.card-link:hover .card::before {
+  opacity: 1;
 }
 
 .card-body {
@@ -674,13 +736,27 @@ select {
 }
 
 .card-featured {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 0 0 1px rgba(42, 191, 96, 0.15), var(--glass-highlight), var(--glass-shadow);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    0 0 0 1px rgba(42, 191, 96, 0.18),
+    0 8px 28px rgba(42, 191, 96, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .card-link:hover .card-featured {
-  border-color: rgba(255, 255, 255, 0.30);
-  box-shadow: 0 0 0 1px rgba(42, 191, 96, 0.2), var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+    inset 1px 0 1px rgba(255, 255, 255, 0.30),
+    inset -1px 0 1px rgba(255, 255, 255, 0.30),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    0 0 0 1px rgba(42, 191, 96, 0.30),
+    0 14px 40px rgba(42, 191, 96, 0.20),
+    0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* Card Badge (Liquid Glass) */
@@ -759,20 +835,6 @@ select {
   margin: 0;
 }
 
-/* Card Bottom Green Graphic */
-.card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: url('../assets/graf-4.png') no-repeat bottom center / cover;
-  pointer-events: none;
-  z-index: 0;
-  filter: drop-shadow(0 0 20px rgba(42, 191, 96, 0.2));
-}
-
 .cards-row-center {
   display: flex;
   justify-content: center;
@@ -806,13 +868,27 @@ select {
 
 .stat {
   text-align: center;
-  background: var(--glass-bg);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
   padding: 28px 20px;
   border-radius: 20px;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -832,8 +908,22 @@ select {
 
 .stat:hover {
   transform: translateY(-3px);
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
-  background: var(--glass-bg-strong);
+  border-color: rgba(255, 255, 255, 0.32);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+    inset 1px 0 1px rgba(255, 255, 255, 0.30),
+    inset -1px 0 1px rgba(255, 255, 255, 0.30),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
+    0 14px 36px rgba(0, 0, 0, 0.40),
+    0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .stat-number {
@@ -869,13 +959,27 @@ select {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-lg);
   padding: 36px;
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -908,7 +1012,22 @@ select {
 }
 
 .contact-form:hover {
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.32);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+    inset 1px 0 1px rgba(255, 255, 255, 0.30),
+    inset -1px 0 1px rgba(255, 255, 255, 0.30),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
+    0 14px 36px rgba(0, 0, 0, 0.40),
+    0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .form-group {
@@ -981,13 +1100,27 @@ select {
   justify-content: center;
   gap: 48px;
   padding: 24px 36px;
-  background: var(--glass-bg);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
   align-items: center;
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-lg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--glass-highlight), var(--glass-shadow);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* iOS 26 lensing: catch-lights on every edge + deep ambient drop */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -1006,8 +1139,22 @@ select {
 }
 
 .contact-info:hover {
-  box-shadow: var(--glass-highlight-heavy), var(--glass-shadow-hover);
-  background: var(--glass-bg-strong);
+  border-color: rgba(255, 255, 255, 0.32);
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.20) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.55),
+    inset 1px 0 1px rgba(255, 255, 255, 0.30),
+    inset -1px 0 1px rgba(255, 255, 255, 0.30),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
+    0 14px 36px rgba(0, 0, 0, 0.40),
+    0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .contact-item {
@@ -1437,7 +1584,7 @@ select {
     border-radius: 28px;
   }
   .hero-logo {
-    height: 90px;
+    height: 110px;
   }
   .hero-badge {
     margin-bottom: 12px;
@@ -1560,7 +1707,7 @@ select {
     border-radius: 24px;
   }
   .hero-logo {
-    height: 75px;
+    height: 90px;
   }
   .hero-badge {
     padding: 4px;
@@ -1722,7 +1869,7 @@ select {
     border-radius: 20px;
   }
   .hero-logo {
-    height: 65px;
+    height: 80px;
   }
   .hero-badge {
     padding: 3px;
