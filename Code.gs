@@ -1,3 +1,22 @@
+// Si tu script NO fue creado dentro de la planilla, pegá acá el ID
+// (está en la URL del Sheet: docs.google.com/spreadsheets/d/ESTE-ES-EL-ID/edit)
+var SHEET_ID = '';
+
+function getUsuariosSheet() {
+  var ss = SHEET_ID
+    ? SpreadsheetApp.openById(SHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) {
+    throw new Error('Sin acceso a la planilla: configurá SHEET_ID');
+  }
+  var sheet = ss.getSheetByName('Usuarios');
+  if (!sheet) {
+    sheet = ss.insertSheet('Usuarios');
+    sheet.appendRow(['Fecha', 'Nombre', 'Email', 'Telefono', 'PasswordHash']);
+  }
+  return sheet;
+}
+
 function doPost(e) {
   try {
     var tipo = e.parameter.tipo || 'contacto';
@@ -39,12 +58,7 @@ function registrarUsuario(p) {
     throw new Error('Código inválido');
   }
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName('Usuarios');
-  if (!sheet) {
-    sheet = ss.insertSheet('Usuarios');
-    sheet.appendRow(['Fecha', 'Nombre', 'Email', 'Telefono', 'PasswordHash']);
-  }
+  var sheet = getUsuariosSheet();
 
   var data = sheet.getDataRange().getValues();
   for (var i = 1; i < data.length; i++) {
@@ -54,7 +68,7 @@ function registrarUsuario(p) {
   }
 
   GmailApp.sendEmail(email, 'Tu código de verificación - DP Soltec',
-    'Hola ' + nombre + ',\n\nGracias por registrarte en DP Soluciones Tecnológicas.\n\nTu código de verificación es: ' + code + '\n\nColoca este código en la web para finalizar tu registro.\n\nSaludos,\nDP Soltec');
+    'Hola ' + nombre + ', gracias por registrarte en DP Soluciones Tecnológicas. Tu código de verificación es: ' + code + '. Coloca este código en la web para finalizar tu registro. Saludos, DP Soltec');
 
   return HtmlService.createHtmlOutput('<script>window.top.postMessage({status:"success"},"*");</script>');
 }
@@ -69,12 +83,7 @@ function confirmarRegistro(p) {
     throw new Error('Faltan datos de registro');
   }
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName('Usuarios');
-  if (!sheet) {
-    sheet = ss.insertSheet('Usuarios');
-    sheet.appendRow(['Fecha', 'Nombre', 'Email', 'Telefono', 'PasswordHash']);
-  }
+  var sheet = getUsuariosSheet();
 
   var data = sheet.getDataRange().getValues();
   for (var i = 1; i < data.length; i++) {
@@ -101,6 +110,14 @@ function doGet(e) {
       out = { status: 'error', message: err.message };
     }
   }
+  if (e && e.parameter.action === 'testmail' && e.parameter.to) {
+    try {
+      GmailApp.sendEmail(e.parameter.to, 'Prueba DP Soltec', 'El servicio de mail funciona correctamente.');
+      out = { status: 'success' };
+    } catch (err) {
+      out = { status: 'error', message: err.message };
+    }
+  }
   return ContentService.createTextOutput(cb + '(' + JSON.stringify(out) + ');')
     .setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
@@ -111,7 +128,7 @@ function verificarLogin(p) {
   if (!email || !passHash) {
     return { status: 'error', message: 'Faltan datos.' };
   }
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Usuarios');
+  var sheet = getUsuariosSheet();
   if (!sheet) {
     return { status: 'error', message: 'Email o contraseña incorrectos.' };
   }
