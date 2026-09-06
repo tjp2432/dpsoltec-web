@@ -2367,6 +2367,14 @@ select {
   position: relative;
   z-index: 1;
 }
+.construction-sublogo {
+  width: 210px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
 .construction-title {
   font-size: 1.5rem;
   font-weight: 800;
