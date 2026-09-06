@@ -54,6 +54,38 @@ function registrarUsuario(p) {
   return HtmlService.createHtmlOutput('<script>window.top.postMessage({status:"success"},"*");</script>');
 }
 
-function doGet() {
-  return HtmlService.createHtmlOutput('Servicio activo.');
+function doGet(e) {
+  var cb = (e && e.parameter.callback) || 'callback';
+  var out = { status: 'error', message: 'Servicio activo.' };
+  if (e && e.parameter.action === 'login') {
+    try {
+      out = verificarLogin(e.parameter);
+    } catch (err) {
+      out = { status: 'error', message: err.message };
+    }
+  }
+  return ContentService.createTextOutput(cb + '(' + JSON.stringify(out) + ');')
+    .setMimeType(ContentService.MimeType.JAVASCRIPT);
+}
+
+function verificarLogin(p) {
+  var email = (p.email || '').trim().toLowerCase();
+  var passHash = (p.passHash || '').trim();
+  if (!email || !passHash) {
+    return { status: 'error', message: 'Faltan datos.' };
+  }
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Usuarios');
+  if (!sheet) {
+    return { status: 'error', message: 'Email o contraseña incorrectos.' };
+  }
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][2]).toLowerCase() === email) {
+      if (String(data[i][4]) === passHash) {
+        return { status: 'success', nombre: data[i][1] };
+      }
+      return { status: 'error', message: 'Email o contraseña incorrectos.' };
+    }
+  }
+  return { status: 'error', message: 'Email o contraseña incorrectos.' };
 }

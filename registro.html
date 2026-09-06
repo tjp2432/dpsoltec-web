@@ -88,7 +88,7 @@
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
                     <li><a href="servicios/nosotros.html" class="nav-link">Nosotros</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                    <li><a href="registro.html" class="nav-link">Registro</a></li>
+                    <li><a href="registro.html" class="nav-link">Iniciar sesión</a></li>
                 </ul>
             </nav>
             <div class="top-header-icons"><a href="servicios/electricos.html"><img src="assets/1.png" alt="Servicios Eléctricos"></a></div>
@@ -99,14 +99,30 @@
         <section class="section page-header">
             <div class="container">
                 <a href="index.html" class="btn btn-outline btn-sm">&larr; Volver</a>
-                <h1 class="page-title">Crear cuenta</h1>
-                <p class="page-desc">Registrate con tu mail y accedé a novedades y beneficios de DP Soltec.</p>
+                <h1 class="page-title" id="authTitle">Iniciar sesión</h1>
+                <p class="page-desc" id="authDesc">Ingresá con tu mail y contraseña para acceder a tu cuenta.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 520px;">
+                    <div id="loginView">
+                        <form class="contact-form" id="loginForm" novalidate>
+                            <div class="form-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" name="email" required placeholder="tu@email.com" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="login-pass">Contraseña</label>
+                                <input type="password" id="login-pass" name="password" required placeholder="Tu contraseña" autocomplete="current-password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Iniciar sesión</button>
+                        </form>
+                        <p class="form-hint">¿No estás registrado? Podés hacerlo acá.</p>
+                        <button class="btn btn-outline btn-full" id="goRegister" style="margin-top: 12px;">Registrarse</button>
+                    </div>
+                    <div id="registerView" style="display: none;">
                     <form class="contact-form" id="registerForm" action="https://script.google.com/macros/s/AKfycbzKM_8gg1VR10IKv_gQJ2hGEm5xLHM6MjHAl-_BIYD-Go34DmSgP4wGUJ-1eTbLXRBS/exec" method="POST">
                         <div class="form-group">
                             <label for="reg-nombre">Nombre</label>
@@ -139,6 +155,8 @@
                         <a class="btn btn-outline btn-full" id="waCodeBtn" href="#" target="_blank" rel="noopener">Enviar código por WhatsApp</a>
                         <button type="submit" class="btn btn-primary btn-full">Verificar y finalizar registro</button>
                     </form>
+                    <p class="form-hint">¿Ya tenés cuenta? <a href="#" id="goLogin" style="color: var(--primary);">Iniciá sesión acá.</a></p>
+                    </div>
                 </div>
             </div>
         </section>

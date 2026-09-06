@@ -207,6 +207,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Auth views (login / register)
+    const loginView = document.getElementById('loginView');
+    const registerView = document.getElementById('registerView');
+    const goRegister = document.getElementById('goRegister');
+    const goLogin = document.getElementById('goLogin');
+    const authTitle = document.getElementById('authTitle');
+    const authDesc = document.getElementById('authDesc');
+    function showRegister() {
+        if (!loginView || !registerView) return;
+        loginView.style.display = 'none';
+        registerView.style.display = '';
+        if (authTitle) authTitle.textContent = 'Crear cuenta';
+        if (authDesc) authDesc.textContent = 'Registrate con tu mail y accedé a novedades y beneficios de DP Soltec.';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function showLogin() {
+        if (!loginView || !registerView) return;
+        registerView.style.display = 'none';
+        loginView.style.display = '';
+        if (authTitle) authTitle.textContent = 'Iniciar sesión';
+        if (authDesc) authDesc.textContent = 'Ingresá con tu mail y contraseña para acceder a tu cuenta.';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (goRegister) goRegister.addEventListener('click', showRegister);
+    if (goLogin) goLogin.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+
+    function jsonp(url) {
+        return new Promise((resolve, reject) => {
+            const cb = 'dpsCb' + Date.now() + Math.floor(Math.random() * 1000);
+            const timer = setTimeout(() => { cleanup(); reject(new Error('timeout')); }, 15000);
+            function cleanup() { clearTimeout(timer); delete window[cb]; s.remove(); }
+            window[cb] = (data) => { cleanup(); resolve(data); };
+            const s = document.createElement('script');
+            s.src = url + '&callback=' + cb;
+            s.onerror = () => { cleanup(); reject(new Error('network')); };
+            document.body.appendChild(s);
+        });
+    }
+
+    // Login form (verified against Usuarios sheet via Apps Script JSONP)
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        const saved = localStorage.getItem('dpsoltec_user');
+        if (saved) {
+            try {
+                const u = JSON.parse(saved);
+                showToast('Hola de nuevo, ' + u.nombre + '.', 'success');
+            } catch (e) { localStorage.removeItem('dpsoltec_user'); }
+        }
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-pass').value;
+            if (!email || !pass) {
+                showToast('Ingresá tu email y contraseña.', 'error');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showToast('Por favor ingresá un email válido.', 'error');
+                return;
+            }
+            try {
+                const passHash = await sha256(pass);
+                const base = 'https://script.google.com/macros/s/AKfycbzKM_8gg1VR10IKv_gQJ2hGEm5xLHM6MjHAl-_BIYD-Go34DmSgP4wGUJ-1eTbLXRBS/exec';
+                const res = await jsonp(base + '?action=login&email=' + encodeURIComponent(email) + '&passHash=' + passHash);
+                if (res && res.status === 'success') {
+                    localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: res.nombre, email }));
+                    showToast('Bienvenido, ' + res.nombre + '.', 'success');
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+                } else {
+                    showToast((res && res.message) || 'Email o contraseña incorrectos.', 'error');
+                }
+            } catch (err) {
+                showToast('No se pudo iniciar sesión. Probá de nuevo.', 'error');
+            }
+        });
+    }
+
     // Registration form
     async function sha256(text) {
         const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -264,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const msg = 'Gracias por registrarte en DP Soluciones Tecnologicas, coloca este codigo en la web para finalizar tu registro: ' + regCode;
                 waCodeBtn.href = 'https://wa.me/' + phoneToWa(telefono) + '?text=' + encodeURIComponent(msg);
                 registerForm.style.display = 'none';
-                document.querySelector('.form-hint').style.display = 'none';
+                registerView.querySelector('.form-hint').style.display = 'none';
                 verifyForm.style.display = 'flex';
                 showToast('Te enviamos un código por WhatsApp. Ingresalo para finalizar.', 'success');
             } catch (err) {
@@ -297,11 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
             showToast('Cuenta creada con éxito. ¡Bienvenido!', 'success');
+            localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: pendingReg.nombre, email: pendingReg.email }));
             verifyForm.reset();
-            verifyForm.style.display = 'none';
-            registerForm.reset();
-            registerForm.style.display = 'flex';
-            document.querySelector('.form-hint').style.display = '';
+            setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             pendingReg = null;
             regCode = '';
         });
