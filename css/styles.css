@@ -497,7 +497,7 @@ select {
 
 /* ---------- Hero Text ---------- */
 .hero-title {
-  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
   font-weight: 800;
   line-height: 1.15;
   color: var(--text-primary);
