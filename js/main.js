@@ -303,22 +303,4 @@ document.addEventListener('DOMContentLoaded', () => {
             openLightbox(imgs, idx);
         });
     });
-    // Construction banner: blocks live domain, dismissible by clicking outside on local
-    const constructionOverlay = document.getElementById('constructionOverlay');
-    if (constructionOverlay) {
-        const isLive = /(^|\.)dpsoltec\.com$/.test(location.hostname);
-        if (isLive) {
-            constructionOverlay.classList.add('blocking');
-            document.body.style.overflow = 'hidden';
-        } else if (sessionStorage.getItem('constructionDismissed') === '1') {
-            constructionOverlay.classList.add('hidden');
-        } else {
-            constructionOverlay.addEventListener('click', (e) => {
-                if (e.target === constructionOverlay) {
-                    constructionOverlay.classList.add('hidden');
-                    sessionStorage.setItem('constructionDismissed', '1');
-                }
-            });
-        }
-    }
 });
