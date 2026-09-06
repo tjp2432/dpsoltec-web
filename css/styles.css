@@ -349,18 +349,22 @@ select {
   color: #ffffff;
 }
 @media (max-width: 968px) {
+  .nav-item-account {
+    position: static;
+  }
   .account-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 10px);
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    min-width: 170px;
+    min-width: 180px;
   }
   .nav-item-account.open .account-menu {
     display: block;
     opacity: 1;
     visibility: visible;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
