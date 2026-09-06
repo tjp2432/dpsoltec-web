@@ -397,7 +397,13 @@ select {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(13, 17, 23, 0.55);
+  background:
+    linear-gradient(180deg,
+      rgba(13, 17, 23, 0.55) 0%,
+      rgba(13, 17, 23, 0.55) 55%,
+      rgba(13, 17, 23, 0.85) 80%,
+      #0d1117 100%
+    );
   pointer-events: none;
 }
 
