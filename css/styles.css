@@ -706,6 +706,14 @@ select {
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
+.title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.title-link:hover {
+  color: var(--primary);
+}
 
 .section-desc {
   color: var(--text-secondary);
@@ -1738,9 +1746,9 @@ select {
     margin-bottom: 32px;
   }
 
-  .section-title {
-    font-size: clamp(1.4rem, 5vw, 1.8rem);
-  }
+.section-title {
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+}
 
   .cards-grid {
     gap: 16px;
