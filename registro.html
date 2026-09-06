@@ -88,7 +88,14 @@
                     <li><a href="#servicios" class="nav-link">Servicios</a></li>
                     <li><a href="servicios/nosotros.html" class="nav-link">Nosotros</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                    <li><a href="registro.html" class="nav-link">Iniciar sesión</a></li>
+                    <li id="navLogin"><a href="registro.html" class="nav-link">Iniciar sesión</a></li>
+                    <li class="nav-item-account" id="navAccount" style="display: none;">
+                        <button class="nav-link nav-account-btn" id="accountBtn" aria-haspopup="true" aria-expanded="false">Cuenta</button>
+                        <ul class="account-menu" id="accountMenu">
+                            <li><button class="account-menu-item" id="accountData">Mis datos</button></li>
+                            <li><button class="account-menu-item" id="accountLogout">Cerrar sesión</button></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="top-header-icons"><a href="servicios/electricos.html"><img src="assets/1.png" alt="Servicios Eléctricos"></a></div>

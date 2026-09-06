@@ -4,6 +4,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const contactForm = document.getElementById('contactForm');
 
+    // Account menu (shown when logged in)
+    function getSessionUser() {
+        try {
+            return JSON.parse(localStorage.getItem('dpsoltec_user') || 'null');
+        } catch (e) {
+            localStorage.removeItem('dpsoltec_user');
+            return null;
+        }
+    }
+    const navLogin = document.getElementById('navLogin');
+    const navAccount = document.getElementById('navAccount');
+    const accountBtn = document.getElementById('accountBtn');
+    const accountData = document.getElementById('accountData');
+    const accountLogout = document.getElementById('accountLogout');
+    const sessionUser = getSessionUser();
+    if (sessionUser && navLogin && navAccount) {
+        navLogin.style.display = 'none';
+        navAccount.style.display = '';
+        if (accountBtn) {
+            accountBtn.textContent = String(sessionUser.nombre).split(' ')[0] + ' ▾';
+        }
+    }
+    if (accountBtn && navAccount) {
+        accountBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = navAccount.classList.toggle('open');
+            accountBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item-account')) {
+                navAccount.classList.remove('open');
+                accountBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+    if (accountData) {
+        accountData.addEventListener('click', () => {
+            const u = getSessionUser();
+            if (u) showToast('Nombre: ' + u.nombre + ' — Email: ' + u.email + '.', 'success');
+            if (navAccount) navAccount.classList.remove('open');
+        });
+    }
+    if (accountLogout) {
+        accountLogout.addEventListener('click', () => {
+            localStorage.removeItem('dpsoltec_user');
+            showToast('Sesión cerrada.', 'success');
+            setTimeout(() => { window.location.reload(); }, 800);
+        });
+    }
+
     // Mobile menu toggle
     function closeMenu() {
         menuToggle.classList.remove('active');
