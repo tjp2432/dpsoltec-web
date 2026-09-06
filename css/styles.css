@@ -282,6 +282,8 @@ select {
 .nav-item-account {
   position: relative;
   list-style: none;
+  display: inline-flex;
+  align-items: center;
 }
 .nav-account-btn {
   background: none;
