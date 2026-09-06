@@ -314,15 +314,16 @@ select {
   font: inherit;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #ffffff;
   padding: 10px 14px;
   border-radius: 12px;
   transition: var(--transition);
   white-space: nowrap;
+  text-decoration: none;
 }
 .account-menu-item:hover {
   background: rgba(255, 255, 255, 0.08);
-  color: var(--primary);
+  color: #ffffff;
 }
 @media (max-width: 968px) {
   .account-menu {
