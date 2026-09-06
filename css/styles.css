@@ -503,8 +503,8 @@ select {
   justify-content: center;
   width: 230px;
   height: 230px;
-  background: rgba(13, 17, 23, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border: none;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
   line-height: 0;
