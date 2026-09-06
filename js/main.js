@@ -304,3 +304,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+    // Construction banner: show once per session
+    const constructionOverlay = document.getElementById('constructionOverlay');
+    const constructionClose = document.getElementById('constructionClose');
+    if (constructionOverlay && constructionClose) {
+        if (sessionStorage.getItem('constructionDismissed') === '1') {
+            constructionOverlay.classList.add('hidden');
+        }
+        const dismissConstruction = () => {
+            constructionOverlay.classList.add('hidden');
+            sessionStorage.setItem('constructionDismissed', '1');
+        };
+        constructionClose.addEventListener('click', dismissConstruction);
+        constructionOverlay.addEventListener('click', (e) => {
+            if (e.target === constructionOverlay) dismissConstruction();
+        });
+    }
