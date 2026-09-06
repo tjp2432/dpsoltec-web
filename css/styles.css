@@ -179,6 +179,16 @@ select {
 .top-header-logo img:last-child {
   height: 44px;
 }
+.top-header-txt {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+.top-header-txt img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
 
 .top-header-icons {
   flex: 0 0 560px;
