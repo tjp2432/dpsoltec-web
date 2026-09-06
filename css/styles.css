@@ -390,7 +390,14 @@ select {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: #0d1117;
+  background: url('../assets/fondo_conectividad_v3.png') center / cover no-repeat, #0d1117;
+  pointer-events: none;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 17, 23, 0.55);
   pointer-events: none;
 }
 
