@@ -464,7 +464,7 @@ select {
 
 .hero-logo {
   display: block;
-  width: 684px;
+  width: 600px;
   max-width: 100%;
   height: auto;
   position: relative;
@@ -486,7 +486,7 @@ select {
 
 .hero-sublogo {
   display: block;
-  width: 400px;
+  width: 350px;
   max-width: 80%;
   height: auto;
   margin: 0 auto 24px;
@@ -497,7 +497,7 @@ select {
 
 /* ---------- Hero Text ---------- */
 .hero-title {
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
   font-weight: 800;
   line-height: 1.15;
   color: var(--text-primary);
