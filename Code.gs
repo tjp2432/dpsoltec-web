@@ -27,6 +27,9 @@ function doPost(e) {
     if (tipo === 'registro_confirm') {
       return confirmarRegistro(e.parameter);
     }
+    if (tipo === 'actualizar_datos') {
+      return actualizarDatos(e.parameter);
+    }
 
     var nombre = e.parameter.nombre || '';
     var email = e.parameter.email || '';
@@ -122,8 +125,35 @@ function doGet(e) {
     .setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 
-function verificarLogin(p) {
+function actualizarDatos(p) {
   var email = (p.email || '').trim().toLowerCase();
+  var nombre = (p.nombre || '').trim();
+  var telefono = (p.telefono || '').trim();
+  var direccion = (p.direccion || '').trim();
+
+  if (!email || !nombre || !telefono) {
+    throw new Error('Faltan datos');
+  }
+
+  var sheet = getUsuariosSheet();
+  var headers = sheet.getRange(1, 1, 1, 6).getValues()[0];
+  if (!headers[5]) {
+    sheet.getRange(1, 6).setValue('Direccion');
+  }
+
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][2]).toLowerCase() === email) {
+      sheet.getRange(i + 1, 2).setValue(nombre);
+      sheet.getRange(i + 1, 4).setValue(telefono);
+      sheet.getRange(i + 1, 6).setValue(direccion);
+      return HtmlService.createHtmlOutput('<script>window.top.postMessage({status:"success"},"*");</script>');
+    }
+  }
+  throw new Error('Usuario no encontrado');
+}
+
+function verificarLogin(p) {  var email = (p.email || '').trim().toLowerCase();
   var passHash = (p.passHash || '').trim();
   if (!email || !passHash) {
     return { status: 'error', message: 'Faltan datos.' };
@@ -136,7 +166,7 @@ function verificarLogin(p) {
   for (var i = 1; i < data.length; i++) {
     if (String(data[i][2]).toLowerCase() === email) {
       if (String(data[i][4]) === passHash) {
-        return { status: 'success', nombre: data[i][1] };
+        return { status: 'success', nombre: data[i][1], telefono: data[i][3], direccion: data[i].length > 5 ? data[i][5] : '' };
       }
       return { status: 'error', message: 'Email o contraseña incorrectos.' };
     }

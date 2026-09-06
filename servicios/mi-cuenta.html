@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Redes y Conectividad - DP Soltec">
-    <title>Redes y Conectividad | DP Soltec</title>
-    <meta property="og:title" content="Redes y Conectividad | DP Soltec">
-    <meta property="og:description" content="Redes de datos, cableado estructurado y wifi para hogares y empresas">
-    <meta property="og:image" content="https://dpsoltec.com/assets/preview_darkgreen_centrado.png">
+    <meta name="description" content="Sobre Nosotros - DP Soltec">
+    <title>Mi cuenta | DP Soltec</title>
+    <meta property="og:title" content="Mi cuenta | DP Soltec">
+    <meta property="og:description" content="Expertos en infraestructura, seguridad y electricidad">
+    <meta property="og:image" content="https://dpsoltec.com/assets/LOGO%20OK.png">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/png" href="../assets/favicon-cuadrado.png" sizes="32x32">
@@ -62,37 +62,53 @@
     <main>
         <section class="section page-header">
             <div class="container">
-                <a href="../#servicios" class="btn btn-outline btn-sm">&larr; Volver</a>
-                <div class="page-icon"><img src="../assets/icon-redes.svg" alt="Redes y Conectividad"></div>
-                <h1 class="page-title">Redes y Conectividad</h1>
-                <p class="page-desc">Diseñamos e instalamos redes de datos y cableado estructurado para hogares, oficinas y empresas, garantizando conectividad estable y de alto rendimiento. También instalamos antenas wifi y resolvemos problemas de cobertura, dejando tu red lista para crecer junto con tu negocio.</p>
+                <a href="../" class="btn btn-outline btn-sm">&larr; Volver</a>
+                <h1 class="page-title">Mi cuenta</h1>
             </div>
         </section>
 
         <section class="section section-alt">
             <div class="container">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <span class="gallery-label">Cableado estructurado</span>
-                        <div class="gallery-image-wrap"><img src="../assets/infra-1.jpg" alt="Infraestructura" loading="lazy" style="object-position: 50% 35%;"></div>
+                <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 560px;">
+                    <div class="contact-info" id="accountCard" style="display: none;">
+                        <div class="contact-item">
+                            <h4>Nombre</h4>
+                            <p id="acc-nombre">-</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Email</h4>
+                            <p id="acc-email">-</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Tel\u00e9fono</h4>
+                            <p id="acc-telefono">-</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Direcci\u00f3n</h4>
+                            <p id="acc-direccion">-</p>
+                        </div>
+                        <button class="btn btn-primary" id="acc-edit">Editar datos</button>
                     </div>
-                    <div class="gallery-item">
-                        <span class="gallery-label">Redes</span>
-                        <div class="gallery-image-wrap"><img src="../assets/infra-2.jpg" alt="Redes" loading="lazy" style="transform: scale(1.4);"></div>
-                    </div>
-                    <div class="gallery-item">
-                        <span class="gallery-label">Cableado 1</span>
-                        <div class="gallery-image-wrap"><img src="../assets/infra-3.jpg" alt="Cableado 1" loading="lazy"></div>
-                    </div>
-                    <div class="gallery-item">
-                        <span class="gallery-label">Cableado 2</span>
-                        <div class="gallery-image-wrap"><img src="../assets/infra-4.jpg" alt="Cableado 2" loading="lazy"></div>
-                    </div>
-                    <div class="gallery-item">
-                        <span class="gallery-label">Cableado 3</span>
-                        <div class="gallery-image-wrap"><img src="../assets/infra-5.jpg" alt="Cableado 3" loading="lazy"></div>
-                    </div>
-                    <div class="gallery-placeholder">Foto 6</div>
+                    <form class="contact-form" id="accountForm" style="display: none;" novalidate>
+                        <div class="form-group">
+                            <label for="acc-in-nombre">Nombre</label>
+                            <input type="text" id="acc-in-nombre" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-in-email">Email</label>
+                            <input type="email" id="acc-in-email" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-in-telefono">Tel\u00e9fono</label>
+                            <input type="tel" id="acc-in-telefono" required autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-in-direccion">Direcci\u00f3n</label>
+                            <input type="text" id="acc-in-direccion" placeholder="Calle, n\u00famero, localidad" autocomplete="street-address">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Guardar cambios</button>
+                        <button type="button" class="btn btn-outline btn-full" id="acc-cancel">Cancelar</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -104,11 +120,11 @@
                 <p>Soluciones tecnológicas innovadoras para impulsar tu hogar, negocio o empresa, al siguiente nivel.</p>
             </div>
             <div class="footer-links">
-                <p class="footer-dpsoltec">DPSoltec</p><h4>Index</h4>
+                <p class="footer-dpsoltec">DP Soluciones Tecnológicas</p><h4>Indice</h4>
                 <ul>
                     <li><a href="../#inicio">Inicio</a></li>
                     <li><a href="../#servicios">Servicios</a></li>
-                    <li><a href="../#nosotros">Nosotros</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="../#contacto">Contacto</a></li>
                 </ul>
             </div>

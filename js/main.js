@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLogin = document.getElementById('navLogin');
     const navAccount = document.getElementById('navAccount');
     const accountBtn = document.getElementById('accountBtn');
-    const accountData = document.getElementById('accountData');
     const accountLogout = document.getElementById('accountLogout');
     const sessionUser = getSessionUser();
     if (sessionUser && navLogin && navAccount) {
@@ -39,13 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    if (accountData) {
-        accountData.addEventListener('click', () => {
-            const u = getSessionUser();
-            if (u) showToast('Nombre: ' + u.nombre + ' — Email: ' + u.email + '.', 'success');
-            if (navAccount) navAccount.classList.remove('open');
-        });
-    }
+    // (Mis datos is a link to mi-cuenta.html)
     if (accountLogout) {
         accountLogout.addEventListener('click', () => {
             localStorage.removeItem('dpsoltec_user');
@@ -323,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const base = 'https://script.google.com/macros/s/AKfycbzvTrXicjO7H5jOu5kf8NaCVaoQcL0WW-ksBM_Sx4FmLIXeI_6rlREp5YLEeBRlVahr/exec';
                 const res = await jsonp(base + '?action=login&email=' + encodeURIComponent(email) + '&passHash=' + passHash);
                 if (res && res.status === 'success') {
-                    localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: res.nombre, email }));
+                    localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: res.nombre, email, telefono: res.telefono || '', direccion: res.direccion || '' }));
                     showToast('Bienvenido, ' + res.nombre + '.', 'success');
                     setTimeout(() => { window.location.href = 'index.html'; }, 1200);
                 } else {
@@ -426,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
             showToast('Cuenta creada con éxito. ¡Bienvenido!', 'success');
-            localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: pendingReg.nombre, email: pendingReg.email }));
+            localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: pendingReg.nombre, email: pendingReg.email, telefono: pendingReg.telefono, direccion: '' }));
             verifyForm.reset();
             setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             pendingReg = null;
@@ -530,4 +523,68 @@ document.addEventListener('DOMContentLoaded', () => {
             openLightbox(imgs, idx);
         });
     });
+
+    // Mi cuenta page (view + edit non-sensitive data)
+    const accountCard = document.getElementById('accountCard');
+    if (accountCard) {
+        const u = getSessionUser();
+        if (!u) {
+            window.location.href = '../registro.html';
+            return;
+        }
+        const accountForm = document.getElementById('accountForm');
+        function renderAccount(user) {
+            document.getElementById('acc-nombre').textContent = user.nombre || '-';
+            document.getElementById('acc-email').textContent = user.email || '-';
+            document.getElementById('acc-telefono').textContent = user.telefono || '-';
+            document.getElementById('acc-direccion').textContent = user.direccion || 'Sin especificar';
+            document.getElementById('acc-in-nombre').value = user.nombre || '';
+            document.getElementById('acc-in-email').value = user.email || '';
+            document.getElementById('acc-in-telefono').value = user.telefono || '';
+            document.getElementById('acc-in-direccion').value = user.direccion || '';
+        }
+        renderAccount(u);
+        accountCard.style.display = 'flex';
+        document.getElementById('acc-edit').addEventListener('click', () => {
+            accountCard.style.display = 'none';
+            accountForm.style.display = 'flex';
+        });
+        document.getElementById('acc-cancel').addEventListener('click', () => {
+            renderAccount(getSessionUser());
+            accountForm.style.display = 'none';
+            accountCard.style.display = 'flex';
+        });
+        accountForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const session = getSessionUser();
+            if (!session) {
+                window.location.href = '../registro.html';
+                return;
+            }
+            const nombre = document.getElementById('acc-in-nombre').value.trim();
+            const telefono = document.getElementById('acc-in-telefono').value.trim();
+            const direccion = document.getElementById('acc-in-direccion').value.trim();
+            if (!nombre || !telefono) {
+                showToast('Nombre y teléfono son obligatorios.', 'error');
+                return;
+            }
+            const updated = { nombre, email: session.email, telefono, direccion };
+            fetch('https://script.google.com/macros/s/AKfycbzvTrXicjO7H5jOu5kf8NaCVaoQcL0WW-ksBM_Sx4FmLIXeI_6rlREp5YLEeBRlVahr/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams({
+                    tipo: 'actualizar_datos',
+                    email: updated.email,
+                    nombre: updated.nombre,
+                    telefono: updated.telefono,
+                    direccion: updated.direccion
+                })
+            });
+            localStorage.setItem('dpsoltec_user', JSON.stringify(updated));
+            renderAccount(updated);
+            accountForm.style.display = 'none';
+            accountCard.style.display = 'flex';
+            showToast('Datos actualizados con éxito.', 'success');
+        });
+    }
 });
