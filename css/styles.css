@@ -486,7 +486,7 @@ select {
 
 .hero-sublogo {
   display: block;
-  width: 350px;
+  width: 385px;
   max-width: 80%;
   height: auto;
   margin: 0 auto 24px;
@@ -1712,7 +1712,7 @@ select {
     height: auto;
   }
   .hero-sublogo {
-    width: 180px;
+    width: 198px;
     margin-bottom: 16px;
   }
 
@@ -1857,7 +1857,7 @@ select {
     height: auto;
   }
   .hero-sublogo {
-    width: 160px;
+    width: 176px;
     margin-bottom: 14px;
   }
 
@@ -2029,7 +2029,7 @@ select {
     height: auto;
   }
   .hero-sublogo {
-    width: 150px;
+    width: 165px;
     margin-bottom: 12px;
   }
   .top-nav .nav-list {
