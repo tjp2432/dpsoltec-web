@@ -539,24 +539,24 @@ select {
 
 /* Hero buttons in logo green */
 .hero-actions .btn-primary {
-  color: #a5e88a;
+  color: #64a446;
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
     0 4px 16px rgba(0, 0, 0, 0.3),
     0 2px 8px rgba(85, 138, 64, 0.25);
 }
 .hero-actions .btn-primary:hover {
-  color: #c4f7ab;
+  color: #7cc455;
   box-shadow:
     inset 0 1.5px 1.5px rgba(255, 255, 255, 0.3),
     0 6px 24px rgba(0, 0, 0, 0.35),
     0 2px 12px rgba(85, 138, 64, 0.35);
 }
 .hero-actions .btn-outline {
-  color: #a5e88a;
+  color: #64a446;
 }
 .hero-actions .btn-outline:hover {
-  color: #c4f7ab;
+  color: #7cc455;
   border-color: rgba(85, 138, 64, 0.45);
 }
 
