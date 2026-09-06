@@ -546,6 +546,7 @@ select {
 }
 .hero-actions .btn-primary:hover {
   color: #7cc455;
+  transform: none;
   box-shadow:
     inset 0 1.5px 1.5px rgba(255, 255, 255, 0.3),
     0 6px 24px rgba(0, 0, 0, 0.35),
@@ -557,6 +558,10 @@ select {
 .hero-actions .btn-outline:hover {
   color: #7cc455;
   border-color: rgba(85, 138, 64, 0.45);
+  transform: none;
+}
+.hero-actions .btn:active {
+  transform: none;
 }
 
 /* ---------- Buttons (Liquid Glass) ---------- */
