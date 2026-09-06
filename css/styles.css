@@ -166,6 +166,7 @@ select {
   display: flex;
   align-items: center;
   height: 100%;
+  margin-left: 40px;
 }
 .top-header-logo img {
   height: 56px;
