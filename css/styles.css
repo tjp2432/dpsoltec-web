@@ -424,7 +424,6 @@ select {
   z-index: 2;
   overflow: hidden;
   transition: var(--transition);
-  animation: breathe 8s ease-in-out infinite;
 }
 
 @keyframes breathe {
