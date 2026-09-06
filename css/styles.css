@@ -185,7 +185,7 @@ select {
   line-height: 0;
 }
 .top-header-txt img {
-  height: 44px;
+  height: 28px;
   width: auto;
   display: block;
 }
@@ -1691,6 +1691,9 @@ select {
   .top-header-logo img {
     height: 44px;
   }
+  .top-header-txt img {
+    height: 28px;
+  }
 
   .top-nav .nav-list {
     top: calc(72px + 14px);
@@ -1826,6 +1829,9 @@ select {
   }
   .top-header-logo img {
     height: 38px;
+  }
+  .top-header-txt img {
+    height: 24px;
   }
   .top-header-icons {
     flex: 0 0 140px;
@@ -2000,6 +2006,9 @@ select {
   }
   .top-header-logo img {
     height: 32px;
+  }
+  .top-header-txt img {
+    height: 20px;
   }
   .hero {
     min-height: auto;
