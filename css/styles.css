@@ -447,19 +447,30 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 230px;
-  height: 230px;
+  width: auto;
+  height: auto;
   background: transparent;
   border: none;
   border-radius: var(--radius-full);
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   line-height: 0;
 }
 
 .hero-logo {
   display: block;
-  width: 480px;
+  width: 720px;
+  max-width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-sublogo {
+  display: block;
+  width: 340px;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto 24px;
   position: relative;
   z-index: 1;
 }
@@ -1671,13 +1682,17 @@ select {
     border-radius: 28px;
   }
   .hero-badge {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 12px;
+    width: auto;
+    height: auto;
+    margin-bottom: 6px;
   }
   .hero-logo {
-    width: 110px;
+    width: 240px;
     height: auto;
+  }
+  .hero-sublogo {
+    width: 180px;
+    margin-bottom: 16px;
   }
 
   .hero-title {
@@ -1812,13 +1827,17 @@ select {
     border-radius: 24px;
   }
   .hero-badge {
-    width: 110px;
-    height: 110px;
-    margin-bottom: 10px;
+    width: auto;
+    height: auto;
+    margin-bottom: 6px;
   }
   .hero-logo {
-    width: 82px;
+    width: 220px;
     height: auto;
+  }
+  .hero-sublogo {
+    width: 160px;
+    margin-bottom: 14px;
   }
 
   .hero-title {
@@ -1980,13 +1999,17 @@ select {
     border-radius: 20px;
   }
   .hero-badge {
-    width: 105px;
-    height: 105px;
-    margin-bottom: 8px;
+    width: auto;
+    height: auto;
+    margin-bottom: 6px;
   }
   .hero-logo {
-    width: 78px;
+    width: 200px;
     height: auto;
+  }
+  .hero-sublogo {
+    width: 150px;
+    margin-bottom: 12px;
   }
   .top-nav .nav-list {
     top: calc(56px + 20px);
