@@ -1726,6 +1726,10 @@ select {
     min-height: 300px;
   }
 
+  .subcard-grid {
+    grid-template-columns: 1fr;
+  }
+
   .card-body {
     padding: 24px 20px 56px;
   }
