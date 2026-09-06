@@ -840,7 +840,7 @@ select {
 }
 
 .card-link:hover .card {
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-3px);
   background:
     linear-gradient(135deg,
       rgba(255, 255, 255, 0.20) 0%,
@@ -2152,7 +2152,7 @@ select {
   opacity: 0.85;
 }
 .subcard:hover {
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-3px);
   background:
     linear-gradient(135deg,
       rgba(255, 255, 255, 0.20) 0%,
@@ -2230,7 +2230,7 @@ select {
 }
 @media (hover: hover) {
   .gallery-item:hover {
-    transform: translateY(-3px) scale(1.015);
+    transform: translateY(-3px);
     border-color: rgba(255, 255, 255, 0.32);
     background:
       linear-gradient(135deg,
