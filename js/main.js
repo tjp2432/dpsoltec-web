@@ -214,6 +214,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const registerForm = document.getElementById('registerForm');
+    const verifyForm = document.getElementById('verifyForm');
+    const waCodeBtn = document.getElementById('waCodeBtn');
+    let pendingReg = null;
+    let regCode = '';
+
+    function validPassword(pass) {
+        return pass.length >= 6 && /[A-Z]/.test(pass) && /\d/.test(pass);
+    }
+
+    function phoneToWa(tel) {
+        let d = tel.replace(/\D/g, '');
+        if (d.startsWith('0')) d = '549' + d.slice(1);
+        else if (d.startsWith('54') && !d.startsWith('549') && d.length === 12) d = '549' + d.slice(2);
+        else if (!d.startsWith('54') && d.length === 10) d = '549' + d;
+        return d;
+    }
+
     if (registerForm) {
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -231,8 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('Por favor ingresá un email válido.', 'error');
                 return;
             }
-            if (pass.length < 6) {
-                showToast('La contraseña debe tener al menos 6 caracteres.', 'error');
+            if (!validPassword(pass)) {
+                showToast('La contraseña debe tener mínimo 6 caracteres, una mayúscula y un número.', 'error');
                 return;
             }
             if (pass !== pass2) {
@@ -242,22 +259,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const passHash = await sha256(pass);
-                fetch(registerForm.action, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: new URLSearchParams({
-                        tipo: 'registro',
-                        nombre,
-                        email,
-                        telefono,
-                        passHash
-                    })
-                });
-                showToast('Cuenta creada con éxito. ¡Bienvenido!', 'success');
-                registerForm.reset();
+                pendingReg = { nombre, email, telefono, passHash };
+                regCode = String(Math.floor(100000 + Math.random() * 900000));
+                const msg = 'Gracias por registrarte en DP Soluciones Tecnologicas, coloca este codigo en la web para finalizar tu registro: ' + regCode;
+                waCodeBtn.href = 'https://wa.me/' + phoneToWa(telefono) + '?text=' + encodeURIComponent(msg);
+                registerForm.style.display = 'none';
+                document.querySelector('.form-hint').style.display = 'none';
+                verifyForm.style.display = 'flex';
+                showToast('Te enviamos un código por WhatsApp. Ingresalo para finalizar.', 'success');
             } catch (err) {
-                showToast('No se pudo crear la cuenta. Probá de nuevo.', 'error');
+                showToast('No se pudo iniciar el registro. Probá de nuevo.', 'error');
             }
+        });
+    }
+
+    if (verifyForm) {
+        verifyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const code = document.getElementById('reg-code').value.trim();
+            if (!pendingReg) {
+                showToast('Primero completá el formulario de registro.', 'error');
+                return;
+            }
+            if (code !== regCode) {
+                showToast('El código es incorrecto. Revisá tu WhatsApp.', 'error');
+                return;
+            }
+            fetch(registerForm.action, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams({
+                    tipo: 'registro',
+                    nombre: pendingReg.nombre,
+                    email: pendingReg.email,
+                    telefono: pendingReg.telefono,
+                    passHash: pendingReg.passHash
+                })
+            });
+            showToast('Cuenta creada con éxito. ¡Bienvenido!', 'success');
+            verifyForm.reset();
+            verifyForm.style.display = 'none';
+            registerForm.reset();
+            registerForm.style.display = 'flex';
+            document.querySelector('.form-hint').style.display = '';
+            pendingReg = null;
+            regCode = '';
         });
     }
 

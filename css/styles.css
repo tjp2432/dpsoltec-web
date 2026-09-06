@@ -1084,9 +1084,20 @@ select {
   color: var(--text-muted);
 }
 
+/* Register form hint + verification step */
+.form-hint {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+#waCodeBtn {
+  text-align: center;
+}
+
 /* Character counter */
-.char-counter {
-  display: block;
+.char-counter {  display: block;
   text-align: right;
   font-size: 0.75rem;
   color: var(--text-muted);
