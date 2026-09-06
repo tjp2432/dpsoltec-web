@@ -1493,10 +1493,11 @@ select {
 @media (max-width: 968px) {
   .top-header-inner {
     height: 80px;
+    justify-content: center;
   }
   .top-header-logo {
-    flex: 0 0 550px;
-    margin-left: -8px;
+    flex: 0 0 auto;
+    margin-left: 0;
   }
   .top-header-icons {
     display: none;
@@ -1677,7 +1678,7 @@ select {
     height: 72px;
   }
   .top-header-logo {
-    flex: 0 0 440px;
+    flex: 0 0 auto;
   }
   .top-header-logo img {
     height: 44px;
@@ -1820,7 +1821,7 @@ select {
     height: 64px;
   }
   .top-header-logo {
-    flex: 0 0 340px;
+    flex: 0 0 auto;
   }
   .top-header-logo img {
     height: 38px;
@@ -2001,7 +2002,7 @@ select {
     height: 56px;
   }
   .top-header-logo {
-    flex: 0 0 280px;
+    flex: 0 0 auto;
   }
   .top-header-logo img {
     height: 32px;
