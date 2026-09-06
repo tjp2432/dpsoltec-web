@@ -2314,6 +2314,10 @@ select {
   visibility: hidden;
   pointer-events: none;
 }
+/* Live domain: banner blocks the site, no way to close it */
+.construction-overlay.blocking .construction-btn {
+  display: none;
+}
 .construction-card {
   text-align: center;
   max-width: 460px;

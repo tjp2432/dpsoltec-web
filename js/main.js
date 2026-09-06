@@ -303,20 +303,26 @@ document.addEventListener('DOMContentLoaded', () => {
             openLightbox(imgs, idx);
         });
     });
-});
-    // Construction banner: show once per session
+    // Construction banner: blocking on live domain, dismissible locally
     const constructionOverlay = document.getElementById('constructionOverlay');
     const constructionClose = document.getElementById('constructionClose');
     if (constructionOverlay && constructionClose) {
-        if (sessionStorage.getItem('constructionDismissed') === '1') {
-            constructionOverlay.classList.add('hidden');
+        const isLive = /(^|\.)dpsoltec\.com$/.test(location.hostname);
+        if (isLive) {
+            constructionOverlay.classList.add('blocking');
+            document.body.style.overflow = 'hidden';
+        } else {
+            if (sessionStorage.getItem('constructionDismissed') === '1') {
+                constructionOverlay.classList.add('hidden');
+            }
+            const dismissConstruction = () => {
+                constructionOverlay.classList.add('hidden');
+                sessionStorage.setItem('constructionDismissed', '1');
+            };
+            constructionClose.addEventListener('click', dismissConstruction);
+            constructionOverlay.addEventListener('click', (e) => {
+                if (e.target === constructionOverlay) dismissConstruction();
+            });
         }
-        const dismissConstruction = () => {
-            constructionOverlay.classList.add('hidden');
-            sessionStorage.setItem('constructionDismissed', '1');
-        };
-        constructionClose.addEventListener('click', dismissConstruction);
-        constructionOverlay.addEventListener('click', (e) => {
-            if (e.target === constructionOverlay) dismissConstruction();
-        });
     }
+});
