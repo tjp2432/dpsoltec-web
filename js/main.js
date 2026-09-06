@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             try {
                 const passHash = await sha256(pass);
-                const base = 'https://script.google.com/macros/s/AKfycbzKM_8gg1VR10IKv_gQJ2hGEm5xLHM6MjHAl-_BIYD-Go34DmSgP4wGUJ-1eTbLXRBS/exec';
+                const base = 'https://script.google.com/macros/s/AKfycbzvTrXicjO7H5jOu5kf8NaCVaoQcL0WW-ksBM_Sx4FmLIXeI_6rlREp5YLEeBRlVahr/exec';
                 const res = await jsonp(base + '?action=login&email=' + encodeURIComponent(email) + '&passHash=' + passHash);
                 if (res && res.status === 'success') {
                     localStorage.setItem('dpsoltec_user', JSON.stringify({ nombre: res.nombre, email }));
