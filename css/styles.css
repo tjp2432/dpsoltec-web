@@ -418,9 +418,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.25),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.14),
     inset 0 14px 28px -12px rgba(255, 255, 255, 0.12),
-    inset 0 -24px 36px -22px rgba(0, 0, 0, 0.38),
-    0 12px 36px rgba(0, 0, 0, 0.40),
-    0 3px 8px rgba(0, 0, 0, 0.25);
+    inset 0 -24px 36px -22px rgba(0, 0, 0, 0.38);
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -786,9 +784,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
     inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   min-height: 380px;
   height: 100%;
   display: flex;
@@ -851,9 +847,7 @@ select {
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
     inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
-    0 14px 36px rgba(0, 0, 0, 0.40),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30);
 }
 
 .card-link:hover .card::before {
@@ -877,9 +871,7 @@ select {
     inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
-    0 0 0 1px rgba(42, 191, 96, 0.18),
-    0 8px 28px rgba(42, 191, 96, 0.12),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    0 0 0 1px rgba(42, 191, 96, 0.18);
 }
 
 .card-link:hover .card-featured {
@@ -889,9 +881,7 @@ select {
     inset 1px 0 1px rgba(255, 255, 255, 0.30),
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
-    0 0 0 1px rgba(42, 191, 96, 0.30),
-    0 14px 40px rgba(42, 191, 96, 0.20),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    0 0 0 1px rgba(42, 191, 96, 0.30);
 }
 
 /* Card Badge (Liquid Glass) */
@@ -1021,9 +1011,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
     inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -1056,9 +1044,7 @@ select {
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
     inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
-    0 14px 36px rgba(0, 0, 0, 0.40),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30);
 }
 
 .stat-number {
@@ -1112,9 +1098,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
     inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -1160,9 +1144,7 @@ select {
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
     inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
-    0 14px 36px rgba(0, 0, 0, 0.40),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30);
 }
 
 .form-group {
@@ -1264,9 +1246,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
     inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
   transition: var(--transition);
@@ -1298,9 +1278,7 @@ select {
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
     inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
-    0 14px 36px rgba(0, 0, 0, 0.40),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30);
 }
 
 .contact-item {
@@ -2136,9 +2114,7 @@ select {
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
     inset 0 12px 24px -12px rgba(255, 255, 255, 0.10),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
@@ -2174,9 +2150,7 @@ select {
     inset -1px 0 1px rgba(255, 255, 255, 0.30),
     inset 0 -1px 1px rgba(255, 255, 255, 0.18),
     inset 0 16px 32px -12px rgba(255, 255, 255, 0.16),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30),
-    0 14px 36px rgba(0, 0, 0, 0.40),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.30);
 }
 .subcard:hover::before {
   opacity: 1;
@@ -2233,9 +2207,7 @@ select {
     inset 1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset -1px 0 0.5px rgba(255, 255, 255, 0.22),
     inset 0 -1px 0.5px rgba(255, 255, 255, 0.12),
-    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+    inset 0 -20px 30px -20px rgba(0, 0, 0, 0.35);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
