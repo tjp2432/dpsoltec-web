@@ -207,6 +207,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Registration form
+    async function sha256(text) {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+        return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const telefono = document.getElementById('reg-telefono').value.trim();
+            const pass = document.getElementById('reg-pass').value;
+            const pass2 = document.getElementById('reg-pass2').value;
+
+            if (!nombre || !email || !telefono || !pass || !pass2) {
+                showToast('Por favor completá todos los campos.', 'error');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showToast('Por favor ingresá un email válido.', 'error');
+                return;
+            }
+            if (pass.length < 6) {
+                showToast('La contraseña debe tener al menos 6 caracteres.', 'error');
+                return;
+            }
+            if (pass !== pass2) {
+                showToast('Las contraseñas no coinciden.', 'error');
+                return;
+            }
+
+            try {
+                const passHash = await sha256(pass);
+                fetch(registerForm.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams({
+                        tipo: 'registro',
+                        nombre,
+                        email,
+                        telefono,
+                        passHash
+                    })
+                });
+                showToast('Cuenta creada con éxito. ¡Bienvenido!', 'success');
+                registerForm.reset();
+            } catch (err) {
+                showToast('No se pudo crear la cuenta. Probá de nuevo.', 'error');
+            }
+        });
+    }
+
     // Toast notification
     function showToast(message, type = 'success') {
         const existingToast = document.querySelector('.toast');
