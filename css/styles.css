@@ -463,6 +463,19 @@ select {
   height: auto;
   position: relative;
   z-index: 1;
+  animation: logo-from-back 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes logo-from-back {
+  from {
+    transform: scale(0.55);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 .hero-sublogo {
@@ -473,6 +486,7 @@ select {
   margin: 0 auto 24px;
   position: relative;
   z-index: 1;
+  animation: logo-from-back 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
 }
 
 /* ---------- Hero Text ---------- */
