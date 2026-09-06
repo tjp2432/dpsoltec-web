@@ -2363,7 +2363,7 @@ select {
 .construction-logo {
   width: 150px;
   height: auto;
-  margin: 0 auto 20px;
+  margin: 0 auto 6px;
   position: relative;
   z-index: 1;
 }
