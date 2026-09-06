@@ -355,16 +355,17 @@ select {
   .account-menu {
     position: absolute;
     top: calc(100% + 10px);
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    min-width: 180px;
+    left: auto;
+    right: 8px;
+    transform: none;
+    min-width: 0;
+    max-width: calc(100% - 16px);
   }
   .nav-item-account.open .account-menu {
     display: block;
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: none;
   }
 }
 
