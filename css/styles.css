@@ -189,6 +189,16 @@ select {
   width: auto;
   display: block;
 }
+.top-header-dp {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+.top-header-dp img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
 
 .top-header-icons {
   flex: 0 0 560px;
