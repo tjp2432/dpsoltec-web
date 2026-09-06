@@ -5,6 +5,9 @@ function doPost(e) {
     if (tipo === 'registro') {
       return registrarUsuario(e.parameter);
     }
+    if (tipo === 'registro_confirm') {
+      return confirmarRegistro(e.parameter);
+    }
 
     var nombre = e.parameter.nombre || '';
     var email = e.parameter.email || '';
@@ -23,6 +26,40 @@ function doPost(e) {
 }
 
 function registrarUsuario(p) {
+  var nombre = (p.nombre || '').trim();
+  var email = (p.email || '').trim().toLowerCase();
+  var telefono = (p.telefono || '').trim();
+  var passHash = (p.passHash || '').trim();
+  var code = (p.code || '').trim();
+
+  if (!nombre || !email || !telefono || !passHash || !code) {
+    throw new Error('Faltan datos de registro');
+  }
+  if (!/^\d{6}$/.test(code)) {
+    throw new Error('Código inválido');
+  }
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Usuarios');
+  if (!sheet) {
+    sheet = ss.insertSheet('Usuarios');
+    sheet.appendRow(['Fecha', 'Nombre', 'Email', 'Telefono', 'PasswordHash']);
+  }
+
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][2]).toLowerCase() === email) {
+      throw new Error('Ese email ya está registrado');
+    }
+  }
+
+  GmailApp.sendEmail(email, 'Tu código de verificación - DP Soltec',
+    'Hola ' + nombre + ',\n\nGracias por registrarte en DP Soluciones Tecnológicas.\n\nTu código de verificación es: ' + code + '\n\nColoca este código en la web para finalizar tu registro.\n\nSaludos,\nDP Soltec');
+
+  return HtmlService.createHtmlOutput('<script>window.top.postMessage({status:"success"},"*");</script>');
+}
+
+function confirmarRegistro(p) {
   var nombre = (p.nombre || '').trim();
   var email = (p.email || '').trim().toLowerCase();
   var telefono = (p.telefono || '').trim();

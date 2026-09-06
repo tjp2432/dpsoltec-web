@@ -293,20 +293,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const registerForm = document.getElementById('registerForm');
     const verifyForm = document.getElementById('verifyForm');
-    const waCodeBtn = document.getElementById('waCodeBtn');
     let pendingReg = null;
     let regCode = '';
 
     function validPassword(pass) {
         return pass.length >= 6 && /[A-Z]/.test(pass) && /\d/.test(pass);
-    }
-
-    function phoneToWa(tel) {
-        let d = tel.replace(/\D/g, '');
-        if (d.startsWith('0')) d = '549' + d.slice(1);
-        else if (d.startsWith('54') && !d.startsWith('549') && d.length === 12) d = '549' + d.slice(2);
-        else if (!d.startsWith('54') && d.length === 10) d = '549' + d;
-        return d;
     }
 
     if (registerForm) {
@@ -339,12 +330,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passHash = await sha256(pass);
                 pendingReg = { nombre, email, telefono, passHash };
                 regCode = String(Math.floor(100000 + Math.random() * 900000));
-                const msg = 'Gracias por registrarte en DP Soluciones Tecnologicas, coloca este codigo en la web para finalizar tu registro: ' + regCode;
-                waCodeBtn.href = 'https://wa.me/' + phoneToWa(telefono) + '?text=' + encodeURIComponent(msg);
+                fetch(registerForm.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams({
+                        tipo: 'registro',
+                        nombre,
+                        email,
+                        telefono,
+                        passHash,
+                        code: regCode
+                    })
+                });
                 registerForm.style.display = 'none';
                 registerView.querySelector('.form-hint').style.display = 'none';
                 verifyForm.style.display = 'flex';
-                showToast('Te enviamos un código por WhatsApp. Ingresalo para finalizar.', 'success');
+                showToast('Te enviamos un código a tu email. Ingresalo para finalizar.', 'success');
             } catch (err) {
                 showToast('No se pudo iniciar el registro. Probá de nuevo.', 'error');
             }
@@ -360,14 +361,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             if (code !== regCode) {
-                showToast('El código es incorrecto. Revisá tu WhatsApp.', 'error');
+                showToast('El código es incorrecto. Revisá tu email.', 'error');
                 return;
             }
             fetch(registerForm.action, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: new URLSearchParams({
-                    tipo: 'registro',
+                    tipo: 'registro_confirm',
                     nombre: pendingReg.nombre,
                     email: pendingReg.email,
                     telefono: pendingReg.telefono,
