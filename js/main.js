@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     var heroSection = document.querySelector('.hero');
     if (heroSection) {
         setTimeout(function() { heroSection.classList.add('shake-active'); }, 100);
+        setTimeout(function() {
+            var assembly = document.querySelector('.hero-logo-assembly');
+            if (assembly) assembly.classList.add('assembled');
+        }, 950);
     }
 
     // Account menu (shown when logged in)
@@ -594,24 +598,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* Hero logo -> header scroll animation (mobile) */
-    var heroLogoEl = document.querySelector('.hero-logo-final');
+    /* Hero logo -> header scroll animation (mobile only) */
+    var heroBadge = document.querySelector('.hero-badge');
     var headerEl = document.getElementById('nav');
-    var headerLogoEl = document.getElementById('headerLogo');
-    if (heroLogoEl && headerEl && headerLogoEl) {
-        var scrollThreshold = window.innerHeight * 0.3;
+    var headerLogo = document.getElementById('headerLogo');
+    if (heroBadge && headerEl && headerLogo && window.innerWidth <= 968) {
+        var scrollThreshold = 120;
         var ticking = false;
+
         window.addEventListener('scroll', function() {
             if (!ticking) {
                 window.requestAnimationFrame(function() {
                     if (window.scrollY > scrollThreshold) {
+                        heroBadge.style.opacity = '0';
+                        heroBadge.style.transform = 'scale(0.3)';
+                        heroBadge.style.pointerEvents = 'none';
                         headerEl.classList.add('scrolled');
-                        heroLogoEl.style.transform = 'scale(0.4)';
-                        heroLogoEl.style.opacity = '0.3';
                     } else {
+                        heroBadge.style.opacity = '';
+                        heroBadge.style.transform = '';
+                        heroBadge.style.pointerEvents = '';
                         headerEl.classList.remove('scrolled');
-                        heroLogoEl.style.transform = '';
-                        heroLogoEl.style.opacity = '';
                     }
                     ticking = false;
                 });

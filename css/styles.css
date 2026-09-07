@@ -478,6 +478,7 @@ select {
   border-radius: var(--radius-full);
   margin-bottom: 8px;
   line-height: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .hero-logo {
@@ -505,6 +506,10 @@ select {
   z-index: 1;
   animation-fill-mode: both;
   will-change: transform, opacity, filter;
+}
+.hero-logo-assembly.assembled .frag {
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 .hero-logo-assembly .frag-1 {
@@ -603,7 +608,6 @@ select {
   position: relative;
   opacity: 0;
   animation: logo-reveal 0.35s ease 0.92s both;
-  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 @keyframes logo-reveal {
   from { opacity: 0; filter: brightness(1.3); }
@@ -1739,17 +1743,6 @@ select {
   }
   .top-header.scrolled .top-header-logo {
     display: block;
-    animation: logo-enter 0.4s ease both;
-  }
-  .top-header.scrolled .top-header-inner {
-    justify-content: space-between;
-  }
-  .top-header.scrolled .top-nav {
-    margin-left: auto;
-  }
-  @keyframes logo-enter {
-    from { opacity: 0; transform: scale(0.5) translateY(20px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
   }
   .top-header-icons {
     display: none;
