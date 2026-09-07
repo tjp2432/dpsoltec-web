@@ -355,6 +355,7 @@ select {
   }
   .account-menu-item {
     color: #fff !important;
+    font-size: 0.8rem;
   }
   .nav-account-btn {
     color: #fff;
