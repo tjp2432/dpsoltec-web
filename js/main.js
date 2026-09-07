@@ -593,4 +593,30 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Datos actualizados con éxito.', 'success');
         });
     }
+
+    /* Hero logo -> header scroll animation (mobile) */
+    var heroLogoEl = document.querySelector('.hero-logo-final');
+    var headerEl = document.getElementById('nav');
+    var headerLogoEl = document.getElementById('headerLogo');
+    if (heroLogoEl && headerEl && headerLogoEl) {
+        var scrollThreshold = window.innerHeight * 0.3;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (window.scrollY > scrollThreshold) {
+                        headerEl.classList.add('scrolled');
+                        heroLogoEl.style.transform = 'scale(0.4)';
+                        heroLogoEl.style.opacity = '0.3';
+                    } else {
+                        headerEl.classList.remove('scrolled');
+                        heroLogoEl.style.transform = '';
+                        heroLogoEl.style.opacity = '';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
 });
