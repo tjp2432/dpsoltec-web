@@ -353,6 +353,12 @@ select {
   .nav-item-account {
     position: static;
   }
+  .account-menu-item {
+    color: #fff !important;
+  }
+  .nav-account-btn {
+    color: #fff;
+  }
   .account-menu {
     position: absolute;
     top: calc(100% + 10px);
@@ -598,7 +604,7 @@ select {
   animation: logo-reveal 0.35s ease 0.92s both;
 }
 @keyframes logo-reveal {
-  from { opacity: 0; filter: brightness(2.5); }
+  from { opacity: 0; filter: brightness(1.3); }
   to { opacity: 1; filter: brightness(1); }
 }
 
@@ -623,10 +629,7 @@ select {
 
 /* ---- IMPACT FX (natural, not artificial) ---- */
 .impact-fx {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: -1;
+  display: none;
 }
 
 /* Brief white flash — like a camera flash, very fast */
@@ -661,14 +664,7 @@ select {
   will-change: transform, opacity;
 }
 .spark::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 6px; height: 6px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  filter: blur(2px);
+  display: none;
 }
 
 @keyframes white-flash {
