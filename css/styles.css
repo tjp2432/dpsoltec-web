@@ -1938,7 +1938,7 @@ select {
     align-items: center;
   }
   .hero-bg {
-    background: url('../assets/fondo_conectividad_v3.png') center / cover no-repeat, #0d1117;
+    background: url('../assets/fondo_conectividad_v3.png') center / 180% auto no-repeat, #0d1117;
   }
 
   .hero-content {
