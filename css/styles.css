@@ -478,7 +478,7 @@ select {
   border-radius: var(--radius-full);
   margin-bottom: 8px;
   line-height: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  will-change: transform, opacity;
 }
 
 .hero-logo {

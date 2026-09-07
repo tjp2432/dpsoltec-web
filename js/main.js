@@ -603,21 +603,52 @@ document.addEventListener('DOMContentLoaded', () => {
     var headerEl = document.getElementById('nav');
     var headerLogo = document.getElementById('headerLogo');
     if (heroBadge && headerEl && headerLogo && window.innerWidth <= 968) {
-        var scrollThreshold = 120;
+        var heroRect, headerRect;
         var ticking = false;
+
+        function recalcPositions() {
+            heroRect = heroBadge.getBoundingClientRect();
+            headerRect = headerLogo.getBoundingClientRect();
+        }
+        recalcPositions();
+        window.addEventListener('resize', recalcPositions);
 
         window.addEventListener('scroll', function() {
             if (!ticking) {
                 window.requestAnimationFrame(function() {
-                    if (window.scrollY > scrollThreshold) {
+                    var scrollMax = heroRect.top;
+                    var pct = Math.min(Math.max(window.scrollY / scrollMax, 0), 1);
+
+                    if (pct > 0 && pct < 1) {
+                        heroBadge.style.position = 'fixed';
+                        heroBadge.style.top = (heroRect.top + window.scrollY) + 'px';
+                        heroBadge.style.left = '50%';
+                        heroBadge.style.zIndex = '100';
+
+                        var tx = headerRect.left + headerRect.width / 2 - (heroRect.left + heroRect.width / 2);
+                        var ty = headerRect.top - heroRect.top;
+                        var sc = headerRect.height / heroRect.height;
+
+                        heroBadge.style.transform = 'translate(calc(-50% + ' + tx + 'px), ' + ty + 'px) scale(' + sc + ')';
+                        heroBadge.style.opacity = pct > 0.8 ? (1 - (pct - 0.8) * 5) : '1';
+                    } else if (pct >= 1) {
+                        heroBadge.style.position = 'fixed';
+                        heroBadge.style.top = (heroRect.top + window.scrollY) + 'px';
+                        heroBadge.style.left = '50%';
+                        heroBadge.style.zIndex = '100';
+                        var tx2 = headerRect.left + headerRect.width / 2 - (heroRect.left + heroRect.width / 2);
+                        var ty2 = headerRect.top - heroRect.top;
+                        var sc2 = headerRect.height / heroRect.height;
+                        heroBadge.style.transform = 'translate(calc(-50% + ' + tx2 + 'px), ' + ty2 + 'px) scale(' + sc2 + ')';
                         heroBadge.style.opacity = '0';
-                        heroBadge.style.transform = 'scale(0.3)';
-                        heroBadge.style.pointerEvents = 'none';
                         headerEl.classList.add('scrolled');
                     } else {
-                        heroBadge.style.opacity = '';
+                        heroBadge.style.position = '';
+                        heroBadge.style.top = '';
+                        heroBadge.style.left = '';
+                        heroBadge.style.zIndex = '';
                         heroBadge.style.transform = '';
-                        heroBadge.style.pointerEvents = '';
+                        heroBadge.style.opacity = '';
                         headerEl.classList.remove('scrolled');
                     }
                     ticking = false;
