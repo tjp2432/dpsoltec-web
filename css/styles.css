@@ -294,6 +294,7 @@ select {
   font-weight: 500;
   letter-spacing: normal;
   text-transform: none;
+  padding: 4px 0;
 }
 .account-menu {
   position: absolute;
