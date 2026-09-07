@@ -1934,7 +1934,7 @@ select {
     height: 100dvh;
     min-height: unset;
     padding-top: calc(72px + var(--sat, 0px));
-    padding-bottom: 80px;
+    padding-bottom: 160px;
     justify-content: center;
     align-items: center;
   }
