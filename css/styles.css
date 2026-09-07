@@ -1937,7 +1937,7 @@ select {
   }
   .hero-bg {
     background: url('../assets/fondo_conectividad_v3.png') center / cover no-repeat, #0d1117;
-    transform: rotate(90deg) scale(1.5);
+    transform: rotate(90deg) scale(1.2);
     transform-origin: center center;
   }
 
