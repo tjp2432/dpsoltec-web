@@ -1945,7 +1945,7 @@ select {
     position: absolute;
     inset: -30%;
     background: url('../assets/fondo_conectividad_v3.png') center / contain no-repeat;
-    transform: rotate(90deg) scale(1.3);
+    transform: rotate(90deg) scale(1.3) translateY(-8%);
   }
 
   .hero-content {
