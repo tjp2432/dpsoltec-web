@@ -1930,9 +1930,15 @@ select {
   }
 
   .hero {
-    min-height: 70vh;
-    min-height: 70dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 0;
+    justify-content: center;
+  }
+  .hero-bg {
+    background: url('../assets/fondo_conectividad_v3.png') center / cover no-repeat, #0d1117;
+    transform: rotate(90deg) scale(1.5);
+    transform-origin: center center;
   }
 
   .hero-content {
@@ -2259,8 +2265,10 @@ select {
     height: 20px;
   }
   .hero {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 0;
+    justify-content: center;
   }
   .hero-content {
     max-width: 250px;
