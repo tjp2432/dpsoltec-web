@@ -1930,9 +1930,10 @@ select {
   }
 
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding-top: 0;
+    height: 100vh;
+    height: 100dvh;
+    min-height: unset;
+    padding-top: calc(72px + var(--sat, 0px));
     justify-content: center;
     align-items: center;
   }
@@ -2266,10 +2267,12 @@ select {
     height: 20px;
   }
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding-top: 0;
+    height: 100vh;
+    height: 100dvh;
+    min-height: unset;
+    padding-top: calc(56px + var(--sat, 0px));
     justify-content: center;
+    align-items: center;
   }
   .hero-content {
     max-width: 250px;
