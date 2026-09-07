@@ -474,49 +474,271 @@ select {
 
 .hero-logo {
   display: block;
-  width: 600px;
+  width: 540px;
   max-width: 100%;
   height: auto;
   position: relative;
   z-index: 1;
-  animation: logo-from-back 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-@keyframes logo-from-back {
-  from {
-    transform: scale(0.55);
-    opacity: 0;
-    filter: blur(10px);
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
+
+.hero-logo-assembly {
+  position: relative;
+  display: inline-block;
+  width: 540px;
+  max-width: 100%;
+}
+
+.hero-logo-assembly .frag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  animation-fill-mode: both;
+  will-change: transform, opacity, filter;
+}
+
+.hero-logo-assembly .frag-1 {
+  clip-path: polygon(0 0, 33.33% 0, 33.33% 50%, 0 50%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s both;
+}
+.hero-logo-assembly .frag-2 {
+  clip-path: polygon(33.33% 0, 66.66% 0, 66.66% 50%, 33.33% 50%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+}
+.hero-logo-assembly .frag-3 {
+  clip-path: polygon(66.66% 0, 100% 0, 100% 50%, 66.66% 50%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+.hero-logo-assembly .frag-4 {
+  clip-path: polygon(0 50%, 33.33% 50%, 33.33% 100%, 0 100%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.02s both;
+}
+.hero-logo-assembly .frag-5 {
+  clip-path: polygon(33.33% 50%, 66.66% 50%, 66.66% 100%, 33.33% 100%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
+}
+.hero-logo-assembly .frag-6 {
+  clip-path: polygon(66.66% 50%, 100% 50%, 100% 100%, 66.66% 100%);
+  animation: frag-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.10s both;
+}
+
+/* All fragments converge to exact position, no bounce overlap */
+@keyframes frag-in {
+  0%   { transform: translate(-320px, -220px) rotate(-35deg) scale(0.3); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0deg) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0deg) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; filter: blur(0); }
+}
+
+/* Each fragment uses its own direction */
+.hero-logo-assembly .frag-1 { animation-name: frag-in-tl; }
+.hero-logo-assembly .frag-2 { animation-name: frag-in-tc; }
+.hero-logo-assembly .frag-3 { animation-name: frag-in-tr; }
+.hero-logo-assembly .frag-4 { animation-name: frag-in-bl; }
+.hero-logo-assembly .frag-5 { animation-name: frag-in-bc; }
+.hero-logo-assembly .frag-6 { animation-name: frag-in-br; }
+
+@keyframes frag-in-tl {
+  0%   { transform: translate(-320px, -220px) rotate(-35deg) scale(0.3); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes frag-in-tc {
+  0%   { transform: translate(30px, -350px) rotate(20deg) scale(0.25); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes frag-in-tr {
+  0%   { transform: translate(320px, -200px) rotate(40deg) scale(0.3); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes frag-in-bl {
+  0%   { transform: translate(-350px, 200px) rotate(30deg) scale(0.25); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes frag-in-bc {
+  0%   { transform: translate(20px, 320px) rotate(-25deg) scale(0.25); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes frag-in-br {
+  0%   { transform: translate(350px, 220px) rotate(-40deg) scale(0.3); opacity: 0; filter: blur(14px); }
+  15%  { opacity: 0.8; }
+  50%  { filter: blur(0); }
+  75%  { transform: translate(0, 0) rotate(0) scale(1.01); }
+  85%  { transform: translate(0, 0) rotate(0) scale(0.995); }
+  100% { transform: translate(0, 0) rotate(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+.hero-logo-final {
+  position: relative;
+  opacity: 0;
+  animation: logo-reveal 0.35s ease 0.92s both;
+}
+@keyframes logo-reveal {
+  from { opacity: 0; filter: brightness(2.5); }
+  to { opacity: 1; filter: brightness(1); }
+}
+
+/* ---- SCREEN SHAKE on impact ---- */
+.hero.shake-active {
+  animation: screen-shake 0.45s ease-out 0.92s both;
+}
+@keyframes screen-shake {
+  0%  { transform: translate(0, 0); }
+  8%  { transform: translate(-5px, 4px); }
+  16% { transform: translate(6px, -5px); }
+  24% { transform: translate(-4px, 6px); }
+  32% { transform: translate(5px, -3px); }
+  40% { transform: translate(-3px, 4px); }
+  48% { transform: translate(3px, -2px); }
+  56% { transform: translate(-2px, 3px); }
+  64% { transform: translate(2px, -1px); }
+  72% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -1px); }
+  100%{ transform: translate(0, 0); }
+}
+
+/* ---- IMPACT FX (natural, not artificial) ---- */
+.impact-fx {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Brief white flash — like a camera flash, very fast */
+.impact-white {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0);
+  animation: white-flash 0.15s ease-out 0.92s both;
+}
+
+/* Soft glow from center — warm green-white, fades naturally */
+.impact-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 80%; height: 80%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180, 255, 140, 0.6) 0%, rgba(100, 200, 70, 0.2) 30%, transparent 60%);
+  opacity: 0;
+  animation: glow-pulse 0.5s ease-out 0.92s both;
+}
+
+/* Sparks — small dots with natural fade, varying distances */
+.spark {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.spark::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(200, 255, 160, 0.4);
+  filter: blur(2px);
+}
+
+@keyframes white-flash {
+  0%   { opacity: 0; }
+  15%  { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes glow-pulse {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  25%  { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* Each spark: unique direction, speed, distance, delay */
+.s1  { animation: spark-go 0.5s ease-out 0.92s both; --dx: -90px;  --dy: -70px;  --ds: 0.8; }
+.s2  { animation: spark-go 0.55s ease-out 0.93s both; --dx: 50px;  --dy: -100px; --ds: 0.6; }
+.s3  { animation: spark-go 0.48s ease-out 0.92s both; --dx: 110px; --dy: -40px;  --ds: 1; }
+.s4  { animation: spark-go 0.52s ease-out 0.94s both; --dx: -120px; --dy: 30px;  --ds: 0.7; }
+.s5  { animation: spark-go 0.5s ease-out 0.92s both; --dx: 100px; --dy: 80px;   --ds: 0.9; }
+.s6  { animation: spark-go 0.53s ease-out 0.93s both; --dx: -40px; --dy: 110px;  --ds: 0.5; }
+.s7  { animation: spark-go 0.47s ease-out 0.93s both; --dx: 80px;  --dy: -110px; --ds: 0.8; }
+.s8  { animation: spark-go 0.56s ease-out 0.92s both; --dx: -100px; --dy: -20px; --ds: 0.6; }
+.s9  { animation: spark-go 0.5s ease-out 0.94s both; --dx: 30px;  --dy: 90px;   --ds: 0.7; }
+.s10 { animation: spark-go 0.51s ease-out 0.92s both; --dx: -70px; --dy: 80px;   --ds: 1; }
+.s11 { animation: spark-go 0.49s ease-out 0.93s both; --dx: 120px; --dy: 20px;   --ds: 0.5; }
+.s12 { animation: spark-go 0.54s ease-out 0.93s both; --dx: -60px; --dy: -90px;  --ds: 0.9; }
+
+@keyframes spark-go {
+  0%   { transform: translate(0, 0) scale(var(--ds)); opacity: 1; }
+  30%  { opacity: 0.8; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
 }
 
 .hero-sublogo {
   display: block;
-  width: 460px;
+  width: 414px;
   max-width: 80%;
   height: auto;
   margin: 0 auto 24px;
   position: relative;
   z-index: 1;
-  animation: logo-from-back 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: sublogo-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.15s both;
+}
+@keyframes sublogo-in {
+  from { opacity: 0; transform: translateY(15px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 /* ---------- Hero Text ---------- */
 .hero-title {
-  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  font-size: clamp(0.99rem, 2.16vw, 1.44rem);
   font-weight: 300;
   color: #b8c0cf;
   line-height: 1.15;
   margin-bottom: 24px;
   letter-spacing: -0.03em;
   white-space: nowrap;
+  animation: hero-text-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.25s both;
 }
 .hero-title br {
   display: none;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: hero-text-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.4s both;
+}
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-description {
@@ -525,13 +747,6 @@ select {
   max-width: 560px;
   margin: 0 auto 36px;
   line-height: 1.7;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* Hero buttons in logo green */
@@ -552,11 +767,21 @@ select {
 }
 .hero-actions .btn-outline {
   color: #64a446;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(85, 138, 64, 0.25);
 }
 .hero-actions .btn-outline:hover {
   color: #7cc455;
   border-color: rgba(85, 138, 64, 0.45);
   transform: none;
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.3),
+    0 6px 24px rgba(0, 0, 0, 0.35),
+    0 2px 12px rgba(85, 138, 64, 0.35);
 }
 .hero-actions .btn:active {
   transform: none;
@@ -1722,16 +1947,19 @@ select {
     margin-bottom: 6px;
   }
   .hero-logo {
-    width: 240px;
+    width: 216px;
     height: auto;
   }
+  .hero-logo-assembly {
+    width: 216px;
+  }
   .hero-sublogo {
-    width: 198px;
+    width: 178px;
     margin-bottom: 16px;
   }
 
   .hero-title {
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    font-size: clamp(0.99rem, 3.6vw, 1.26rem);
     margin-bottom: 10px;
     white-space: nowrap;
   }
@@ -1771,10 +1999,6 @@ select {
 
   .card {
     min-height: 300px;
-  }
-
-  .subcard-grid {
-    grid-template-columns: 1fr;
   }
 
   .card-body {
@@ -1871,16 +2095,19 @@ select {
     margin-bottom: 6px;
   }
   .hero-logo {
-    width: 220px;
+    width: 198px;
     height: auto;
   }
+  .hero-logo-assembly {
+    width: 198px;
+  }
   .hero-sublogo {
-    width: 176px;
+    width: 158px;
     margin-bottom: 14px;
   }
 
   .hero-title {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     line-height: 1.3;
     white-space: nowrap;
   }
@@ -2047,11 +2274,14 @@ select {
     margin-bottom: 6px;
   }
   .hero-logo {
-    width: 200px;
+    width: 180px;
     height: auto;
   }
+  .hero-logo-assembly {
+    width: 180px;
+  }
   .hero-sublogo {
-    width: 165px;
+    width: 149px;
     margin-bottom: 12px;
   }
   .top-nav .nav-list {
@@ -2064,7 +2294,7 @@ select {
   }
 
   .hero-title {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
     line-height: 1.3;
     white-space: nowrap;
   }
@@ -2490,6 +2720,29 @@ select {
   .wa-bubble {
     font-size: 0.78rem;
     padding: 6px 12px;
+  }
+
+  .subcard-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: auto;
+    clip-path: inset(0);
+    gap: 16px;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+  .subcard-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .subcard-grid .subcard {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    min-width: 0;
+  }
+  html, body {
+    overscroll-behavior: none;
   }
 }
 

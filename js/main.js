@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const contactForm = document.getElementById('contactForm');
 
+    /* Screen shake on hero logo assembly */
+    var heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        setTimeout(function() { heroSection.classList.add('shake-active'); }, 100);
+    }
+
     // Account menu (shown when logged in)
     function getSessionUser() {
         try {
