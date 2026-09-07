@@ -291,10 +291,9 @@ select {
   cursor: pointer;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: normal;
   text-transform: none;
-  color: #fff;
 }
 .account-menu {
   position: absolute;
