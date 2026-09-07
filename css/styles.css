@@ -1934,7 +1934,7 @@ select {
     height: 100dvh;
     min-height: unset;
     padding-top: calc(72px + var(--sat, 0px));
-    padding-bottom: 160px;
+    padding-bottom: 0;
     justify-content: center;
     align-items: center;
   }
@@ -1953,6 +1953,7 @@ select {
     max-width: 320px;
     padding: 24px 28px;
     border-radius: 28px;
+    margin-top: -40px;
   }
   .hero-badge {
     width: auto;
