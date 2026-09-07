@@ -1742,7 +1742,9 @@ select {
     display: none;
   }
   .top-header.scrolled .top-header-logo {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex: 1;
   }
   .top-header-icons {
     display: none;
