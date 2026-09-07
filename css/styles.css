@@ -1734,8 +1734,7 @@ select {
     justify-content: center;
   }
   .top-header-logo {
-    flex: 0 0 auto;
-    margin-left: 0;
+    display: none;
   }
   .top-header-icons {
     display: none;
