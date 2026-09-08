@@ -1742,11 +1742,7 @@ select {
     display: none;
   }
   .top-header.scrolled .top-header-logo {
-    display: flex;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
+    display: none;
   }
   .top-header-icons {
     display: none;

@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     var scrollMax = heroRect.top;
                     var pct = Math.min(Math.max(window.scrollY / scrollMax, 0), 1);
 
-                    if (pct > 0 && pct < 1) {
+                    if (pct > 0) {
                         heroBadge.style.position = 'fixed';
                         heroBadge.style.top = (heroRect.top + window.scrollY) + 'px';
                         heroBadge.style.left = '50%';
@@ -629,19 +629,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         var ty = headerRect.top - heroRect.top;
                         var sc = headerRect.height / heroRect.height;
 
-                        heroBadge.style.transform = 'translate(calc(-50% + ' + tx + 'px), ' + ty + 'px) scale(' + sc + ')';
-                        heroBadge.style.opacity = pct > 0.8 ? (1 - (pct - 0.8) * 5) : '1';
-                    } else if (pct >= 1) {
-                        heroBadge.style.position = 'fixed';
-                        heroBadge.style.top = (heroRect.top + window.scrollY) + 'px';
-                        heroBadge.style.left = '50%';
-                        heroBadge.style.zIndex = '100';
-                        var tx2 = headerRect.left + headerRect.width / 2 - (heroRect.left + heroRect.width / 2);
-                        var ty2 = headerRect.top - heroRect.top;
-                        var sc2 = headerRect.height / heroRect.height;
-                        heroBadge.style.transform = 'translate(calc(-50% + ' + tx2 + 'px), ' + ty2 + 'px) scale(' + sc2 + ')';
-                        heroBadge.style.opacity = '0';
-                        headerEl.classList.add('scrolled');
+                        heroBadge.style.transform = 'translate(calc(-50% + ' + tx * pct + 'px), ' + ty * pct + 'px) scale(' + (1 + (sc - 1) * pct) + ')';
+                        heroBadge.style.opacity = '1';
+                        heroBadge.style.transition = 'none';
                     } else {
                         heroBadge.style.position = '';
                         heroBadge.style.top = '';
@@ -649,6 +639,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         heroBadge.style.zIndex = '';
                         heroBadge.style.transform = '';
                         heroBadge.style.opacity = '';
+                        headerEl.classList.remove('scrolled');
+                    }
+
+                    if (pct >= 1) {
+                        headerEl.classList.add('scrolled');
+                    } else {
                         headerEl.classList.remove('scrolled');
                     }
                     ticking = false;
